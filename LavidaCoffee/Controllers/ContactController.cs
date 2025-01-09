@@ -13,7 +13,7 @@ namespace LavidaCoffee.Controllers
             _mailService = mailService;
         }
 
-        public IActionResult SendMail()
+        public IActionResult Index()
         {
             return View();
         }

@@ -116,6 +116,14 @@ header .navbar {
     border-radius: 10px !important;
 }
 
+.contact-field {
+    width: 50% !important;
+    margin-bottom: 2vh;
+}
+
+.form-width {
+    width: 50% !important;
+}
 
 @media only screen and (max-width:768px) {
     .logo {
@@ -150,6 +158,10 @@ header .navbar {
         height: auto !important;
         max-height: 15vh;
         border-radius: 10px !important;
+    }
+
+    .form-width {
+        width: 85% !important;
     }
 }
 

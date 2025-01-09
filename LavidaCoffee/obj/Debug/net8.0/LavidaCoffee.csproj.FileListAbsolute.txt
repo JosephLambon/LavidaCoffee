@@ -34,3 +34,4 @@ C:\Users\lambonj\source\repos\LavidaCoffee\LavidaCoffee\bin\Debug\net8.0\MimeKit
 C:\Users\lambonj\source\repos\LavidaCoffee\LavidaCoffee\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\lambonj\source\repos\LavidaCoffee\LavidaCoffee\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\lambonj\source\repos\LavidaCoffee\LavidaCoffee\obj\Debug\net8.0\LavidaCo.8DB79A15.Up2Date
+C:\Users\lambonj\source\repos\LavidaCoffee\LavidaCoffee\obj\Debug\net8.0\LavidaCoffee.sourcelink.json

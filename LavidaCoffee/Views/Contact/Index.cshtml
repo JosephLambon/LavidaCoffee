@@ -1,0 +1,51 @@
+﻿@model LavidaCoffee.Models.MailRequest
+
+<div class="flex-grow-1 skin-bg pt-5 p-md-4 text-center form-control mx-auto mt-5 mb-5">
+	<h2 class="mb-4">Contact us</h2>
+	<form method="post" asp-action="Contact" class="form-width mx-auto align-items-center" enctype="multipart/form-data">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>		
+		<div class="form-group row justify-content-center mb-2">
+			<div class="col-form-label col-2 col-md-4">
+				<label asp-for="ToEmail" >Send to:</label>
+			</div>
+			<div class="col-10 col-md-8 ps-5 pe-3">
+				<input asp-for="ToEmail" class="form-control" placeholder="info@lavida.uk" readonly />
+			</div>
+			<span asp-validation-for="ToEmail" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row justify-content-center mb-2">
+			<div class="col-form-label col-2 col-md-4">
+				<label asp-for="CustomerEmail">Email:</label>
+			</div>
+			<div class="col-10 col-md-8 ps-5 pe-3">
+				<input asp-for="CustomerEmail" class="form-control" placeholder="example@email.com" />
+			</div>
+			<span asp-validation-for="CustomerEmail" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row justify-content-center mb-2">
+			<div class="col-form-label col-2 col-md-4">
+				<label asp-for="Subject" >Subject:</label>
+			</div>
+			<div class="col-10 col-md-8 ps-5 pe-3">
+				<input asp-for="Subject" class="form-control" />
+			</div>
+			<span asp-validation-for="Subject" class="text-danger"></span>
+		</div>
+
+		<div class="form-group row justify-content-center mb-2">
+			<div class="col-form-label col-2 col-md-4">
+				<label asp-for="Body">Body:</label>
+			</div>
+			<div class="col-10 col-md-8 ps-5 pe-3">
+				<textarea asp-for="Body" class="form-control" style="height: 20vh;"> </textarea>
+			</div>
+			<span asp-validation-for="Body" class="text-danger"></span>
+		</div>
+
+		<div class="form-group">
+			<input type="submit" value="Create" class="btn maroon-bg m-1" />
+		</div>
+	</form>
+</div>
