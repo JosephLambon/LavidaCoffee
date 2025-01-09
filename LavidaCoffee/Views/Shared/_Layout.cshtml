@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="https://kit.fontawesome.com/2b102d8f12.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+    <link href="~/css/site.css" rel="stylesheet"/>
+    <title>Lavida Coffee</title>
+</head>
+<body>
+    <div class="d-flex flex-column">
+        <!-- BEGIN: Header content -->
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid pt-2 pb-2">
+                    <a class="navbar-brand ms-md-5 me-md-5 ms-4" asp-controller="Home" asp-action="Index">
+                        <img src="Images/logo.png" class="logo" alt="Lavida Coffee Logo">
+                        </a>
+                        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav  text-end mb-3">
+                            <li class="nav-item ms-3 me-3">
+                                <a class="nav-link active" aria-current="page" asp-controller="about" asp-action="Index">About us</a>
+                            </li>
+                            <li class="nav-item ms-3 me-3">
+                                <a class="nav-link" href="#">Find us</a>
+                            </li>
+                            <li class="nav-item ms-3 me-3">
+                                <a class="nav-link" asp-controller="contact" asp-action="SendMail">Contact us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- END: Header content -->
+        <!-- BEGIN: Main content -->
+        <main class="flex-grow-1 skin-bg">
+            @RenderBody()
+        </main>
+        <!-- END: Main content -->
+    </div>
+    
+    
+    
+    
+    <!-- BEGIN: Footer content -->
+    <footer class="screen-height maroon-bg position-relative">
+        <div class="row p-5">
+            <div class="col-lg-4 mb-5">
+                <h3 class="mb-3">Lavida Coffee</h3>
+                <p class="row m-1">Cheltenham Spa station,</p>
+                <p class="row m-1">Queens Road,</p>
+                <p class="row m-1">Cheltenham,</p>
+                <p class="row m-1">Gloucestershire,</p>
+                <p class="row m-1 mb-3">GL51 8NP</p>
+                <p class="row m-1">/// forms.flying.cowboy</p>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <h3 class="mb-3">Get in touch</h3>
+                <p class="row m-1 mb-0">Phone</p>
+                <p class="row m-1 mt-0 mb-3">+44 7768 657259</p>
+                <div class="row m-1" style="text-decoration: underline;">
+                    <email address="info@@lavidacoffee.uk" content="Email us" class="p-0"></email>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <h3 class="mb-3"> Quick links </h3>
+                <p class="row m-1">FAQs</p>
+                <p class="row m-1">Events</p>
+            </div>
+            <div class="col-12 mt-2 text-center">
+                <a href="https://www.instagram.com/lavida__coffee?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                    <i class="fa-brands fa-instagram fa-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer content -->
+</body>
+</html>

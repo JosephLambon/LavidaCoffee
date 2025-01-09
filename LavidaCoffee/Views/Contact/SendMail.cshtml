@@ -1,0 +1,17 @@
+﻿@model LavidaCoffee.Models.MailRequest
+
+@{
+	ViewData["Title"] = "SendMail";
+}
+
+<div>
+	<h2>Contact us</h2>
+	<form asp-action="Contact" enctype="multipart/form-data">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<div class="form-group">
+			<label asp-for="ToEmail" class="control-label"></label>
+			<input asp-for="ToEmail" class="form-control" />
+			<span asp-validation-for="ToEmail" class="text-danger"></span>
+		</div>
+	</form>
+</div>
