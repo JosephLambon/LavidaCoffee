@@ -260,27 +260,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lambonj\\.nuget\\packages\\": {}
+    "/Users/joelambon/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\LavidaCoffee.csproj",
+      "projectUniqueName": "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/LavidaCoffee.csproj",
       "projectName": "LavidaCoffee",
-      "projectPath": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\LavidaCoffee.csproj",
-      "packagesPath": "C:\\Users\\lambonj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\obj\\",
+      "projectPath": "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/LavidaCoffee.csproj",
+      "packagesPath": "/Users/joelambon/.nuget/packages/",
+      "outputPath": "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lambonj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/joelambon/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -332,7 +329,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.402/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

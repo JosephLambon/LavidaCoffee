@@ -125,6 +125,10 @@ header .navbar {
     width: 50% !important;
 }
 
+.form-floating > label::after {
+    background-color: transparent !important;
+}
+
 @media only screen and (max-width:768px) {
     .logo {
         border-radius: 7.5%;

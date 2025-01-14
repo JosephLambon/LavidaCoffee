@@ -12,7 +12,7 @@ using LavidaCoffee.TagHelpers;
 
 namespace LavidaCoffeeTests.TagHelpers
 {
-    internal class EmailTagHelperTests
+    public class EmailTagHelperTests
     {
         [Fact]
         public void Generates_Email_Link()
