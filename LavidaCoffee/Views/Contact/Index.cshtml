@@ -1,11 +1,9 @@
-﻿@model LavidaCoffee.Models.MailRequest
-
-
+﻿@model EmailRequest
 
 <div class="flex-grow-1 skin-bg pt-5 p-md-4 text-center form-control mx-auto mt-5 mb-5">
 	<h2 class="mb-4">Contact us</h2>
 	<p>We would love to hear from you!</p>
-	<p class="form-width mx-auto">Send us an email on <email address="info@@lavidacoffee.uk" content="info@@lavidacoffee.uk" class="p-0"></email>, text or phone us at +44 7552 215800, or get in touch directly via the contact form below.</p>
+	<p class="form-width mx-auto">Send us an email on <email address="admin@@joe-lambon.dev" content="info@@lavidacoffee.uk" class="p-0"></email>, text or phone us at +44 7552 215800, or get in touch directly via the contact form below.</p>
 
 	<form method="post" asp-action="SendMail" class="form-width mx-auto align-items-center" enctype="multipart/form-data">
 		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -14,6 +12,7 @@
 			<div class="form-floating form-width">
 			  <input asp-for="ToEmail" class="form-control skin-bg maroon-border" id="ToEmailInputValue" value="info@@lavidacoffee.uk" readonly>
 			  <label class="ps-4" for="ToEmailInputValue">Send to</label>
+    using LavidaCoffee.Models;
 			  <span asp-validation-for="ToEmail" class="text-danger"></span>
 			</div>
 		</div>
