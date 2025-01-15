@@ -5,32 +5,22 @@ namespace LavidaCoffee.Controllers
 {
     public class ContactController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IMailService _mailService;
-        public ContactController(ILogger<HomeController> logger, IMailService mailService)
-        {
-            _logger = logger;
-            _mailService = mailService;
-        }
-
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpPost("SendMail")]
-        public async Task<IActionResult> SendMail(MailRequest request)
+        [HttpPost]
+        public IActionResult SendRequest(EmailRequest emailRequest)
         {
-            try
-            {
-                await _mailService.SendEmailAsync(request);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
 
-                throw ex;
-            }
+            return RedirectToAction("RequestSent");
+        }
+
+        public IActionResult RequestSent()
+        {
+            ViewBag.RequestSentMessage = "Message ID:  \n \n Message sent successfully. \n \n If we haven't got back to you in 3 working days, please call us on +44 7552 215800.";
+            return View();
         }
     }
 }

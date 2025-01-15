@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LavidaCoffeeTests
-build_property.ProjectDir = /Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffeeTests/
+build_property.ProjectDir = C:\Users\lambonj\source\repos\LavidaCoffee\LavidaCoffeeTests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

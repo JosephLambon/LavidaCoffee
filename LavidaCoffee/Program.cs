@@ -1,11 +1,18 @@
 using LavidaCoffee.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
-builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
-builder.Services.AddScoped<IMailService, MailService>();
+builder.Services.AddScoped<IEmailRequestRepository, EmailRequestRepository>();
+
+builder.Services.AddDbContext<LavidaCoffeeDbContext>(options =>
+{
+    options.UseSqlServer(
+            builder.Configuration["ConnectionStrings:LavidaCoffeeDbContextConnection"]);
+});
 
 var app = builder.Build();
 
@@ -18,5 +25,7 @@ app.UseStaticFiles();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}");
+
+DbInitialiser.Seed(app);
 
 app.Run();

@@ -4,7 +4,6 @@ namespace LavidaCoffee.Models;
 
 public interface IEmailRequestRepository
 {
-    public Task SendEmailRequest {
-        // Details from contact form
-    }
+    IEnumerable<EmailRequest> AllEmailRequests {  get; }
+    EmailRequest? GetEmailRequestById(int emailRequestId);
 }
