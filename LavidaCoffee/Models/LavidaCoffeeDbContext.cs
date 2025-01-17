@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace LavidaCoffee.Models
 {
-    public class LavidaCoffeeDbContext : DbContext
+    public class LavidaCoffeeDbContext : IdentityDbContext
     {
         public LavidaCoffeeDbContext(DbContextOptions<LavidaCoffeeDbContext> options) : base(options)
         {
