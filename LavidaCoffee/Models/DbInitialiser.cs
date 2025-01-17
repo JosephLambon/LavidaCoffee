@@ -8,11 +8,11 @@ namespace LavidaCoffee.Models
         {
             LavidaCoffeeDbContext context = applicationBuilder.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<LavidaCoffeeDbContext>();
 
-            if (!context.EmailRequests.Any())
+            if (!context.Emails.Any())
             {
                 context.AddRange
                 (
-                    new EmailRequest { Subject="This is my subject", Body = "This is my body", CustomerEmail="joe.lambon25@gmail.com" }
+                    new Email { Subject="This is my subject", Body = "This is my body", CustomerEmail="joe.lambon25@gmail.com" }
                 );
             }
 

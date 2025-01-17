@@ -4,6 +4,7 @@ namespace LavidaCoffee.Models;
 
 public interface IEmailRequestRepository
 {
-    IEnumerable<EmailRequest> AllEmailRequests {  get; }
+    List<EmailRequest> AllEmailRequests();
     EmailRequest? GetEmailRequestById(int emailRequestId);
+    void CreateEmailRequest(EmailRequest emailRequest);
 }

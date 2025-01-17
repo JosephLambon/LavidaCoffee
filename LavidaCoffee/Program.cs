@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
 app.UseStaticFiles();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 DbInitialiser.Seed(app);
 

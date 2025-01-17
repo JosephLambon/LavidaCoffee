@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LavidaCoffee.Migrations
 {
     [DbContext(typeof(LavidaCoffeeDbContext))]
-    [Migration("20250115171554_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20250117091937_UpdateEmailId")]
+    partial class UpdateEmailId
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,13 +24,13 @@ namespace LavidaCoffee.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("LavidaCoffee.Models.EmailRequest", b =>
+            modelBuilder.Entity("LavidaCoffee.Models.Email", b =>
                 {
-                    b.Property<int>("EmailRequestId")
+                    b.Property<int>("EmailId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmailRequestId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmailId"));
 
                     b.Property<string>("Body")
                         .IsRequired()
@@ -44,9 +44,38 @@ namespace LavidaCoffee.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.HasKey("EmailId");
+
+                    b.ToTable("Emails");
+                });
+
+            modelBuilder.Entity("LavidaCoffee.Models.EmailRequest", b =>
+                {
+                    b.Property<int>("EmailRequestId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmailRequestId"));
+
+                    b.Property<int>("EmailId")
+                        .HasColumnType("int");
+
                     b.HasKey("EmailRequestId");
 
+                    b.HasIndex("EmailId");
+
                     b.ToTable("EmailRequests");
+                });
+
+            modelBuilder.Entity("LavidaCoffee.Models.EmailRequest", b =>
+                {
+                    b.HasOne("LavidaCoffee.Models.Email", "Email")
+                        .WithMany()
+                        .HasForeignKey("EmailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Email");
                 });
 #pragma warning restore 612, 618
         }

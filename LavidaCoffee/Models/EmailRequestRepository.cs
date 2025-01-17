@@ -6,22 +6,31 @@ namespace LavidaCoffee.Models
     {
         private readonly LavidaCoffeeDbContext _lavidaCoffeeDbContext;
 
+        public List<EmailRequest> EmailRequests { get; set; } = default!;
+
         public EmailRequestRepository(LavidaCoffeeDbContext lavidaCoffeeDbContext)
         {
             _lavidaCoffeeDbContext = lavidaCoffeeDbContext;
         }
 
-        public IEnumerable<EmailRequest> AllEmailRequests
+        public List<EmailRequest> AllEmailRequests()
         {
-            get
-            {
-                return _lavidaCoffeeDbContext.EmailRequests.Include(c =>  c.Subject);
-            }
+            return _lavidaCoffeeDbContext.EmailRequests.Include(e => e.Email).ToList();
         }
-
+            
         public EmailRequest? GetEmailRequestById(int emailRequestId)
         {
-            return _lavidaCoffeeDbContext.EmailRequests.FirstOrDefault(e => e.EmailRequestId == emailRequestId);
+			var emailRequest = _lavidaCoffeeDbContext.EmailRequests
+		.Include(e => e.Email)
+		.FirstOrDefault(e => e.EmailRequestId == emailRequestId);
+
+			return emailRequest;
+        }
+
+        public void CreateEmailRequest(EmailRequest emailRequest)
+        {
+            _lavidaCoffeeDbContext.EmailRequests.Add(emailRequest);
+            _lavidaCoffeeDbContext.SaveChanges();
         }
 
     }
