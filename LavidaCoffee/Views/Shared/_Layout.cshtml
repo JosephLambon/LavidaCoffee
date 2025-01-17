@@ -19,7 +19,7 @@
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid pt-2 pb-2">
                     <a class="navbar-brand ms-md-5 me-md-5 ms-4" asp-controller="Home" asp-action="Index">
-                        <img src="Images/logo.png" class="logo" alt="Lavida Coffee Logo">
+                        <img src="~/Images/logo.png" class="logo" alt="Lavida Coffee Logo">
                         </a>
                         <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -35,6 +35,7 @@
                             <li class="nav-item ms-3 me-3">
                                 <a class="nav-link" asp-controller="contact" asp-action="Index">Contact us</a>
                             </li>
+                            @await Html.PartialAsync("_LoginPartial")
                         </ul>
                     </div>
                 </div>
@@ -44,6 +45,7 @@
         <!-- BEGIN: Main content -->
         <main class="flex-grow-1 skin-bg">
             @RenderBody()
+            @RenderSection("Scripts", required: false)
         </main>
         <!-- END: Main content -->
     </div>   
