@@ -25,7 +25,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav  text-end mb-3">
+                        <ul class="navbar-nav text-end mb-3">
                             <li class="nav-item ms-3 me-3">
                                 <a class="nav-link active" aria-current="page" asp-controller="about" asp-action="Index">About us</a>
                             </li>
@@ -35,8 +35,8 @@
                             <li class="nav-item ms-3 me-3">
                                 <a class="nav-link" asp-controller="contact" asp-action="Index">Contact us</a>
                             </li>
-                            @await Html.PartialAsync("_LoginPartial")
                         </ul>
+                        @await Html.PartialAsync("_LoginPartial")
                     </div>
                 </div>
             </nav>

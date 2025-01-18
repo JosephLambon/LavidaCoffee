@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model List<EmailRequest>
+
+@if(User.IsInRole("Admin"))
+{
+	<h1>Hello, admin!</h1>
+	<div class="flex-grow-1" id="adminBackground">
+		<h3>EmailRequest data</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">EmailRequestId #</th>
+					<th scope="col">CustomerEmail</th>
+					<th scope="col">Subject</th>
+					<th scope="col">Body</th>
+				</tr>
+
+				<tbody>
+				@foreach(var email in Model)
+				{
+					<tr>
+						<th scope="row">@email.EmailRequestId</th>
+						<td>@email.Email.CustomerEmail</td>
+						<td>@email.Email.Subject</td>
+						<td>@email.Email.Body</td>
+					</tr>
+				}
+				</tbody>
+
+			</thead>
+		</table>
+	</div>
+}
+else
+{
+	<div class="alert alert-danger">
+		<strong>Error:</strong> You are not authorised to access this page.
+	</div>
+}
