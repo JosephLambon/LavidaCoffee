@@ -13,11 +13,12 @@ namespace LavidaCoffee.Controllers
 			_emailRequestRepository = emailRequestRepository;
 		}
 
+		
+
 		[Authorize(Roles = "Admin")]
 		public IActionResult Index()
 		{
-			List<EmailRequest> emailRequests =  _emailRequestRepository.AllEmailRequests();
-
+			List<EmailRequest> emailRequests = _emailRequestRepository.AllEmailRequests();
 			return View(emailRequests);
 		}
 

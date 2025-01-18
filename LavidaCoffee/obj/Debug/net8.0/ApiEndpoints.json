@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "ContainingType": "LavidaCoffee.Controllers.Api.AdminController",
+    "Method": "Get",
+    "RelativePath": "api/Admin/{page}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

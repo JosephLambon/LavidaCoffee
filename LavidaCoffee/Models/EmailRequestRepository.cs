@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.IO.Pipelines;
+using Microsoft.EntityFrameworkCore;
 
 namespace LavidaCoffee.Models
 {
@@ -31,7 +32,12 @@ namespace LavidaCoffee.Models
         {
             _lavidaCoffeeDbContext.EmailRequests.Add(emailRequest);
             _lavidaCoffeeDbContext.SaveChanges();
-        }
+		}
 
-    }
+		public IEnumerable<EmailRequest> requestsForCurrentPage(int page)
+		{
+            return _lavidaCoffeeDbContext.EmailRequests.Where(e => ((e.EmailRequestId < page * 10) && (e.EmailRequestId > (page - 1) * 10));
+		}
+
+	}
 }
