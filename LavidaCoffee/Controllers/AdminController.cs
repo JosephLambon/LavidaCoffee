@@ -19,6 +19,7 @@ namespace LavidaCoffee.Controllers
 		public IActionResult Index()
 		{
 			List<EmailRequest> emailRequests = _emailRequestRepository.AllEmailRequests();
+			emailRequests = emailRequests;
 			return View(emailRequests);
 		}
 

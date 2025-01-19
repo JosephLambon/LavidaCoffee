@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "LavidaCoffee.Controllers.Api.AdminController",
+    "Method": "requestsForCurrentPage",
+    "RelativePath": "api/Admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LavidaCoffee.Controllers.Api.AdminController",
     "Method": "Get",
     "RelativePath": "api/Admin/{page}",
     "HttpMethod": "GET",

@@ -36,7 +36,13 @@ namespace LavidaCoffee.Models
 
 		public IEnumerable<EmailRequest> requestsForCurrentPage(int page)
 		{
-            return _lavidaCoffeeDbContext.EmailRequests.Where(e => ((e.EmailRequestId < page * 10) && (e.EmailRequestId > (page - 1) * 10));
+
+
+            return _lavidaCoffeeDbContext.EmailRequests.
+                Include(e => e.Email)
+                .Skip((page-1)*10)
+                .Take(10)
+                .ToList();
 		}
 
 	}

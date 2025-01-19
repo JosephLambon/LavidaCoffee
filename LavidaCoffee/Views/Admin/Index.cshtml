@@ -5,12 +5,16 @@
 
 @model List<EmailRequest>
 
+@{
+	decimal pages = (decimal)Model.Count / 10;
+}
+
 @if(User.IsInRole("Admin"))
 {
 	<h1>Hello, admin!</h1>
 	<div class="flex-grow-1" id="adminBackground">
 		<h3>EmailRequest data</h3>
-		<table class="table">
+		<table class="table" id="tblEmailRequests">
 			<thead>
 				<tr>
 					<th scope="col">EmailRequestId #</th>
@@ -18,21 +22,33 @@
 					<th scope="col">Subject</th>
 					<th scope="col">Body</th>
 				</tr>
-
-				<tbody>
-				@foreach(var email in Model)
-				{
-					<tr>
-						<th scope="row">@email.EmailRequestId</th>
-						<td>@email.Email.CustomerEmail</td>
-						<td>@email.Email.Subject</td>
-						<td>@email.Email.Body</td>
-					</tr>
-				}
-				</tbody>
-
 			</thead>
+			<tbody>
+			@foreach(var email in Model)
+			{
+					if(email.EmailRequestId <= 10)
+					{
+						<tr>
+							<th scope="row">@email.EmailRequestId</th>
+							<td>@email.Email.CustomerEmail</td>
+							<td>@email.Email.Subject</td>
+							<td>@email.Email.Body</td>
+						</tr>
+					}
+			}
+			</tbody>			
 		</table>
+		@if(pages > 1)
+		{
+			<nav aria-label="Page navigation example">
+				<ul class="pagination">
+					@for(var i = 1; i < pages+1; i++)
+					{
+						<li class="page-item" id="page_@i"><a class="page-link" data-page="@i">@i</a></li>
+					}
+				</ul>
+			</nav>
+		}
 	</div>
 }
 else
@@ -41,3 +57,38 @@ else
 		<strong>Error:</strong> You are not authorised to access this page.
 	</div>
 }
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	  $(".page-link").click(function(){
+		  var page = $(this).data("page");
+		  page = parseInt($.trim(page));
+			$("table tbody").html("");
+			$.ajax({
+				type: "POST",
+				url: "/api/Admin",
+				data: "\"" + page + "\"",
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				success: function (emailRequests) {
+					var table = $("#tblEmailRequests");
+					var tbody = table.find("tbody")
+					tbody.find("tr:not(:first)").remove();
+					$.each(emailRequests, function (i, emailRequest) {
+						console.log("Processing emailRequest:", emailRequest);
+						var appendElement = $("<tr>");
+						appendElement.append($("<th scope='row'>").html(emailRequest.emailRequestId));
+						appendElement.append($("<td>").html(emailRequest.email.customerEmail));
+						appendElement.append($("<td>").html(emailRequest.email.subject));
+						appendElement.append($("<td>").html(emailRequest.email.body));
+						tbody.append(appendElement);
+					});
+				},
+				error: function (xhr, status, error) {
+						console.log(xhr)
+				}
+			});
+		  });
+		});
+
+</script>

@@ -1,6 +1,7 @@
 ﻿using System.IO.Pipelines;
 using LavidaCoffee.Models;
 using Microsoft.AspNetCore.Mvc;
+using Org.BouncyCastle.Ocsp;
 
 namespace LavidaCoffee.Controllers.Api
 {
@@ -35,12 +36,18 @@ namespace LavidaCoffee.Controllers.Api
 		{
 			IEnumerable<EmailRequest> requests = new List<EmailRequest>();
 
-			if (!string.IsNullOrEmpty(page))
+			if(int.IsPositive(page))
 			{
 				requests = _emailRequestRepository.requestsForCurrentPage(page);
 			}
+
+			foreach(var req in requests)
+			{
+				Console.WriteLine("Request #" + req.EmailRequestId);
+				Console.WriteLine("email: " + req.Email);
+			};
+
 			return new JsonResult(requests);
 		}
 	}
-
 }
