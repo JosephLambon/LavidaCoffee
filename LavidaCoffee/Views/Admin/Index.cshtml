@@ -13,7 +13,7 @@
 {
 	<h1>Hello, admin!</h1>
 	<div class="flex-grow-1" id="adminBackground">
-		<h3>EmailRequest data</h3>
+		<h3>Email requests</h3>
 		<table class="table" id="tblEmailRequests">
 			<thead>
 				<tr>
@@ -33,6 +33,8 @@
 							<td>@email.Email.CustomerEmail</td>
 							<td>@email.Email.Subject</td>
 							<td>@email.Email.Body</td>
+							<td><i style="font-size:1.2rem; color: #403f3f" class="fa" id="edit_request@email.EmailRequestId">&#xf040;</i></td>
+							<td><i style="font-size:1.2rem; color: #941e1e;" class="fa" id="delete_request@email.EmailRequestId">&#xf014;</i></td>
 						</tr>
 					}
 			}
@@ -40,14 +42,16 @@
 		</table>
 		@if(pages > 1)
 		{
-			<nav aria-label="Page navigation example">
-				<ul class="pagination">
-					@for(var i = 1; i < pages+1; i++)
-					{
-						<li class="page-item" id="page_@i"><a class="page-link" data-page="@i">@i</a></li>
-					}
-				</ul>
-			</nav>
+			<div class="d-flex">
+				<nav class="ms-auto" aria-label="Page navigation example">
+					<ul class="pagination">
+						@for(var i = 1; i < pages+1; i++)
+						{
+							<li class="page-item" id="page_@i" style="cursor:pointer;"><a class="page-link" data-page="@i">@i</a></li>
+						}
+					</ul>
+				</nav>
+			</div>
 		}
 	</div>
 }
@@ -81,6 +85,8 @@ else
 						appendElement.append($("<td>").html(emailRequest.email.customerEmail));
 						appendElement.append($("<td>").html(emailRequest.email.subject));
 						appendElement.append($("<td>").html(emailRequest.email.body));
+						appendElement.append($("<td>").html("<i style='font-size: 1.2rem; color: #403f3f' class='fa' id='edit_request_" + emailRequest.emailRequestId + "'>&#xf040;</i>"));
+						appendElement.append($("<td>").html("<i style='font - size: 1.2rem; color: #941e1e' class='fa' id='delete_request_" + emailRequest.emailRequestId + "'>&#xf014;</i>"));
 						tbody.append(appendElement);
 					});
 				},
