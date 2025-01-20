@@ -11,48 +11,58 @@
 
 @if(User.IsInRole("Admin"))
 {
-	<h1>Hello, admin!</h1>
 	<div class="flex-grow-1" id="adminBackground">
-		<h3>Email requests</h3>
-		<table class="table" id="tblEmailRequests">
-			<thead>
-				<tr>
-					<th scope="col">EmailRequestId #</th>
-					<th scope="col">CustomerEmail</th>
-					<th scope="col">Subject</th>
-					<th scope="col">Body</th>
-				</tr>
-			</thead>
-			<tbody>
-			@foreach(var email in Model)
-			{
-					if(email.EmailRequestId <= 10)
-					{
-						<tr>
-							<th scope="row">@email.EmailRequestId</th>
-							<td>@email.Email.CustomerEmail</td>
-							<td>@email.Email.Subject</td>
-							<td>@email.Email.Body</td>
-							<td><i style="font-size:1.2rem; color: #403f3f" class="fa" id="edit_request@email.EmailRequestId">&#xf040;</i></td>
-							<td><i style="font-size:1.2rem; color: #941e1e;" class="fa" id="delete_request@email.EmailRequestId">&#xf014;</i></td>
-						</tr>
-					}
-			}
-			</tbody>			
-		</table>
-		@if(pages > 1)
-		{
-			<div class="d-flex">
-				<nav class="ms-auto" aria-label="Page navigation example">
-					<ul class="pagination">
-						@for(var i = 1; i < pages+1; i++)
+		<div id="emailRequestsContainer">
+			<h3>Email requests</h3>
+			<table class="table" id="tblEmailRequests">
+				<thead>
+					<tr>
+						<th scope="col">EmailRequestId #</th>
+						<th scope="col">CustomerEmail</th>
+						<th scope="col">Subject</th>
+						<th scope="col">Body</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+				@foreach(var email in Model)
+				{
+						if(email.EmailRequestId <= 10)
 						{
-							<li class="page-item" id="page_@i" style="cursor:pointer;"><a class="page-link" data-page="@i">@i</a></li>
+							<tr>
+								<th scope="row">@email.EmailRequestId</th>
+								<td>@email.Email.CustomerEmail</td>
+								<td>@email.Email.Subject</td>
+								<td>@email.Email.Body</td>
+								<td><i style="font-size:1.2rem; color: #403f3f" class="fa" id="edit_request@email.EmailRequestId">&#xf040;</i></td>
+								<td><i style="font-size:1.2rem; color: #941e1e;" class="fa" id="delete_request@email.EmailRequestId">&#xf014;</i></td>
+							</tr>
 						}
-					</ul>
-				</nav>
-			</div>
-		}
+				}
+				</tbody>			
+			</table>
+			@if(pages > 1)
+			{
+				<div class="d-flex">
+					<nav class="ms-auto" aria-label="Page navigation example">
+						<ul class="pagination">
+							@for(var i = 1; i < pages+1; i++)
+							{
+								if (i == 1)
+								{
+									<li class="page-item active" id="page_@i" style="cursor:pointer;"><a class="page-link" data-page="@i">@i</a></li>
+								}
+								else
+								{
+									<li class="page-item" id="page_@i" style="cursor:pointer;"><a class="page-link" data-page="@i">@i</a></li>
+								}
+							}
+						</ul>
+					</nav>
+				</div>
+			}
+		</div>
 	</div>
 }
 else
@@ -67,6 +77,9 @@ else
 	  $(".page-link").click(function(){
 		  var page = $(this).data("page");
 		  page = parseInt($.trim(page));
+		$(".page-item").removeClass("active");
+		$(this).parent().addClass("active");
+
 			$("table tbody").html("");
 			$.ajax({
 				type: "POST",

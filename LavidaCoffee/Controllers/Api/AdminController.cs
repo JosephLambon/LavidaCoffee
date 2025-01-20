@@ -1,5 +1,6 @@
 ﻿using System.IO.Pipelines;
 using LavidaCoffee.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Ocsp;
 
@@ -15,7 +16,7 @@ namespace LavidaCoffee.Controllers.Api
 		{
 			_emailRequestRepository = emailRequestRepository;
 		}
-
+		[Authorize(Roles = "Admin")]
 		[HttpGet("{page}")]
 		public IActionResult Get(int page = 1)
 		{
@@ -30,7 +31,7 @@ namespace LavidaCoffee.Controllers.Api
 
 			return Ok(requestsPerPage);
 		}
-
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
 		public IActionResult requestsForCurrentPage([FromBody] int page)
 		{
