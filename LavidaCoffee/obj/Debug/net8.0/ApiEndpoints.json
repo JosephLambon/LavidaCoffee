@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "LavidaCoffee.Controllers.Api.AdminController",
+    "ContainingType": "LavidaCoffee.Controllers.Api.EmailRequestController",
     "Method": "requestsForCurrentPage",
-    "RelativePath": "api/Admin",
+    "RelativePath": "api/EmailRequest",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -16,9 +16,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LavidaCoffee.Controllers.Api.AdminController",
+    "ContainingType": "LavidaCoffee.Controllers.Api.EmailRequestController",
     "Method": "Get",
-    "RelativePath": "api/Admin/{page}",
+    "RelativePath": "api/EmailRequest/{page}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

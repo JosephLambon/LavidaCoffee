@@ -83,7 +83,7 @@ else
 			$("table tbody").html("");
 			$.ajax({
 				type: "POST",
-				url: "/api/Admin",
+				url: "/api/EmailRequest",
 				data: "\"" + page + "\"",
 				contentType: "application/json; charset=utf-8",
 				dataType: "json",
@@ -92,7 +92,6 @@ else
 					var tbody = table.find("tbody")
 					tbody.find("tr:not(:first)").remove();
 					$.each(emailRequests, function (i, emailRequest) {
-						console.log("Processing emailRequest:", emailRequest);
 						var appendElement = $("<tr>");
 						appendElement.append($("<th scope='row'>").html(emailRequest.emailRequestId));
 						appendElement.append($("<td>").html(emailRequest.email.customerEmail));

@@ -3,16 +3,17 @@ using LavidaCoffee.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Ocsp;
+using SQLitePCL;
 
 namespace LavidaCoffee.Controllers.Api
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class AdminController : ControllerBase
+	public class EmailRequestController : ControllerBase
 	{
 		private readonly IEmailRequestRepository _emailRequestRepository;
 
-		public AdminController(IEmailRequestRepository emailRequestRepository)
+		public EmailRequestController(IEmailRequestRepository emailRequestRepository)
 		{
 			_emailRequestRepository = emailRequestRepository;
 		}
@@ -31,6 +32,7 @@ namespace LavidaCoffee.Controllers.Api
 
 			return Ok(requestsPerPage);
 		}
+
 		[Authorize(Roles = "Admin")]
 		[HttpPost]
 		public IActionResult requestsForCurrentPage([FromBody] int page)
@@ -41,12 +43,6 @@ namespace LavidaCoffee.Controllers.Api
 			{
 				requests = _emailRequestRepository.requestsForCurrentPage(page);
 			}
-
-			foreach(var req in requests)
-			{
-				Console.WriteLine("Request #" + req.EmailRequestId);
-				Console.WriteLine("email: " + req.Email);
-			};
 
 			return new JsonResult(requests);
 		}
