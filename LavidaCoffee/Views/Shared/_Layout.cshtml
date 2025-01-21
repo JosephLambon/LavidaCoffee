@@ -4,10 +4,11 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8">
-    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
     <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/jquery-validate/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://kit.fontawesome.com/2b102d8f12.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,11 +32,17 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav text-end mb-3">
                             <li class="nav-item ms-3 me-3">
-                                <a class="nav-link active" aria-current="page" asp-controller="about" asp-action="Index">About us</a>
+                                <a class="nav-link" aria-current="page" asp-controller="about" asp-action="Index">About us</a>
                             </li>
-                            <li class="nav-item ms-3 me-3">
-                                <a class="nav-link" href="#">Find us</a>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Find us</a>
+                                <ul class="dropdown-menu maroon-bg">
+                                    <li><a class="dropdown-item nav-link maroon-bg" href="#">Lavida HQ</a></li>
+                                    <li><a class="dropdown-item nav-link maroon-bg" href="#">Upcoming events</a></li>
+                                </ul>
                             </li>
+                            
                             <li class="nav-item ms-3 me-3">
                                 <a class="nav-link" asp-controller="contact" asp-action="Index">Contact us</a>
                             </li>
