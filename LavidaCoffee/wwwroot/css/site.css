@@ -139,6 +139,16 @@ header .navbar {
     background-color: transparent !important;
 }
 
+#tblEmailRequests {
+    table-layout: fixed !important;
+    width: 100% !important;
+}
+
+    #tblEmailRequests th, #tblEmailRequests td {
+        width: 25% !important;
+        word-wrap: break-word !important;
+    }
+
 @media only screen and (max-width:768px) {
     .logo {
         border-radius: 7.5%;

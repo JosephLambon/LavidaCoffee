@@ -21,8 +21,6 @@
 						<th scope="col">CustomerEmail</th>
 						<th scope="col">Subject</th>
 						<th scope="col">Body</th>
-						<th scope="col"></th>
-						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,8 +33,6 @@
 								<td>@email.Email.CustomerEmail</td>
 								<td>@email.Email.Subject</td>
 								<td>@email.Email.Body</td>
-								<td><i style="font-size:1.2rem; color: #403f3f" class="fa" id="edit_request@email.EmailRequestId">&#xf040;</i></td>
-								<td><i style="font-size:1.2rem; color: #941e1e;" class="fa" id="delete_request@email.EmailRequestId">&#xf014;</i></td>
 							</tr>
 						}
 				}
@@ -97,8 +93,6 @@ else
 						appendElement.append($("<td>").html(emailRequest.email.customerEmail));
 						appendElement.append($("<td>").html(emailRequest.email.subject));
 						appendElement.append($("<td>").html(emailRequest.email.body));
-						appendElement.append($("<td>").html("<i style='font-size: 1.2rem; color: #403f3f' class='fa' id='edit_request_" + emailRequest.emailRequestId + "'>&#xf040;</i>"));
-						appendElement.append($("<td>").html("<i style='font - size: 1.2rem; color: #941e1e' class='fa' id='delete_request_" + emailRequest.emailRequestId + "'>&#xf014;</i>"));
 						tbody.append(appendElement);
 					});
 				},
