@@ -36,10 +36,10 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Find us</a>
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" drole="button" aria-expanded="false" asp-controller="Find_Us" asp-action="Index">Find us</a>
                                 <ul class="dropdown-menu maroon-bg">
-                                    <li><a class="dropdown-item nav-link maroon-bg" href="#">Lavida HQ</a></li>
-                                    <li><a class="dropdown-item nav-link maroon-bg" href="#">Upcoming events</a></li>
+                                    <li><a class="dropdown-item nav-link maroon-bg" asp-controller="Find_us" asp-action="Index" asp-fragment="hq">Lavida HQ</a></li>
+                                    <li><a class="dropdown-item nav-link maroon-bg" asp-controller="Find_us" asp-action="Index" asp-fragment="upcoming_events">Upcoming events</a></li>
                                 </ul>
                             </li>
                             
