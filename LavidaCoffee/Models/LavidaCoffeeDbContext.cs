@@ -9,8 +9,8 @@ namespace LavidaCoffee.Models
         {
 
         }
-
         public DbSet<EmailRequest> EmailRequests { get; set; }
         public DbSet<Email> Emails { get; set; }
+        public DbSet<Event> Events { get; set; }
     }
 }

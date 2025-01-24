@@ -15,6 +15,7 @@ namespace LavidaCoffee
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddScoped<IEmailRequestRepository, EmailRequestRepository>();
+            builder.Services.AddScoped<IEventRepository, EventRepository>();
 
             builder.Services.AddDbContext<LavidaCoffeeDbContext>(options =>
             {
@@ -51,7 +52,7 @@ namespace LavidaCoffee
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
-                var roles = new[] { "Admin" , "User" };
+                var roles = new[] { "Admin" };
 
                 foreach (var role in roles)
                 {

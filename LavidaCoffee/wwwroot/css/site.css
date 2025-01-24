@@ -97,7 +97,6 @@ header .navbar {
 }
 
 .tileImage {
-    height: 37.5vh;
     overflow: hidden;
 }
 
@@ -112,11 +111,6 @@ header .navbar {
     border-radius: 10px;
 }
 
-.about-cards {
-    margin: 10px auto !important;
-    width: 25rem !important;
-}
-
 .subtext {
     font-size: 0.9rem;
     font-style: italic;
@@ -124,7 +118,7 @@ header .navbar {
 
 #raveLogo {
     background-color: rgb(255, 199, 0);
-    width: 15vw;
+    width: 65%;
     height: auto !important;
     max-height: 15vh;
     border-radius: 10px !important;
@@ -148,10 +142,20 @@ header .navbar {
     width: 100% !important;
 }
 
-    #tblEmailRequests th, #tblEmailRequests td {
-        width: 25% !important;
-        word-wrap: break-word !important;
-    }
+#tblEmailRequests th, #tblEmailRequests td {
+    width: 25% !important;
+    word-wrap: break-word !important;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 400px !important;
+    height: 300px;
+    background-color: #56202c !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @media only screen and (max-width:768px) {
     .logo {
@@ -173,11 +177,6 @@ header .navbar {
 
     .main-height {
         height: 200vh;
-    }
-
-    .tileImage {
-        height: 30vh;
-        overflow: hidden;
     }
 
     #raveLogo {
