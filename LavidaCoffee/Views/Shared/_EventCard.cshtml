@@ -1,5 +1,10 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Event
+
+<div class="card mb-3">
+    <img src="@Model.ThumbnailUrl" class="card-img-top rounded-1" alt="">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">@Model.ShortDescription</p>
+        <p class="card-text"><small class="text-body-secondary">@Model.Date</small></p>
+    </div>
+</div>

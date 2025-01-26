@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LavidaCoffee.Migrations
 {
     [DbContext(typeof(LavidaCoffeeDbContext))]
-    [Migration("20250123184505_AddEventModel")]
+    [Migration("20250126144013_AddEventModel")]
     partial class AddEventModel
     {
         /// <inheritdoc />
@@ -87,9 +87,11 @@ namespace LavidaCoffee.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LongDescription")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortDescription")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ThumbnailUrl")

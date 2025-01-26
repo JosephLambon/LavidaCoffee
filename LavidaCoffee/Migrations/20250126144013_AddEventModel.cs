@@ -11,10 +11,10 @@ namespace LavidaCoffee.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropPrimaryKey("PK_AspNetUserTokens", "AspNetUserTokens");
-            migrationBuilder.DropPrimaryKey("PK_AspNetUserLogins", "AspNetUserLogins");
+			migrationBuilder.DropPrimaryKey("PK_AspNetUserTokens", "AspNetUserTokens");
+			migrationBuilder.DropPrimaryKey("PK_AspNetUserLogins", "AspNetUserLogins");
 
-            migrationBuilder.AlterColumn<string>(
+			migrationBuilder.AlterColumn<string>(
                 name: "Name",
                 table: "AspNetUserTokens",
                 type: "nvarchar(128)",
@@ -50,10 +50,10 @@ namespace LavidaCoffee.Migrations
                 oldClrType: typeof(string),
                 oldType: "nvarchar(450)");
 
-            migrationBuilder.AddPrimaryKey("PK_AspNetUserTokens", "AspNetUserTokens", new string[] { "UserId", "LoginProvider", "Name" });
-            migrationBuilder.AddPrimaryKey("PK_AspNetUserLogins", "AspNetUserLogins", new string[] { "LoginProvider", "ProviderKey" });
+			migrationBuilder.AddPrimaryKey("PK_AspNetUserTokens", "AspNetUserTokens", new string[] { "UserId", "LoginProvider", "Name" });
+			migrationBuilder.AddPrimaryKey("PK_AspNetUserLogins", "AspNetUserLogins", new string[] { "LoginProvider", "ProviderKey" });
 
-            migrationBuilder.CreateTable(
+			migrationBuilder.CreateTable(
                 name: "Events",
                 columns: table => new
                 {
@@ -61,8 +61,8 @@ namespace LavidaCoffee.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LongDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LongDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ThumbnailUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)

@@ -5,16 +5,18 @@ namespace LavidaCoffee.Models
     public class EventRepository : IEventRepository
     {
         private readonly LavidaCoffeeDbContext _lavidaCoffeeDbContext;
-        public List<Event> Events { get; set; } = default!;
         public EventRepository(LavidaCoffeeDbContext lavidaCoffeeDbContext)
         {
             _lavidaCoffeeDbContext = lavidaCoffeeDbContext;
         }
 
-        public List<Event> GetEvents()
+        public IEnumerable<Event> AllEvents
         {
-            var eventList = _lavidaCoffeeDbContext.Events.Include(e => e.EventId).ToList();
-            return eventList;
+            get
+            {
+                var eventList = _lavidaCoffeeDbContext.Events;
+                return eventList;
+            }
         }
 
         public void CreateEvent(Event new_event)
