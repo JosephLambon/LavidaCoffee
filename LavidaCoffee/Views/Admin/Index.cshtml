@@ -12,8 +12,20 @@
 @if(User.IsInRole("Admin"))
 {
 	<div class="flex-grow-1" id="adminBackground">
+		<div class="row mt-2 mb-1">
+			<h3 class="col-6">Email requests</h3>
+			<div class="dropdown-center text-end col-6">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Select data
+				</button>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">EmailRequests</a></li>
+					<li><a class="dropdown-item" href="#">Events</a></li>
+				</ul>
+			</div>
+		</div>
+
 		<div id="emailRequestsContainer">
-			<h3>Email requests</h3>
 			<table class="table" id="tblEmailRequests">
 				<thead>
 					<tr>
