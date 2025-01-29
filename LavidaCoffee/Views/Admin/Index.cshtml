@@ -3,30 +3,31 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-@model List<EmailRequest>
+@model AdminViewModel
 
 @{
-	decimal pages = (decimal)Model.Count / 10;
+	decimal pages = (decimal)Model.EmailRequests.Count / 10;
 }
 
 @if(User.IsInRole("Admin"))
 {
 	<div class="flex-grow-1" id="adminBackground">
-		<div class="row mt-2 mb-1">
-			<h3 class="col-6">Email requests</h3>
+		<div class="row mt-2 mb-4 border-bottom border-secondary pb-2">
+			<h2 class="col-6">Database</h2>
 			<div class="dropdown-center text-end col-6">
 				<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 					Select data
 				</button>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">EmailRequests</a></li>
-					<li><a class="dropdown-item" href="#">Events</a></li>
+					<li><a class="dropdown-item" id="emailRequestDropdownItem">EmailRequests</a></li>
+					<li><a class="dropdown-item" id="eventDropdownItem">Events</a></li>
 				</ul>
 			</div>
 		</div>
 
-		<div id="emailRequestsContainer">
-			<table class="table" id="tblEmailRequests">
+		<div id="emailRequestsContainer">	
+			<h2>Email requests</h2>
+			<table class="table database-table" id="tblEmailRequests">
 				<thead>
 					<tr>
 						<th scope="col">EmailRequestId #</th>
@@ -36,7 +37,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				@foreach(var email in Model)
+				@foreach(var email in Model.EmailRequests)
 				{
 						if(email.EmailRequestId <= 10)
 						{
@@ -70,6 +71,31 @@
 					</nav>
 				</div>
 			}
+		</div>
+
+		<div id="eventsContainer" style="display:none;">
+			<h2>Events</h2>
+			<table class="table database-table" id="tblEvents">
+				<thead>
+					<tr>
+						<th scope="col">EventId</th>
+						<th scope="col">Title</th>
+						<th scope="col">Date</th>
+						<th scope="col">Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+				@foreach(var upcomingEvent in Model.Events)
+				{
+					<tr>
+						<th scope="row">@upcomingEvent.EventId</th>
+						<td>@upcomingEvent.Title</td>
+						<td>@upcomingEvent.Date</td>
+						<td>DELETE_BUTTON</td>
+					</tr>
+				}
+				</tbody>
+			</table>
 		</div>
 	</div>
 }
@@ -113,6 +139,16 @@ else
 				}
 			});
 		  });
+
+		$("#emailRequestDropdownItem").click(function () {
+			$("#emailRequestsContainer").show();
+			$("#eventsContainer").hide();
 		});
+
+		$("#eventDropdownItem").click(function () {
+			$("#emailRequestsContainer").hide();
+			$("#eventsContainer").show();
+		});
+	});
 
 </script>

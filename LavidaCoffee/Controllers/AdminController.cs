@@ -1,6 +1,7 @@
 ﻿using LavidaCoffee.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using LavidaCoffee.ViewModels;
 
 namespace LavidaCoffee.Controllers
 {
@@ -20,7 +21,9 @@ namespace LavidaCoffee.Controllers
 		public IActionResult Index()
 		{
 			List<EmailRequest> emailRequests = _emailRequestRepository.AllEmailRequests();
-			return View(emailRequests);
+			IEnumerable<Event> upcomingEvents = _eventRepository.AllEvents.Where(e=> e.Date > DateTime.Today);
+
+			return View(new AdminViewModel(upcomingEvents, emailRequests));
 		}
 
 

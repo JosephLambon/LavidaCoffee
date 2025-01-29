@@ -30,5 +30,25 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LavidaCoffee.Controllers.Api.EventController",
+    "Method": "AllEvents",
+    "RelativePath": "api/Event",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LavidaCoffee.Controllers.Api.EventController",
+    "Method": "UpcomingEvents",
+    "RelativePath": "api/Event",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]
