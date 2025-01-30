@@ -9,6 +9,11 @@
         {
             "library": "jquery@3.7.1",
             "destination": "wwwroot/lib/jquery/"
+        },
+        {
+            "provider": "cdnjs",
+            "library": "moment.js@2.30.1",
+            "destination": "wwwroot/lib/moment.js/"
         }
     ]
 }

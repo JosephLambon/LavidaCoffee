@@ -12,10 +12,11 @@
 @if(User.IsInRole("Admin"))
 {
 	<div class="flex-grow-1" id="adminBackground">
+
 		<div class="row mt-2 mb-4 border-bottom border-secondary pb-2">
 			<h2 class="col-6">Database</h2>
-			<div class="dropdown-center text-end col-6">
-				<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<div class="col-6 dropdown-center text-end">
+				<button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 					Select data
 				</button>
 				<ul class="dropdown-menu">
@@ -25,8 +26,10 @@
 			</div>
 		</div>
 
-		<div id="emailRequestsContainer">	
-			<h2>Email requests</h2>
+		<div id="emailRequestsContainer" style="display:none;">	
+			<div class="row">
+				<h2 class="col-12">Email requests</h2>
+			</div>
 			<table class="table database-table" id="tblEmailRequests">
 				<thead>
 					<tr>
@@ -73,8 +76,80 @@
 			}
 		</div>
 
-		<div id="eventsContainer" style="display:none;">
-			<h2>Events</h2>
+		<div id="eventsContainer">
+			<div class="row">
+				<h2 class="col-6">Events</h2>
+				<div class="col-6 text-end">
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEventModal">Add +</button>
+				</div>
+			</div>
+
+			<div class="modal fade" id="addEventModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+					<div class="modal-content rounded-2">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="addEventModalLabel">New event</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+							<form method="post" asp-controller="Admin" asp-action="AddEvent" role="form" class="mx-auto align-items-center w-100" enctype="multipart/form-data">
+								<div class="modal-body">
+									<div class="form-control">
+											<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+											<div class="form-group">
+												<div class="mb-3">
+													<label for="DateInputValue">Date</label>
+													<input asp-for="Date" type="datetime-local" class="form-control" id="DateInputValue" value="" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")">
+													<span asp-validation-for="Date" class="text-danger"></span>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="mb-3">
+													<label for="TitleInputValue">Title</label>
+													<input asp-for="Title" type="text" class="form-control" id="TitleInputValue">
+													<span asp-validation-for="Title" class="text-danger"></span>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="mb-3">
+													<label for="AddressInputValue">Address</label>
+													<input asp-for="Address" type="text" class="form-control" id="AddressInputValue">
+													<span asp-validation-for="Address" class="text-danger"></span>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="mb-3">
+													<label for="ShortDescriptionInputValue">ShortDescription</label>
+													<textarea asp-for="ShortDescription" type="text" class="form-control" id="ShortDescriptionInputValue"></textarea>
+													<span asp-validation-for="ShortDescription" class="text-danger"></span>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="mb-3">
+													<label for="LongDescriptionInputValue">LongDescription</label>
+													<textarea asp-for="LongDescription" type="text" class="form-control" id="LongDescriptionInputValue"></textarea>
+													<span asp-validation-for="LongDescription" class="text-danger"></span>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="mb-3">
+													<label for="ThumbnailUrlInputValue">ThumbnailUrl</label>
+													<input asp-for="ThumbnailUrl" type="url" class="form-control" id="ThumbnailUrlInputValue">
+													<span asp-validation-for="ThumbnailUrl" class="text-danger"></span>
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<div class="form-group text-end">
+										<input type="submit" value="Submit" class="btn btn-primary" />
+									</div>
+								</div>
+							</form>
+					</div>
+				</div>
+			</div>
+
 			<table class="table database-table" id="tblEvents">
 				<thead>
 					<tr>
