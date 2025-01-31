@@ -27,11 +27,24 @@ namespace LavidaCoffee.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult AddEvent(DateTime Date, string Title, string ShortDescription, string LongDescription, string Address, string ImageUrl, string ThumnailUrl)
+		public IActionResult AddEvent([FromForm] AdminViewModel model)
 		{
-			Event newEvent = new Event { Address = Address, Date = Date, Title = Title, ShortDescription = ShortDescription, LongDescription = LongDescription, ImageUrl = ImageUrl, ThumbnailUrl = ThumnailUrl };
-			_eventRepository.CreateEvent(newEvent);
-			return RedirectToAction("Index");
+			if (ModelState.IsValid)
+			{
+				Event newEvent = new Event
+				{
+					Address = model.Address,
+					Date = model.Date,
+					Title = model.Title,
+					ShortDescription = model.ShortDescription,
+					LongDescription = model.LongDescription,
+					ImageUrl = model.ImageUrl,
+					ThumbnailUrl = model.ThumbnailUrl
+				};
+				_eventRepository.CreateEvent(newEvent);
+				return RedirectToAction("Index");
+			}
+			return View(model);
 		}
 	}
 }

@@ -14,6 +14,16 @@
             "provider": "cdnjs",
             "library": "moment.js@2.30.1",
             "destination": "wwwroot/lib/moment.js/"
+        },
+        {
+            "provider": "cdnjs",
+            "library": "jquery-validate@1.21.0",
+            "destination": "wwwroot/lib/jquery-validate/"
+        },
+        {
+            "provider": "cdnjs",
+            "library": "jquery-validation-unobtrusive@4.0.0",
+            "destination": "wwwroot/lib/jquery-validation-unobtrusive/"
         }
     ]
 }
