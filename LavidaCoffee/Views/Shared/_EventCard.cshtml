@@ -1,10 +1,13 @@
 ﻿@model Event
 
-<div class="card mb-3">
-    <img src="@Model.ThumbnailUrl" class="card-img-top rounded-1" alt="">
-    <div class="card-body">
-        <h5 class="card-title">@Model.Title</h5>
-        <p class="card-text">@Model.ShortDescription</p>
-        <p class="card-text"><small class="text-body-secondary">@Model.Date</small></p>
-    </div>
+<div class="card skin-bg">
+	<div class="card-body ms-3 me-3">
+		<h3 class="card-title m-2">@Model.Title</h3>
+		<h5>@Model.Date</h5>
+		<p><i>@Model.Address</i></p>
+		<p class="card-text">@Model.LongDescription</p>
+	</div>
+	<div class="tileImage p-2 m-md-3">
+		<img src="@Model.ThumbnailUrl" class="card-img-top img-fluid fixed-height-img" />
+	</div>
 </div>

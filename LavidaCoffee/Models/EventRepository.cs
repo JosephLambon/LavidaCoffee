@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Net;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 
 namespace LavidaCoffee.Models
 {
@@ -17,6 +19,24 @@ namespace LavidaCoffee.Models
                 var eventList = _lavidaCoffeeDbContext.Events;
                 return eventList;
             }
+        }
+
+        public Event? GetEventById(int id)
+        {
+            if (id <= 0)
+            {
+                return null;
+            }
+            var selectedEvent = _lavidaCoffeeDbContext
+                .Events
+                .FirstOrDefault(e => e.EventId == id);
+
+            if (selectedEvent != null)
+            {
+                return selectedEvent;
+            }
+
+            throw new KeyNotFoundException("Event not found.");
         }
 
         public void CreateEvent(Event new_event)

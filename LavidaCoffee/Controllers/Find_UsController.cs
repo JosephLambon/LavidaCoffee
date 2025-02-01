@@ -15,5 +15,11 @@ namespace LavidaCoffee.Controllers
 			IEnumerable<Event> upcomingEvents = _eventRepository.AllEvents.Where(e => e.Date > DateTime.Today).OrderBy(e=>e.Date);
 			return View(upcomingEvents);
         }
+
+		public IActionResult EventDetails(int id)
+		{
+			var selectedEvent = _eventRepository.GetEventById(id);
+			return View(selectedEvent);
+		}
     }
 }

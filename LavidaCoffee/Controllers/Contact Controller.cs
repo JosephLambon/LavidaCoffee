@@ -1,5 +1,6 @@
 ﻿using LavidaCoffee.Models;
 using LavidaCoffee.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LavidaCoffee.Controllers
@@ -17,6 +18,7 @@ namespace LavidaCoffee.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult EmailRequest(int id)
         {
             var emailRequest = _emailRequestRepository.GetEmailRequestById(id);

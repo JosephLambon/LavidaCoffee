@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using LavidaCoffee.ViewModels;
+using System.Net;
 
 namespace LavidaCoffee.Controllers
 {
@@ -27,24 +28,13 @@ namespace LavidaCoffee.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult AddEvent([FromForm] AdminViewModel model)
+		public IActionResult AddEvent(Event newEvemt)
 		{
 			if (ModelState.IsValid)
 			{
-				Event newEvent = new Event
-				{
-					Address = model.Address,
-					Date = model.Date,
-					Title = model.Title,
-					ShortDescription = model.ShortDescription,
-					LongDescription = model.LongDescription,
-					ImageUrl = model.ImageUrl,
-					ThumbnailUrl = model.ThumbnailUrl
-				};
-				_eventRepository.CreateEvent(newEvent);
-				return RedirectToAction("Index");
+				_eventRepository.CreateEvent(newEvemt);
 			}
-			return View(model);
-		}
+            return RedirectToAction("Index");
+        }
 	}
 }
