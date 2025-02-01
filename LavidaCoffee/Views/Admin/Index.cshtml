@@ -63,11 +63,11 @@
 							{
 								if (i == 1)
 								{
-									<li class="page-item active" id="page_@i" style="cursor:pointer;"><a class="page-link" data-page="@i">@i</a></li>
+									<li class="page-item active" style="cursor:pointer;"><a id="page_@i" class="page-link" data-page="@i">@i</a></li>
 								}
 								else
 								{
-									<li class="page-item" id="page_@i" style="cursor:pointer;"><a class="page-link" data-page="@i">@i</a></li>
+									<li class="page-item" style="cursor:pointer;"><a id="page_@i" class="page-link" data-page="@i">@i</a></li>
 								}
 							}
 						</ul>
@@ -156,7 +156,7 @@
 						<th scope="col">EventId</th>
 						<th scope="col">Title</th>
 						<th scope="col">Date</th>
-						<th scope="col">Delete</th>
+						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -166,7 +166,11 @@
 						<th scope="row">@upcomingEvent.EventId</th>
 						<td>@upcomingEvent.Title</td>
 						<td>@upcomingEvent.Date</td>
-						<td>DELETE_BUTTON</td>
+						<td class="text-center">
+							<form method="post" asp-controller="Admin" asp-action="DeleteEvent" asp-route-id="@upcomingEvent.EventId" role="form" id="eventDeletionForm">
+									<input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;">
+							</form>
+						</td>
 					</tr>
 				}
 				</tbody>
@@ -216,13 +220,36 @@ else
 		  });
 
 		$("#emailRequestDropdownItem").click(function () {
-			$("#emailRequestsContainer").show();
-			$("#eventsContainer").hide();
+			$("#emailRequestsContainer").css("display", "block");
+			$("#eventsContainer").css("display", "none");
 		});
 
 		$("#eventDropdownItem").click(function () {
-			$("#emailRequestsContainer").hide();
-			$("#eventsContainer").show();
+			$("#emailRequestsContainer").css("display", "none");
+			$("#eventsContainer").css("display", "block");
+
+
+			$.ajax({
+				type: "GET",
+				url: "/api/Event", // Adjust the URL to match your endpoint
+				contentType: "application/json; charset=utf-8",
+				dataType: "json",
+				success: function (events) {
+					var tbody = $("#tblEvents tbody");
+					tbody.empty();
+					$.each(events, function (i, event) {
+						var appendElement = $("<tr>");
+						appendElement.append($("<th scope='row'>").html(event.eventId));
+						appendElement.append($("<td>").html(event.title));
+						appendElement.append($("<td>").html(event.date));
+						appendElement.append($("<td class='text-center'>").html('<form method="post" asp-controller="Admin" asp-action="DeleteEvent" asp-route-id="' + event.eventId + '" role="form" id="eventDeletionForm"><input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;"></form>'));
+						tbody.append(appendElement);
+					});
+				},
+				error: function (xhr, status, error) {
+					console.log(xhr);
+				}
+			});
 		});
 	});
 

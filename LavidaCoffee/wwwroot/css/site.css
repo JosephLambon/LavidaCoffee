@@ -118,9 +118,9 @@ header .navbar {
 
 #raveLogo {
     background-color: rgb(255, 199, 0);
-    width: 65%;
+    width: 50%;
     height: auto !important;
-    max-height: 15vh;
+    max-height: 10vh;
     border-radius: 10px !important;
 }
 
