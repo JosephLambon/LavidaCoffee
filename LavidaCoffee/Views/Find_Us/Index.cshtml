@@ -33,9 +33,11 @@
 			<div class="row row-cols-1 row-cols-md-3 g-3">
 				@foreach(var upcomingEvent in Model)
 				{
-					<div class="col">
-						<partial name="_EventCard" model="upcomingEvent" />
-					</div>
+					<a asp-controller="Find_Us" asp-action="EventDetails" asp-route-id="@upcomingEvent.EventId" class="link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover">
+						<div class="col">
+							<partial name="_EventCard" model="upcomingEvent" />
+						</div>
+					</a>
 				}
 			</div>
 		</div>

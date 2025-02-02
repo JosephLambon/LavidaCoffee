@@ -162,16 +162,17 @@
 				<tbody>
 				@foreach(var upcomingEvent in Model.Events)
 				{
-					<tr>
-						<th scope="row">@upcomingEvent.EventId</th>
-						<td>@upcomingEvent.Title</td>
-						<td>@upcomingEvent.Date</td>
-						<td class="text-center">
-							<form method="post" asp-controller="Admin" asp-action="DeleteEvent" asp-route-id="@upcomingEvent.EventId" role="form" id="eventDeletionForm">
-									<input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;">
-							</form>
-						</td>
-					</tr>
+						
+							<tr>
+									<th scope="row">@upcomingEvent.EventId</th>
+							<td><a asp-controller="Find_Us" asp-action="EventDetails" asp-route-id="@upcomingEvent.EventId" class="link-underline-primary" style="color:#0d6efd;">@upcomingEvent.Title</a></td>
+							<td>@upcomingEvent.Date</td>
+									<td class="text-center">
+										<form method="post" asp-controller="Admin" asp-action="DeleteEvent" asp-route-id="@upcomingEvent.EventId" role="form" id="eventDeletionForm">
+												<input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;">
+										</form>
+									</td>
+							</tr>
 				}
 				</tbody>
 			</table>

@@ -1,8 +1,23 @@
 ﻿@model Event
 
-<div class="flex-grow-1 skin-bg pt-5 p-4 justify-content-center">
-	<h1>@Model.Title</h1>
-	<div class="img-fluid">
-		<img href="@Model.ImageUrl" />
+<div class="flex-grow-1 skin-bg p-3">
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb ms-2">
+			<li class="breadcrumb-item link-primary link-offset-1"><a asp-controller="Find_Us" asp-action="Index"> Find us </a></li>
+			<li class="breadcrumb-item link-primary link-offset-1"><a asp-controller="Find_Us" asp-action="Index" asp-fragment="upcoming_events"> Upcoming events </a></li>
+			<li class="breadcrumb-item active" aria-current="page">@Model.EventId</li>
+		</ol>
+	</nav>
+
+	<div class="card skin-bg">
+		<div class="card-body ms-3 me-3">
+			<h1 class="card-title m-2">@Model.Title</h1>
+			<h3>@Model.Date</h3>
+			<p><i>@Model.Address</i></p>
+			<p class="card-text">@Model.LongDescription</p>
+		</div>
+		<div class="tileImage p-2 m-md-3">
+			<img src="@Model.ThumbnailUrl" class="card-img-top img-fluid fixed-height-img" style="height: 500px !important;" />
+		</div>
 	</div>
 </div>
