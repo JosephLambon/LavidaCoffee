@@ -8,6 +8,7 @@ using Moq;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
+using Org.BouncyCastle.Bcpg;
 
 namespace LavidaCoffeeTests.Mocks
 {
@@ -253,6 +254,140 @@ namespace LavidaCoffeeTests.Mocks
 			mockEmailRequestRepository.Setup(repo => repo.AllEmailRequests()).Returns(emailRequests.ToList);
 			mockEmailRequestRepository.Setup(repo => repo.GetEmailRequestById(It.IsAny<int>())).Returns((int id) => emailRequests.FirstOrDefault(e => e.EmailRequestId == id));
 			return mockEmailRequestRepository;
+		}
+
+		public static Mock<IEventRepository> GetEventRepository()
+		{
+			var events = new List<Event>
+			{
+				new Event
+				{
+					EventId = 1,
+					Title = "Cookielicious",
+					Date = DateTime.Now,
+					Address = "1 Cookie Lane, Sugar County",
+					ShortDescription = "Join us in trying delicious fresh cookies!",
+					LongDescription = "We'll be joining Cookielicious for their bake sale day, taste testing all the cookies in their new range. Come with us!",
+					ImageUrl = "https://images.pexels.com/photos/29587987/pexels-photo-29587987/free-photo-of-vibrant-nightlife-in-tokyo-s-shinjuku-district.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/29587987/pexels-photo-29587987/free-photo-of-vibrant-nightlife-in-tokyo-s-shinjuku-district.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+				},
+				new Event
+				{
+					EventId = 2,
+					Title = "Art in the Park",
+					Date = DateTime.Now.AddDays(7),
+					Address = "Central Park, Art District",
+					ShortDescription = "An outdoor art exhibition.",
+					LongDescription = "Join us for a day of art in the park, featuring local artists and their latest creations.",
+					ImageUrl = "https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				},
+				new Event
+				{
+					EventId = 3,
+					Title = "Tech Innovators Meetup",
+					Date = DateTime.Now.AddDays(14),
+					Address = "Tech Hub, Silicon Valley",
+					ShortDescription = "A meetup for tech enthusiasts.",
+					LongDescription = "Network with fellow tech innovators and learn about the latest trends in technology.",
+					ImageUrl = "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				},
+				new Event
+				{
+					EventId = 4,
+					Title = "Yoga in the Park",
+					Date = DateTime.Now.AddDays(21),
+					Address = "Green Meadows Park",
+					ShortDescription = "A relaxing yoga session.",
+					LongDescription = "Join us for a morning of yoga in the park, suitable for all levels.",
+					ImageUrl = "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				},
+				new Event
+				{
+					EventId = 5,
+					Title = "Food Truck Fiesta",
+					Date = DateTime.Now.AddDays(28),
+					Address = "Downtown Plaza",
+					ShortDescription = "A gathering of food trucks.",
+					LongDescription = "Sample a variety of cuisines from the best food trucks in the city.",
+					ImageUrl = "https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				},
+				new Event
+				{
+					EventId = 6,
+					Title = "Book Club Meeting",
+					Date = DateTime.Now.AddDays(35),
+					Address = "City Library, Room 101",
+					ShortDescription = "A monthly book club meeting.",
+					LongDescription = "Discuss the book of the month with fellow book enthusiasts.",
+					ImageUrl = "https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				},
+				new Event
+				{
+					EventId = 7,
+					Title = "Charity Fun Run",
+					Date = DateTime.Now.AddDays(42),
+					Address = "Riverside Park",
+					ShortDescription = "A 5K charity run.",
+					LongDescription = "Participate in a 5K run to raise funds for a local charity.",
+					ImageUrl = "https://images.pexels.com/photos/1199590/pexels-photo-1199590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/1199590/pexels-photo-1199590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				},
+				new Event
+				{
+					EventId = 8,
+					Title = "Music Festival",
+					Date = DateTime.Now.AddDays(49),
+					Address = "Open Air Theater",
+					ShortDescription = "A weekend of live music.",
+					LongDescription = "Enjoy performances from various bands and solo artists over the weekend.",
+					ImageUrl = "https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				},
+				new Event
+				{
+					EventId = 9,
+					Title = "Farmers Market",
+					Date = DateTime.Now.AddDays(56),
+					Address = "Market Square",
+					ShortDescription = "A weekly farmers market.",
+					LongDescription = "Shop for fresh produce and handmade goods from local farmers and artisans.",
+					ImageUrl = "https://images.pexels.com/photos/1508666/pexels-photo-1508666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/1508666/pexels-photo-1508666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				},
+				new Event
+				{
+					EventId = 10,
+					Title = "Science Fair",
+					Date = DateTime.Now.AddDays(63),
+					Address = "Community Center",
+					ShortDescription = "A local science fair.",
+					LongDescription = "Explore science projects and experiments presented by students and enthusiasts.",
+					ImageUrl = "https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/256369/pexels-photo-256369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				},
+				new Event
+				{
+					EventId = 11,
+					Title = "Craft Workshop",
+					Date = DateTime.Now.AddDays(70),
+					Address = "Art Studio, Main Street",
+					ShortDescription = "A hands-on craft workshop.",
+					LongDescription = "Learn new crafting techniques and create your own handmade items.",
+					ImageUrl = "https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					ThumbnailUrl = "https://images.pexels.com/photos/1109541/pexels-photo-1109541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				}
+			};
+
+			var mockEventRepository = new Mock<IEventRepository>();
+			mockEventRepository.Setup(repo => repo.AllEvents).Returns(events.ToList);
+			mockEventRepository.Setup(repo => repo.GetEventById(It.IsAny<int>())).Returns((int id) => events.FirstOrDefault(e => e.EventId == id));
+			return mockEventRepository;
 		}
 	}
 }
