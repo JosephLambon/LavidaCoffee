@@ -45,15 +45,36 @@ namespace LavidaCoffee.Controllers
 			TempData["errorMessage"] = $"Error: Failed to delete event - no event with id={id} found";
 			return RedirectToAction("Index");
 		}
-
+		[Authorize(Roles = "Admin")]
 		[HttpPost]
-		public IActionResult AddEvent(Event newEvemt)
+		public IActionResult AddEvent(Event newEvent)
 		{
 			if (ModelState.IsValid)
 			{
-				_eventRepository.CreateEvent(newEvemt);
+				_eventRepository.CreateEvent(newEvent);
 			}
             return RedirectToAction("Index");
         }
+
+		[Authorize(Roles = "Admin")]
+		[HttpPost]
+		public IActionResult EditEvent(Event updatedEventDetails)
+		{
+			var existingEvent = _eventRepository.GetEventById(updatedEventDetails.EventId);
+			if (ModelState.IsValid)
+			{
+				existingEvent.Title = updatedEventDetails.Title;
+				existingEvent.Date = updatedEventDetails.Date;
+				existingEvent.ShortDescription = updatedEventDetails.ShortDescription;
+				existingEvent.LongDescription = updatedEventDetails?.LongDescription;
+				existingEvent.Address = updatedEventDetails.Address;
+				existingEvent.ThumbnailUrl = updatedEventDetails.ThumbnailUrl;
+				existingEvent.ImageUrl = updatedEventDetails.ImageUrl;
+
+				_eventRepository.UpdateEvent(existingEvent);
+
+			}
+			return RedirectToAction("EventDetails", "Find_Us", new { id = existingEvent.EventId });
+		}
 	}
 }

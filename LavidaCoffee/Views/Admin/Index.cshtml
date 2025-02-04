@@ -232,7 +232,7 @@ else
 
 			$.ajax({
 				type: "GET",
-				url: "/api/Event", // Adjust the URL to match your endpoint
+				url: "/api/Event",
 				contentType: "application/json; charset=utf-8",
 				dataType: "json",
 				success: function (events) {
@@ -241,9 +241,22 @@ else
 					$.each(events, function (i, event) {
 						var appendElement = $("<tr>");
 						appendElement.append($("<th scope='row'>").html(event.eventId));
-						appendElement.append($("<td>").html(event.title));
-						appendElement.append($("<td>").html(event.date));
-						appendElement.append($("<td class='text-center'>").html('<form method="post" asp-controller="Admin" asp-action="DeleteEvent" asp-route-id="' + event.eventId + '" role="form" id="eventDeletionForm"><input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;"></form>'));
+
+						var eventUrl = '/Find_Us/EventDetails/' + event.eventId;
+						appendElement.append($("<td>").append($('<a href="' + eventUrl + '" class="link-underline-primary" style="color:#0d6efd;">').html(event.title)));
+						
+						var date = new Date(event.date);
+						// Formatting here was AI generated
+						var formattedDate = date.getDate().toString().padStart(2, '0') + '/' +
+								(date.getMonth() + 1).toString().padStart(2, '0') + '/' +
+								date.getFullYear() + ' ' +
+								date.getHours().toString().padStart(2, '0') + ':' +
+								date.getMinutes().toString().padStart(2, '0') + ':' +
+								date.getSeconds().toString().padStart(2, '0');
+						appendElement.append($("<td>").html(formattedDate));;	
+
+						var deleteAction = "/Admin/DeleteEvent/" + event.eventId
+						appendElement.append($("<td class='text-center'>").html('<form method="post" role="form" action="' + deleteAction +'" id="eventDeletionForm"><input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;"></form>'));
 						tbody.append(appendElement);
 					});
 				},

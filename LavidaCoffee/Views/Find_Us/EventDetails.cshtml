@@ -1,14 +1,26 @@
 ﻿@model Event
 
 <div class="flex-grow-1 skin-bg p-3">
-	<nav aria-label="breadcrumb">
-		<ol class="breadcrumb ms-2">
-			<li class="breadcrumb-item link-primary link-offset-1"><a asp-controller="Find_Us" asp-action="Index"> Find us </a></li>
-			<li class="breadcrumb-item link-primary link-offset-1"><a asp-controller="Find_Us" asp-action="Index" asp-fragment="upcoming_events"> Upcoming events </a></li>
-			<li class="breadcrumb-item active" aria-current="page">@Model.EventId</li>
-		</ol>
-	</nav>
-
+	<div class="row">
+		<div class="col-6">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb ms-2">
+					<li class="breadcrumb-item link-primary link-offset-1"><a asp-controller="Find_Us" asp-action="Index"> Find us </a></li>
+					<li class="breadcrumb-item link-primary link-offset-1"><a asp-controller="Find_Us" asp-action="Index" asp-fragment="upcoming_events"> Upcoming events </a></li>
+					<li class="breadcrumb-item active" aria-current="page">@Model.EventId</li>
+				</ol>
+			</nav>
+		</div>
+		<div class="col-6 text-end">
+		@if(User.IsInRole("Admin"))
+			{
+				<button class="skin-bg maroon-border rounded-2 me-4 w-25 link-primary" data-bs-toggle="modal" data-bs-target="#editEventModal">
+					Edit <i class="fas fa-edit"></i>
+				</button>
+			}
+		</div>
+	</div>
+	
 	<div class="card skin-bg">
 		<div class="card-body m-3 mb-0">
 			<h1 class="card-title">@Model.Title</h1>
@@ -19,6 +31,79 @@
 		</div>
 		<div class="tileImage p-2 pt-0 m-md-3">
 			<img src="@Model.ThumbnailUrl" class="card-img-top img-fluid fixed-height-img" style="height: 500px !important;" />
+		</div>
+	</div>
+	
+	
+	<div class="modal fade" id="editEventModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editEventModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content rounded-2">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="editEventModalLabel">Edit event</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<form method="post" asp-controller="Admin" asp-action="EditEvent" role="form" class="mx-auto align-items-center w-100" enctype="multipart/form-data">
+					<div class="modal-body">
+						<div class="form-control">
+							<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+							<div class="form-group">
+								<div class="mb-3">
+									<label for="EventIdInputValue">EventId</label>
+									<input asp-for="EventId" type="number" class="form-control" value="@Model.EventId" id="EventIdInputValue" style="color:dimgrey;" readonly>
+									<span asp-validation-for="EventId" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="mb-3">
+									<label for="DateInputValue">Date</label>
+									<input asp-for="Date" class="form-control" id="DateInputValue" value="@Model.Date" >
+									<span asp-validation-for="Date" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="mb-3">
+									<label for="TitleInputValue">Title</label>
+									<input asp-for="Title" type="text" class="form-control" value=@Model.Title id="TitleInputValue">
+									<span asp-validation-for="Title" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="mb-3">
+									<label for="AddressInputValue">Address</label>
+									<input asp-for="Address" type="text" class="form-control" value=@Model.Address id="AddressInputValue">
+									<span asp-validation-for="Address" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="mb-3">
+									<label for="ShortDescriptionInputValue">ShortDescription</label>
+									<textarea asp-for="ShortDescription" type="text" class="form-control" value=@Model.ShortDescription id="ShortDescriptionInputValue"></textarea>
+									<span asp-validation-for="ShortDescription" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="mb-3">
+									<label for="LongDescriptionInputValue">LongDescription</label>
+									<textarea asp-for="LongDescription" type="text" class="form-control" value=@Model.LongDescription id ="LongDescriptionInputValue"></textarea>
+									<span asp-validation-for="LongDescription" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="mb-3">
+									<label for="ThumbnailUrlInputValue">ThumbnailUrl</label>
+									<input asp-for="ThumbnailUrl" type="url" class="form-control" value=@Model.ThumbnailUrl id="ThumbnailUrlInputValue">
+									<span asp-validation-for="ThumbnailUrl" class="text-danger"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="form-group text-end">
+							<input type="submit" value="Submit" class="btn btn-primary" />
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
