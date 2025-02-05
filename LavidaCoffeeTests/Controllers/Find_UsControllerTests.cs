@@ -43,8 +43,12 @@ namespace LavidaCoffeeTests.Controllers
 		public void EventDetails_InvalidId_ReturnsNotFound()
 		{
 			// Arrange
+			var mockEventRepository = RepositoryMocks.GetEventRepository();
+			var find_usController = new Find_UsController(mockEventRepository.Object);
 			// Act
+			var result = find_usController.EventDetails(2147483647);
 			// Assert
+			Assert.IsType<NotFoundResult>(result);
 		}
 	}
 }

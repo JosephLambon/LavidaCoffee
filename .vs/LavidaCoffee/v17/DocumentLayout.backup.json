@@ -15,20 +15,32 @@
       "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\controllers\\find_uscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{898807FD-7938-4292-A0B2-C37036F1ACF0}|LavidaCoffeeTests\\LavidaCoffeeTests.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffeetests\\mocks\\repositorymocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{898807FD-7938-4292-A0B2-C37036F1ACF0}|LavidaCoffeeTests\\LavidaCoffeeTests.csproj|solutionrelative:lavidacoffeetests\\mocks\\repositorymocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\models\\iemailrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\models\\iemailrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\controllers\\contact controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\controllers\\contact controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\models\\eventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\models\\eventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{898807FD-7938-4292-A0B2-C37036F1ACF0}|LavidaCoffeeTests\\LavidaCoffeeTests.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffeetests\\mocks\\repositorymocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{898807FD-7938-4292-A0B2-C37036F1ACF0}|LavidaCoffeeTests\\LavidaCoffeeTests.csproj|solutionrelative:lavidacoffeetests\\mocks\\repositorymocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\models\\iemailrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\models\\iemailrequestrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\models\\ieventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,16 +79,8 @@
       "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\controllers\\contact controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\controllers\\contact controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\viewmodels\\emailrequestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -117,10 +121,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\views\\contact\\requestsent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\views\\contact\\requestsent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|solutionrelative:lavidacoffee\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8E947335-444F-4876-A5FA-7EB799586A54}|LavidaCoffee\\LavidaCoffee.csproj|c:\\users\\lambonj\\source\\repos\\lavidacoffee\\lavidacoffee\\models\\emailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -178,21 +178,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 469,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ContactControllerTests.cs",
-              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\Controllers\\ContactControllerTests.cs",
-              "RelativeDocumentMoniker": "LavidaCoffeeTests\\Controllers\\ContactControllerTests.cs",
-              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\Controllers\\ContactControllerTests.cs",
-              "RelativeToolTip": "LavidaCoffeeTests\\Controllers\\ContactControllerTests.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T16:44:23.832Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -201,40 +188,117 @@
               "RelativeDocumentMoniker": "LavidaCoffeeTests\\Controllers\\Find_UsControllerTests.cs",
               "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\Controllers\\Find_UsControllerTests.cs",
               "RelativeToolTip": "LavidaCoffeeTests\\Controllers\\Find_UsControllerTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-04T16:44:18.496Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\AdminController.cs",
               "RelativeToolTip": "LavidaCoffee\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAIwEkAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-26T12:41:01.86Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RepositoryMocks.cs",
-              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\Mocks\\RepositoryMocks.cs",
-              "RelativeDocumentMoniker": "LavidaCoffeeTests\\Mocks\\RepositoryMocks.cs",
-              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\Mocks\\RepositoryMocks.cs",
-              "RelativeToolTip": "LavidaCoffeeTests\\Mocks\\RepositoryMocks.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIQBAACKAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Find_UsController.cs",
+              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\Find_UsController.cs",
+              "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\Find_UsController.cs",
+              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\Find_UsController.cs",
+              "RelativeToolTip": "LavidaCoffee\\Controllers\\Find_UsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-20T15:27:00.303Z",
+              "WhenOpened": "2025-01-22T10:46:44.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "LavidaCoffee\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T17:11:21.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Contact Controller.cs",
+              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\Contact Controller.cs",
+              "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\Contact Controller.cs",
+              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\Contact Controller.cs",
+              "RelativeToolTip": "LavidaCoffee\\Controllers\\Contact Controller.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T12:42:24.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AboutController.cs",
+              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\AboutController.cs",
+              "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\AboutController.cs",
+              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\AboutController.cs",
+              "RelativeToolTip": "LavidaCoffee\\Controllers\\AboutController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T10:48:31.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ContactControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\Controllers\\ContactControllerTests.cs",
+              "RelativeDocumentMoniker": "LavidaCoffeeTests\\Controllers\\ContactControllerTests.cs",
+              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\Controllers\\ContactControllerTests.cs",
+              "RelativeToolTip": "LavidaCoffeeTests\\Controllers\\ContactControllerTests.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-04T16:44:23.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EventRepository.cs",
+              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\EventRepository.cs",
+              "RelativeDocumentMoniker": "LavidaCoffee\\Models\\EventRepository.cs",
+              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\EventRepository.cs",
+              "RelativeToolTip": "LavidaCoffee\\Models\\EventRepository.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswCQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T17:43:57.613Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "IEmailRequestRepository.cs",
+              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\IEmailRequestRepository.cs",
+              "RelativeDocumentMoniker": "LavidaCoffee\\Models\\IEmailRequestRepository.cs",
+              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\IEmailRequestRepository.cs",
+              "RelativeToolTip": "LavidaCoffee\\Models\\IEmailRequestRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T17:35:22.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Views\\Find_Us\\Index.cshtml",
               "RelativeDocumentMoniker": "LavidaCoffee\\Views\\Find_Us\\Index.cshtml",
@@ -246,45 +310,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IEmailRequestRepository.cs",
-              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\IEmailRequestRepository.cs",
-              "RelativeDocumentMoniker": "LavidaCoffee\\Models\\IEmailRequestRepository.cs",
-              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\IEmailRequestRepository.cs",
-              "RelativeToolTip": "LavidaCoffee\\Models\\IEmailRequestRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "RepositoryMocks.cs",
+              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\Mocks\\RepositoryMocks.cs",
+              "RelativeDocumentMoniker": "LavidaCoffeeTests\\Mocks\\RepositoryMocks.cs",
+              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\Mocks\\RepositoryMocks.cs",
+              "RelativeToolTip": "LavidaCoffeeTests\\Mocks\\RepositoryMocks.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIQBAACKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T17:35:22.642Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-20T15:27:00.303Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Find_UsController.cs",
-              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\Find_UsController.cs",
-              "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\Find_UsController.cs",
-              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\Find_UsController.cs",
-              "RelativeToolTip": "LavidaCoffee\\Controllers\\Find_UsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T10:46:44.038Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EventRepository.cs",
-              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\EventRepository.cs",
-              "RelativeDocumentMoniker": "LavidaCoffee\\Models\\EventRepository.cs",
-              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\EventRepository.cs",
-              "RelativeToolTip": "LavidaCoffee\\Models\\EventRepository.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAiwDgAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-23T17:43:57.613Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "IEventRepository.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\IEventRepository.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\Models\\IEventRepository.cs",
@@ -296,7 +334,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "AdminViewModel.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\ViewModels\\AdminViewModel.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\ViewModels\\AdminViewModel.cs",
@@ -308,7 +346,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "_LoginPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "LavidaCoffee\\Views\\Shared\\_LoginPartial.cshtml",
@@ -320,7 +358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "LavidaCoffee\\Views\\Shared\\_Layout.cshtml",
@@ -332,7 +370,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "LavidaCoffee\\wwwroot\\css\\site.css",
@@ -344,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "EmailRequestController.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\Api\\EmailRequestController.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\Api\\EmailRequestController.cs",
@@ -356,7 +394,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "EventController.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\Api\\EventController.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\Api\\EventController.cs",
@@ -368,7 +406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Views\\About\\Index.cshtml",
               "RelativeDocumentMoniker": "LavidaCoffee\\Views\\About\\Index.cshtml",
@@ -380,19 +418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AboutController.cs",
-              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\AboutController.cs",
-              "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\AboutController.cs",
-              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\AboutController.cs",
-              "RelativeToolTip": "LavidaCoffee\\Controllers\\AboutController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T10:48:31.731Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Program.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\Program.cs",
@@ -404,19 +430,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Contact Controller.cs",
-              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\Contact Controller.cs",
-              "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\Contact Controller.cs",
-              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\Contact Controller.cs",
-              "RelativeToolTip": "LavidaCoffee\\Controllers\\Contact Controller.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T12:42:24.124Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "EmailRequestViewModel.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\ViewModels\\EmailRequestViewModel.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\ViewModels\\EmailRequestViewModel.cs",
@@ -428,7 +442,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "EmailRequest.cshtml",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Views\\Contact\\EmailRequest.cshtml",
               "RelativeDocumentMoniker": "LavidaCoffee\\Views\\Contact\\EmailRequest.cshtml",
@@ -440,7 +454,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "EmailRequestRepository.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\EmailRequestRepository.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\Models\\EmailRequestRepository.cs",
@@ -452,7 +466,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Event.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\Event.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\Models\\Event.cs",
@@ -464,7 +478,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "libman.json",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\libman.json",
               "RelativeDocumentMoniker": "LavidaCoffee\\libman.json",
@@ -476,7 +490,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "DbInitialiser.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\DbInitialiser.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\Models\\DbInitialiser.cs",
@@ -488,7 +502,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "LavidaCoffeeDbContext.cs",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Models\\LavidaCoffeeDbContext.cs",
               "RelativeDocumentMoniker": "LavidaCoffee\\Models\\LavidaCoffeeDbContext.cs",
@@ -500,7 +514,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Views\\Contact\\Index.cshtml",
               "RelativeDocumentMoniker": "LavidaCoffee\\Views\\Contact\\Index.cshtml",
@@ -512,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "LavidaCoffee\\Views\\_ViewImports.cshtml",
@@ -524,7 +538,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "RequestSent.cshtml",
               "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Views\\Contact\\RequestSent.cshtml",
               "RelativeDocumentMoniker": "LavidaCoffee\\Views\\Contact\\RequestSent.cshtml",
@@ -533,18 +547,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-29T16:42:42.47Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "LavidaCoffee\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "LavidaCoffee\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T17:11:21.091Z"
             },
             {
               "$type": "Document",

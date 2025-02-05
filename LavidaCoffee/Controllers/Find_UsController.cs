@@ -19,6 +19,10 @@ namespace LavidaCoffee.Controllers
 		public IActionResult EventDetails(int id)
 		{
 			var selectedEvent = _eventRepository.GetEventById(id);
+			if (selectedEvent == null)
+			{
+				return NotFound();
+			}
 			return View(selectedEvent);
 		}
     }
