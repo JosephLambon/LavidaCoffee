@@ -47,7 +47,7 @@ namespace LavidaCoffee.Controllers
 		}
 		[Authorize(Roles = "Admin")]
 		[HttpPost]
-		public IActionResult AddEvent(Event newEvent)
+		public IActionResult CreateEvent(Event newEvent)
 		{
 			if (ModelState.IsValid)
 			{

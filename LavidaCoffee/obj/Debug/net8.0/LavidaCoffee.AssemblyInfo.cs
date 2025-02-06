@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LavidaCoffee")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca9fc1a2fde86ce5b1ce7460f41e6d92021122f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e303a4a0197cbd3347c8c12a5ea050b60b2ed333")]
 [assembly: System.Reflection.AssemblyProductAttribute("LavidaCoffee")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LavidaCoffee")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

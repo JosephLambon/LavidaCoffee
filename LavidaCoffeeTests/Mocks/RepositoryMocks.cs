@@ -387,6 +387,10 @@ namespace LavidaCoffeeTests.Mocks
 			var mockEventRepository = new Mock<IEventRepository>();
 			mockEventRepository.Setup(repo => repo.AllEvents).Returns(events.ToList);
 			mockEventRepository.Setup(repo => repo.GetEventById(It.IsAny<int>())).Returns((int id) => events.FirstOrDefault(e => e.EventId == id));
+
+			mockEventRepository.Setup(repo => repo.DeleteEvent(It.IsAny<Event>())).Callback<Event>(e => events.Remove(e));
+
+			mockEventRepository.Setup(repo => repo.CreateEvent(It.IsAny<Event>())).Callback<Event>(e => events.Add(e));
 			return mockEventRepository;
 		}
 	}
