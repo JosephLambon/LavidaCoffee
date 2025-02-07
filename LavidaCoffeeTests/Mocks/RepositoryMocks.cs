@@ -264,7 +264,7 @@ namespace LavidaCoffeeTests.Mocks
 				{
 					EventId = 1,
 					Title = "Cookielicious",
-					Date = DateTime.Now,
+					Date = DateTime.Now.AddDays(-7),
 					Address = "1 Cookie Lane, Sugar County",
 					ShortDescription = "Join us in trying delicious fresh cookies!",
 					LongDescription = "We'll be joining Cookielicious for their bake sale day, taste testing all the cookies in their new range. Come with us!",
