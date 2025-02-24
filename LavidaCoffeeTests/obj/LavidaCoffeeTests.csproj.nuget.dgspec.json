@@ -1,115 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\LavidaCoffeeTests.csproj": {}
+    "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffeeTests/LavidaCoffeeTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\LavidaCoffeeTests.csproj": {
+    "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/LavidaCoffee.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\LavidaCoffeeTests.csproj",
-        "projectName": "LavidaCoffeeTests",
-        "projectPath": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\LavidaCoffeeTests.csproj",
-        "packagesPath": "C:\\Users\\lambonj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffeeTests\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\lambonj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\LavidaCoffee.csproj": {
-                "projectPath": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\LavidaCoffee.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.NET.Test.Sdk": {
-              "target": "Package",
-              "version": "[17.8.0, )"
-            },
-            "Moq": {
-              "target": "Package",
-              "version": "[4.20.72, )"
-            },
-            "coverlet.collector": {
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "xunit": {
-              "target": "Package",
-              "version": "[2.5.3, )"
-            },
-            "xunit.runner.visualstudio": {
-              "target": "Package",
-              "version": "[2.5.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\LavidaCoffee.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\LavidaCoffee.csproj",
+        "projectUniqueName": "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/LavidaCoffee.csproj",
         "projectName": "LavidaCoffee",
-        "projectPath": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\LavidaCoffee.csproj",
-        "packagesPath": "C:\\Users\\lambonj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lambonj\\source\\repos\\LavidaCoffee\\LavidaCoffee\\obj\\",
+        "projectPath": "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/LavidaCoffee.csproj",
+        "packagesPath": "/Users/joelambon/.nuget/packages/",
+        "outputPath": "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lambonj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/joelambon/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -187,7 +97,91 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.402/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffeeTests/LavidaCoffeeTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffeeTests/LavidaCoffeeTests.csproj",
+        "projectName": "LavidaCoffeeTests",
+        "projectPath": "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffeeTests/LavidaCoffeeTests.csproj",
+        "packagesPath": "/Users/joelambon/.nuget/packages/",
+        "outputPath": "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffeeTests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/joelambon/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/LavidaCoffee.csproj": {
+                "projectPath": "/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/LavidaCoffee.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.402/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
