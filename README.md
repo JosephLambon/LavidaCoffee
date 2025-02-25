@@ -13,3 +13,5 @@ Having completed the '_ASP.NET Core Fundamentals_' and '_C# Fundamentals_' cours
   <img width="1301" alt="thumbnail" style="border-radius:25px;" src="https://github.com/user-attachments/assets/f9112688-b23d-4262-adf8-825710c2b6fd" />
 </a>
 
+
+[![Video Title](https://github.com/user-attachments/assets/f9112688-b23d-4262-adf8-825710c2b6fd)](https://youtu.be/tI515KXL6mY)
