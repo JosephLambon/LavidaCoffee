@@ -1,11 +1,6 @@
 # Lavida Coffee
 >### An MVC based web application for a mobile coffee business, built using C# and ASP.NET
 
-## Contents
-1. [Context](#context)
-2. [Features](#features)
-3. [Demo](#demo)
-
 ## <a id='context'> Context </a>
 Having completed the '_ASP.NET Core Fundamentals_' and '_C# Fundamentals_' courses on Pluralsight, I **created this site for a friend's startup mobile coffee business** to consolidate my learning.
 
