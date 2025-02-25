@@ -7,12 +7,12 @@
 3. [Demo](#demo)
 
 ## <a id='context'> Context </a>
-Having completed the '_ASP.NET Core Fundamentals_' and '_C# Fundamentals_' courses on Pluralsight, I created this site for a friend's startup mobile coffee business to consolidate my learning.
+Having completed the '_ASP.NET Core Fundamentals_' and '_C# Fundamentals_' courses on Pluralsight, I **created this site for a friend's startup mobile coffee business** to consolidate my learning.
 
 ## <a id='features'> Features </a>
-- Admin able to add/edit/delete events and/or view paginated email requests via the admin-exclusive database page
-- APIs that return details of events and email requests, accessible only to the admin
-- Dynamic rendering of 'Upcoming events' on the 'Find us' page
+- **Admin able to add/edit/delete events** and/or **view paginated email requests** via the admin-exclusive database page
+- **APIs** that return details of events and email requests, accessible only to the admin
+- **Dynamic rendering** of 'Upcoming events' on the 'Find us' page
 
 ## <a id='demo'> Demo </a>
 <a href='https://youtu.be/tI515KXL6mY'>
