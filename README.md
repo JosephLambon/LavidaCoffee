@@ -1,5 +1,5 @@
 # Lavida Coffee
->### An MVC web application, built for a mobile coffee business using C# and ASP.NET
+>### An MVC based web application for a mobile coffee business, built using C# and ASP.NET
 
 ## Contents
 1. [Context](#context)
