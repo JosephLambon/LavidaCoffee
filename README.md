@@ -15,7 +15,8 @@ Having completed the '_ASP.NET Core Fundamentals_' and '_C# Fundamentals_' cours
 - Dynamic rendering of 'Upcoming events' on the 'Find us' page
 
 ## <a id='demo'> Demo </a>
-
 <a href='https://youtu.be/tI515KXL6mY'>
-  <img width="1301" alt="thumbnail" style="border-radius:10%;" src="https://github.com/user-attachments/assets/f9112688-b23d-4262-adf8-825710c2b6fd" />
+    <img width="1301" alt="thumbnail" src="https://github.com/user-attachments/assets/43748968-8b04-43ec-8db6-899ae0f2b6ea" />
 </a>
+
+
