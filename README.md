@@ -1,5 +1,5 @@
 # Lavida Coffee
->### (CS50W) An ASP.NET and C# MVC web application, built for a mobile coffee business
+>### An ASP.NET and C# MVC web application, built for a mobile coffee business
 
 ## Contents
 1. [Context](#context)
