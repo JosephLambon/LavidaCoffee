@@ -6,7 +6,7 @@ namespace LavidaCoffee.ViewModels
 	public class AdminViewModel
 	{
 		public IEnumerable<Event> Events { get; }
-		public List<EmailRequest> EmailRequests { get; }
+		public IEnumerable<EmailRequest> EmailRequests { get; }
 		[Required]
 		public DateTime Date { get; set; }
 		[Required]
@@ -30,7 +30,7 @@ namespace LavidaCoffee.ViewModels
             EmailRequests = new List<EmailRequest>();
         }
 
-        public AdminViewModel(IEnumerable<Event> events, List<EmailRequest> emailRequests)
+        public AdminViewModel(IEnumerable<Event> events, IEnumerable<EmailRequest> emailRequests)
         {
             Events = events;
             EmailRequests = emailRequests;

@@ -17,12 +17,12 @@ namespace LavidaCoffee.Controllers.Api
 		{
 			_emailRequestRepository = emailRequestRepository;
 		}
-		[Authorize(Roles = "Admin")]
+		// [Authorize(Roles = "Admin")]
 		[HttpGet("{page}")]
-		public IActionResult Get(int page = 1)
+		public async Task<IActionResult> Get(int page = 1)
 		{
-			List<EmailRequest> emailRequests = _emailRequestRepository.AllEmailRequests();
-			int total = emailRequests.Count;
+			IEnumerable<EmailRequest> emailRequests = await _emailRequestRepository.GetAllEmailRequestsAsync();
+			int total = emailRequests.Count();
 			int pageSize = 10;
 			var numberPages = (int)Math.Ceiling((decimal)total / pageSize);
 			var requestsPerPage = emailRequests
@@ -33,7 +33,7 @@ namespace LavidaCoffee.Controllers.Api
 			return Ok(requestsPerPage);
 		}
 
-		[Authorize(Roles = "Admin")]
+		// [Authorize(Roles = "Admin")]
 		[HttpPost]
 		public IActionResult requestsForCurrentPage([FromBody] int page)
 		{

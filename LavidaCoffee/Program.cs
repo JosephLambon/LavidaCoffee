@@ -19,7 +19,7 @@ namespace LavidaCoffee
 
             builder.Services.AddDbContext<LavidaCoffeeDbContext>(options =>
             {
-                options.UseSqlServer(
+                options.UseSqlite(
                         builder.Configuration["ConnectionStrings:LavidaCoffeeDbContextConnection"]);
             });
 

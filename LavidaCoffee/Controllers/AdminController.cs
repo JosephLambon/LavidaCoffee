@@ -20,9 +20,9 @@ namespace LavidaCoffee.Controllers
 
 
 		[Authorize(Roles = "Admin")]
-		public IActionResult Index()
+		public async Task<IActionResult> Index()
 		{
-			List<EmailRequest> emailRequests = _emailRequestRepository.AllEmailRequests();
+			IEnumerable<EmailRequest> emailRequests = await _emailRequestRepository.GetAllEmailRequestsAsync();
 			IEnumerable<Event> upcomingEvents = _eventRepository.AllEvents.Where(e => e.Date > DateTime.Today);
 
 			if(!TempData.IsNullOrEmpty())

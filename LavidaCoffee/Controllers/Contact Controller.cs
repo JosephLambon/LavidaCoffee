@@ -19,9 +19,9 @@ namespace LavidaCoffee.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult EmailRequest(int id)
+        public async Task<IActionResult> EmailRequest(int id)
         {
-            var emailRequest = _emailRequestRepository.GetEmailRequestById(id);
+            var emailRequest = await _emailRequestRepository.GetEmailRequestByIdAsync(id);
 
             if (emailRequest == null)
             {

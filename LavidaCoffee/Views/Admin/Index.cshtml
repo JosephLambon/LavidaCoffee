@@ -6,7 +6,7 @@
 @model AdminViewModel
 
 @{
-	decimal pages = (decimal)Model.EmailRequests.Count / 10;
+	decimal pages = (decimal)Model.EmailRequests.Count() / 10;
 }
 
 @if(User.IsInRole("Admin"))
