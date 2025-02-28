@@ -6,8 +6,8 @@ namespace LavidaCoffee.Models
         Task<IEnumerable<Event>> GetAllEventsAsync();
         Task<IEnumerable<Event>> GetUpcomingEventsAsync();
         Task<Event?> GetEventByIdAsync(int id);
-        void CreateEvent(Event new_event);
-        void DeleteEvent(Event target_event);
-        void UpdateEvent(Event updated_event);
+        Task CreateEventAsync(Event new_event);
+        Task DeleteEventAsync(Event target_event);
+        Task UpdateEventAsync(Event updated_event);
     } 
 }

@@ -68,7 +68,7 @@ namespace LavidaCoffeeTests.Controllers
 			var contactController = new ContactController(mockEmailRequestRepository.Object);
 
 			// Act
-			var result = contactController.SendRequest(null);
+			var result = contactController.SendEmail(null);
 
 			// Assert
 			var viewResult = Assert.IsType<RedirectToActionResult>(result);
@@ -85,7 +85,7 @@ namespace LavidaCoffeeTests.Controllers
 			var contactController = new ContactController(mockEmailRequestRepository.Object);
 
 			// Act
-			var result = contactController.SendRequest(mockEmailRequestRepository.Object.GetEmailRequestById(1).Email);
+			var result = contactController.SendEmail(mockEmailRequestRepository.Object.GetEmailRequestById(1).Email);
 
 			// Assert
 			var redirectToActionResult = Assert.IsType<RedirectToActionResult>(result);

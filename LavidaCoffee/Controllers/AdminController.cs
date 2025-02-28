@@ -38,7 +38,7 @@ namespace LavidaCoffee.Controllers
 			try
 			{
 				var targetEvent = await _eventRepository.GetEventByIdAsync(id);
-				_eventRepository.DeleteEvent(targetEvent);
+				await _eventRepository.DeleteEventAsync(targetEvent);
 			}
 			catch(Exception ex)
 			{
@@ -48,11 +48,11 @@ namespace LavidaCoffee.Controllers
 		}
 		[Authorize(Roles = "Admin")]
 		[HttpPost]
-		public IActionResult CreateEvent(Event newEvent)
+		public async Task<IActionResult> CreateEvent(Event newEvent)
 		{
 			if (ModelState.IsValid)
 			{
-				_eventRepository.CreateEvent(newEvent);
+				await _eventRepository.CreateEventAsync(newEvent);
 			}
             return RedirectToAction("Index");
         }
@@ -72,7 +72,7 @@ namespace LavidaCoffee.Controllers
 				existingEvent.ThumbnailUrl = updatedEventDetails.ThumbnailUrl;
 				existingEvent.ImageUrl = updatedEventDetails.ImageUrl;
 
-				_eventRepository.UpdateEvent(existingEvent);
+				await _eventRepository.UpdateEventAsync(existingEvent);
 
 			}
 			return RedirectToAction("EventDetails", "Find_Us", new { id = existingEvent.EventId });

@@ -37,7 +37,7 @@ namespace LavidaCoffee.Controllers
         }
 
         [HttpPost]
-        public IActionResult SendRequest(Email email)
+        public async Task<IActionResult> SendEmail(Email email)
         {            
             if (email == null || email.Subject == "")
             {
@@ -45,7 +45,7 @@ namespace LavidaCoffee.Controllers
             }
 
             // Valid form 
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 var emailRequest = new Email
                 {
@@ -54,7 +54,7 @@ namespace LavidaCoffee.Controllers
                     Subject = email.Subject,
                     Body = email.Body,
                 };
-                _emailRepository.CreateEmailRequest(emailRequest);
+                await _emailRepository.CreateEmailRequestAsync(emailRequest);
                 return RedirectToAction("RequestSent");
             }
 

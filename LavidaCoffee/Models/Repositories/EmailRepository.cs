@@ -25,10 +25,10 @@ namespace LavidaCoffee.Models
 				.FirstOrDefaultAsync(e => e.EmailId == emailRequestId);
         }
 
-        public void CreateEmailRequest(Email email)
+        public async Task CreateEmailRequestAsync(Email email)
         {
-            _lavidaCoffeeDbContext.Emails.Add(email);
-            _lavidaCoffeeDbContext.SaveChanges();
+            await _lavidaCoffeeDbContext.Emails.AddAsync(email);
+            await _lavidaCoffeeDbContext.SaveChangesAsync();
 		}
 
 		public IEnumerable<Email> requestsForCurrentPage(int page)

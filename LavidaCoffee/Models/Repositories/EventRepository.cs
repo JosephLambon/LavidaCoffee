@@ -46,22 +46,22 @@ namespace LavidaCoffee.Models
             return null;
         }
 
-        public void CreateEvent(Event new_event)
+        public async Task CreateEventAsync(Event new_event)
         {
-            _lavidaCoffeeDbContext.Events.Add(new_event);
-            _lavidaCoffeeDbContext.SaveChanges();
+            await _lavidaCoffeeDbContext.Events.AddAsync(new_event);
+            await _lavidaCoffeeDbContext.SaveChangesAsync();
         }
 
-        public void DeleteEvent(Event target_event)
+        public async Task DeleteEventAsync(Event target_event)
         {
             _lavidaCoffeeDbContext.Events.Remove(target_event);
-            _lavidaCoffeeDbContext.SaveChanges();
+            await _lavidaCoffeeDbContext.SaveChangesAsync();
         }
 
-        public void UpdateEvent(Event updated_event)
+        public async Task UpdateEventAsync(Event updated_event)
         {
             _lavidaCoffeeDbContext.Events.Update(updated_event);
-            _lavidaCoffeeDbContext.SaveChanges();
+            await _lavidaCoffeeDbContext.SaveChangesAsync();
         }
     }
 }
