@@ -5,35 +5,16 @@ namespace LavidaCoffee.ViewModels
 {
 	public class AdminViewModel
 	{
-		public IEnumerable<Event> Events { get; }
-		public IEnumerable<Email> EmailRequests { get; }
-		[Required]
-		public DateTime Date { get; set; }
-		[Required]
-		public	string Title { get; set; }
-		[Required]
-		public string? ShortDescription { get; set; }
-		[Required]
-		public string? LongDescription { get; set; }
-		[Required]
-		public string Address { get; set; }
-		[Required]
-		public string? ImageUrl { get; set; }
-		[Required]
-		public string? ThumbnailUrl { get; set; }
+		public List<Event>? Events { get; set; }
+		public List<Email>? Emails { get; set; }
 
-		// Parameterless constructor allows for model binding on form submission
-		// AddEvent method needs to first instantiate an empty AdminViewModel
-        public AdminViewModel()
-        {
-            Events = new List<Event>();
-            EmailRequests = new List<Email>();
-        }
-
-        public AdminViewModel(IEnumerable<Event> events, IEnumerable<Email> emailRequests)
-        {
-            Events = events;
-            EmailRequests = emailRequests;
-        }
-    }
+		public Event newEvent = new Event
+		{
+			Date = DateTime.Now,
+			Title = string.Empty,
+			Address = string.Empty,
+			ShortDescription = string.Empty,
+			LongDescription = string.Empty
+		};
+	}
 }

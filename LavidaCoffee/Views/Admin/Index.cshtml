@@ -6,7 +6,7 @@
 @model AdminViewModel
 
 @{
-	decimal pages = (decimal)Model.EmailRequests.Count() / 10;
+	decimal pages = (decimal)Model.Emails.Count / 10;
 }
 
 @if(User.IsInRole("Admin"))
@@ -20,7 +20,7 @@
 					Select data
 				</button>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" id="emailRequestDropdownItem">EmailRequests</a></li>
+					<li><a class="dropdown-item" id="emailRequestDropdownItem">Emails</a></li>
 					<li><a class="dropdown-item" id="eventDropdownItem">Events</a></li>
 				</ul>
 			</div>
@@ -40,7 +40,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				@foreach(var email in Model.EmailRequests)
+				@foreach(var email in Model.Emails)
 				{
 						if(email.EmailId <= 10)
 						{
@@ -99,43 +99,43 @@
 											<div class="form-group">
 												<div class="mb-3">
 													<label for="DateInputValue">Date</label>
-													<input asp-for="Date" type="datetime-local" class="form-control" id="DateInputValue" value="" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")">
-													<span asp-validation-for="Date" class="text-danger"></span>
+													<input asp-for=@Model.newEvent.Date type="datetime-local" class="form-control" id="DateInputValue" value="" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")">
+													<span asp-validation-for=@Model.newEvent.Date class="text-danger"></span>
 												</div>
 											</div>
 											<div class="form-group">
 												<div class="mb-3">
 													<label for="TitleInputValue">Title</label>
-													<input asp-for="Title" type="text" class="form-control" id="TitleInputValue">
-													<span asp-validation-for="Title" class="text-danger"></span>
+													<input asp-for=@Model.newEvent.Title type="text" class="form-control" id="TitleInputValue">
+													<span asp-validation-for=@Model.newEvent.Title class="text-danger"></span>
 												</div>
 											</div>
 											<div class="form-group">
 												<div class="mb-3">
 													<label for="AddressInputValue">Address</label>
-													<input asp-for="Address" type="text" class="form-control" id="AddressInputValue">
-													<span asp-validation-for="Address" class="text-danger"></span>
+													<input asp-for=@Model.newEvent.Address type="text" class="form-control" id="AddressInputValue">
+													<span asp-validation-for=@Model.newEvent.Address class="text-danger"></span>
 												</div>
 											</div>
 											<div class="form-group">
 												<div class="mb-3">
 													<label for="ShortDescriptionInputValue">ShortDescription</label>
-													<textarea asp-for="ShortDescription" type="text" class="form-control" id="ShortDescriptionInputValue"></textarea>
-													<span asp-validation-for="ShortDescription" class="text-danger"></span>
+													<textarea asp-for=@Model.newEvent.ShortDescription type="text" class="form-control" id="ShortDescriptionInputValue"></textarea>
+													<span asp-validation-for=@Model.newEvent.ShortDescription class="text-danger"></span>
 												</div>
 											</div>
 											<div class="form-group">
 												<div class="mb-3">
 													<label for="LongDescriptionInputValue">LongDescription</label>
-													<textarea asp-for="LongDescription" type="text" class="form-control" id="LongDescriptionInputValue"></textarea>
-													<span asp-validation-for="LongDescription" class="text-danger"></span>
+													<textarea asp-for=@Model.newEvent.LongDescription type="text" class="form-control" id="LongDescriptionInputValue"></textarea>
+													<span asp-validation-for=@Model.newEvent.LongDescription class="text-danger"></span>
 												</div>
 											</div>
 											<div class="form-group">
 												<div class="mb-3">
 													<label for="ThumbnailUrlInputValue">ThumbnailUrl</label>
-													<input asp-for="ThumbnailUrl" type="url" class="form-control" id="ThumbnailUrlInputValue">
-													<span asp-validation-for="ThumbnailUrl" class="text-danger"></span>
+													<input asp-for=@Model.newEvent.ThumbnailUrl type="url" class="form-control" id="ThumbnailUrlInputValue">
+													<span asp-validation-for=@Model.newEvent.ThumbnailUrl class="text-danger"></span>
 												</div>
 											</div>
 									</div>
@@ -162,7 +162,6 @@
 				<tbody>
 				@foreach(var upcomingEvent in Model.Events)
 				{
-						
 							<tr>
 									<th scope="row">@upcomingEvent.EventId</th>
 							<td><a asp-controller="Find_Us" asp-action="EventDetails" asp-route-id="@upcomingEvent.EventId" class="link-underline-primary" style="color:#0d6efd;">@upcomingEvent.Title</a></td>
@@ -197,20 +196,21 @@ else
 			$("table tbody").html("");
 			$.ajax({
 				type: "POST",
-				url: "/api/EmailRequest",
+				url: "/api/Email",
 				data: "\"" + page + "\"",
 				contentType: "application/json; charset=utf-8",
 				dataType: "json",
 				success: function (emailRequests) {
+					console.log(emailRequests);
 					var table = $("#tblEmailRequests");
 					var tbody = table.find("tbody")
 					tbody.find("tr:not(:first)").remove();
 					$.each(emailRequests, function (i, emailRequest) {
 						var appendElement = $("<tr>");
-						appendElement.append($("<th scope='row'>").html(emailRequest.emailRequestId));
-						appendElement.append($("<td>").html(emailRequest.email.customerEmail));
-						appendElement.append($("<td>").html(emailRequest.email.subject));
-						appendElement.append($("<td>").html(emailRequest.email.body));
+						appendElement.append($("<th scope='row'>").html(emailRequest.emailId));
+						appendElement.append($("<td>").html(emailRequest.customerEmail));
+						appendElement.append($("<td>").html(emailRequest.subject));
+						appendElement.append($("<td>").html(emailRequest.body));
 						tbody.append(appendElement);
 					});
 				},

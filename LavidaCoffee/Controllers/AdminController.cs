@@ -22,10 +22,13 @@ namespace LavidaCoffee.Controllers
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Index()
 		{
-			IEnumerable<Email> emailRequests = await _emailRepository.GetAllEmailRequestsAsync();
-			IEnumerable<Event> upcomingEvents = await _eventRepository.GetUpcomingEventsAsync();
+			AdminViewModel model = new()
+			{
+				Events = (await _eventRepository.GetAllEventsAsync()).ToList(),
+				Emails = (await _emailRepository.GetAllEmailRequestsAsync()).ToList()
+			};
 
-			return View(new AdminViewModel(upcomingEvents, emailRequests));
+			return View(model);
 		}
 
 		[Authorize(Roles = "Admin")]
