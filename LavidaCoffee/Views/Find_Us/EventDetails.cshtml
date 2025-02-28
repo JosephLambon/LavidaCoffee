@@ -1,4 +1,4 @@
-﻿@model Event
+﻿@model Find_UsEventDetailsViewModel
 
 <div class="flex-grow-1 skin-bg p-3">
 	<div class="row">
@@ -7,7 +7,7 @@
 				<ol class="breadcrumb ms-2">
 					<li class="breadcrumb-item link-primary link-offset-1"><a asp-controller="Find_Us" asp-action="Index"> Find us </a></li>
 					<li class="breadcrumb-item link-primary link-offset-1"><a asp-controller="Find_Us" asp-action="Index" asp-fragment="upcoming_events"> Upcoming events </a></li>
-					<li class="breadcrumb-item active" aria-current="page">@Model.EventId</li>
+					<li class="breadcrumb-item active" aria-current="page">@Model.Event.EventId</li>
 				</ol>
 			</nav>
 		</div>
@@ -23,14 +23,14 @@
 	
 	<div class="card skin-bg">
 		<div class="card-body m-3 mb-0">
-			<h1 class="card-title">@Model.Title</h1>
-			<h3>@Model.Date</h3>
-			<h5><i>@Model.Address</i></h5>
+			<h1 class="card-title">@Model.Event.Title</h1>
+			<h3>@Model.Event.Date</h3>
+			<h5><i>@Model.Event.Address</i></h5>
 			<hr />
-			<p class="card-text mt-5">@Model.LongDescription</p>
+			<p class="card-text mt-5">@Model.Event.LongDescription</p>
 		</div>
 		<div class="tileImage p-2 pt-0 m-md-3">
-			<img src="@Model.ThumbnailUrl" class="card-img-top img-fluid fixed-height-img" style="height: 500px !important;" />
+			<img src="@Model.Event.ThumbnailUrl" class="card-img-top img-fluid fixed-height-img" style="height: 500px !important;" />
 		</div>
 	</div>
 	
@@ -49,50 +49,50 @@
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="EventIdInputValue">EventId</label>
-									<input asp-for="EventId" type="number" class="form-control" value="@Model.EventId" id="EventIdInputValue" style="color:dimgrey;" readonly>
-									<span asp-validation-for="EventId" class="text-danger"></span>
+									<input asp-for=@Model.Event.EventId type="number" class="form-control" value=@Model.Event.EventId id="EventIdInputValue" style="color:dimgrey;" readonly>
+									<span asp-validation-for=@Model.Event.EventId class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="DateInputValue">Date</label>
-									<input asp-for="Date" class="form-control" id="DateInputValue" value="@Model.Date" >
-									<span asp-validation-for="Date" class="text-danger"></span>
+									<input asp-for=@Model.Event.Date class="form-control" id="DateInputValue" value=@Model.Event.Date >
+									<span asp-validation-for=@Model.Event.Date class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="TitleInputValue">Title</label>
-									<input asp-for="Title" type="text" class="form-control" value=@Model.Title id="TitleInputValue">
-									<span asp-validation-for="Title" class="text-danger"></span>
+									<input asp-for=@Model.Event.Title type="text" class="form-control" value=@Model.Event.Title id="TitleInputValue">
+									<span asp-validation-for=@Model.Event.Title class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="AddressInputValue">Address</label>
-									<input asp-for="Address" type="text" class="form-control" value=@Model.Address id="AddressInputValue">
-									<span asp-validation-for="Address" class="text-danger"></span>
+									<input asp-for=@Model.Event.Address type="text" class="form-control" value=@Model.Event.Address id="AddressInputValue">
+									<span asp-validation-for=@Model.Event.Address class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="ShortDescriptionInputValue">ShortDescription</label>
-									<textarea asp-for="ShortDescription" type="text" class="form-control" value=@Model.ShortDescription id="ShortDescriptionInputValue"></textarea>
-									<span asp-validation-for="ShortDescription" class="text-danger"></span>
+									<textarea asp-for=@Model.Event.ShortDescription type="text" class="form-control" value=@Model.Event.ShortDescription id="ShortDescriptionInputValue"></textarea>
+									<span asp-validation-for=@Model.Event.ShortDescription class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="LongDescriptionInputValue">LongDescription</label>
-									<textarea asp-for="LongDescription" type="text" class="form-control" value=@Model.LongDescription id ="LongDescriptionInputValue"></textarea>
-									<span asp-validation-for="LongDescription" class="text-danger"></span>
+									<textarea asp-for=@Model.Event.LongDescription type="text" class="form-control" value=@Model.Event.LongDescription id ="LongDescriptionInputValue"></textarea>
+									<span asp-validation-for=@Model.Event.LongDescription class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="ThumbnailUrlInputValue">ThumbnailUrl</label>
-									<input asp-for="ThumbnailUrl" type="url" class="form-control" value=@Model.ThumbnailUrl id="ThumbnailUrlInputValue">
-									<span asp-validation-for="ThumbnailUrl" class="text-danger"></span>
+									<input asp-for=@Model.Event.ThumbnailUrl type="url" class="form-control" value=@Model.Event.ThumbnailUrl id="ThumbnailUrlInputValue">
+									<span asp-validation-for=@Model.Event.ThumbnailUrl class="text-danger"></span>
 								</div>
 							</div>
 						</div>

@@ -1,4 +1,5 @@
-﻿
+﻿@model Find_UsIndexViewModel
+
 <div class="m-3 m-md-5">
 	<div class="text-center">
 		<div class="p-4" id="hq">
@@ -31,7 +32,7 @@
 		<div class="p-4 mt-0 mt-md-4" id="upcoming_events">
 			<h1 class="maroon-bg rounded-2 p-1 mb-4">Upcoming events</h1>
 			<div class="row row-cols-1 row-cols-md-3 g-3">
-				@foreach(var upcomingEvent in Model)
+				@foreach(var upcomingEvent in Model.Events)
 				{
 					<a asp-controller="Find_Us" asp-action="EventDetails" asp-route-id="@upcomingEvent.EventId" class="link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover">
 						<div class="col">

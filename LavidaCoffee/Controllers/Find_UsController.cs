@@ -1,4 +1,5 @@
 ﻿using LavidaCoffee.Models;
+using LavidaCoffee.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LavidaCoffee.Controllers
@@ -12,18 +13,20 @@ namespace LavidaCoffee.Controllers
 		}
         public async Task<IActionResult> Index()
         {
-			var upcomingEvents = await _eventRepository.GetAllEventsAsync();
-			return View(upcomingEvents);
+	        Find_UsIndexViewModel model = new()
+	        {
+		        Events = (await _eventRepository.GetUpcomingEventsAsync()).ToList()
+	        };
+			return View(model);
         }
 
 		public async Task<IActionResult> EventDetails(int id)
 		{
-			var selectedEvent = await _eventRepository.GetEventByIdAsync(id);
-			if (selectedEvent == null)
+			Find_UsEventDetailsViewModel model = new()
 			{
-				return NotFound();
-			}
-			return View(selectedEvent);
+				Event = await _eventRepository.GetEventByIdAsync(id)
+			};
+			return View(model);
 		}
     }
 }
