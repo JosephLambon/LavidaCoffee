@@ -42,13 +42,13 @@
 				<tbody>
 				@foreach(var email in Model.EmailRequests)
 				{
-						if(email.EmailRequestId <= 10)
+						if(email.EmailId <= 10)
 						{
 							<tr>
-								<th scope="row">@email.EmailRequestId</th>
-								<td>@email.Email.CustomerEmail</td>
-								<td>@email.Email.Subject</td>
-								<td>@email.Email.Body</td>
+								<th scope="row">@email.EmailId</th>
+								<td>@email.CustomerEmail</td>
+								<td>@email.Subject</td>
+								<td>@email.Body</td>
 							</tr>
 						}
 				}

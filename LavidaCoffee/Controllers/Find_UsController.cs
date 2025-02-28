@@ -10,15 +10,15 @@ namespace LavidaCoffee.Controllers
 		{
 			_eventRepository = eventRepository;
 		}
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-			IEnumerable<Event> upcomingEvents = _eventRepository.AllEvents.Where(e => e.Date > DateTime.Today).OrderBy(e=>e.Date);
+			var upcomingEvents = await _eventRepository.GetAllEventsAsync();
 			return View(upcomingEvents);
         }
 
-		public IActionResult EventDetails(int id)
+		public async Task<IActionResult> EventDetails(int id)
 		{
-			var selectedEvent = _eventRepository.GetEventById(id);
+			var selectedEvent = await _eventRepository.GetEventByIdAsync(id);
 			if (selectedEvent == null)
 			{
 				return NotFound();

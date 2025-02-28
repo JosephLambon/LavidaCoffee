@@ -9,19 +9,19 @@ namespace LavidaCoffee.Controllers.Api
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class EmailRequestController : ControllerBase
+	public class EmailController : ControllerBase
 	{
-		private readonly IEmailRequestRepository _emailRequestRepository;
+		private readonly IEmailRepository _emailRepository;
 
-		public EmailRequestController(IEmailRequestRepository emailRequestRepository)
+		public EmailController(IEmailRepository emailRepository)
 		{
-			_emailRequestRepository = emailRequestRepository;
+			_emailRepository = emailRepository;
 		}
 		// [Authorize(Roles = "Admin")]
 		[HttpGet("{page}")]
 		public async Task<IActionResult> Get(int page = 1)
 		{
-			IEnumerable<EmailRequest> emailRequests = await _emailRequestRepository.GetAllEmailRequestsAsync();
+			IEnumerable<Email> emailRequests = await _emailRepository.GetAllEmailRequestsAsync();
 			int total = emailRequests.Count();
 			int pageSize = 10;
 			var numberPages = (int)Math.Ceiling((decimal)total / pageSize);
@@ -37,11 +37,11 @@ namespace LavidaCoffee.Controllers.Api
 		[HttpPost]
 		public IActionResult requestsForCurrentPage([FromBody] int page)
 		{
-			IEnumerable<EmailRequest> requests = new List<EmailRequest>();
+			IEnumerable<Email> requests = new List<Email>();
 
 			if(int.IsPositive(page))
 			{
-				requests = _emailRequestRepository.requestsForCurrentPage(page);
+				requests = _emailRepository.requestsForCurrentPage(page);
 			}
 
 			return new JsonResult(requests);

@@ -13,16 +13,31 @@ namespace LavidaCoffee.Controllers.Api
 			_eventRepository = eventRepository;
 		}
 		[HttpGet]
-		public IActionResult AllEvents()
+		public async Task<IActionResult> AllEvents()
 		{
-			var allEvents = _eventRepository.AllEvents.Where(e => e.Title != null);
-			return Ok(allEvents);
+			try
+			{
+				var allEvents = await _eventRepository.GetAllEventsAsync();
+				return Ok(allEvents);
+			}
+			catch (Exception ex)
+			{
+				return NotFound(ex.Message);
+			}
 		}
 		[HttpPost]
-		public IActionResult UpcomingEvents()
+		public async Task<IActionResult> UpcomingEvents()
 		{
-			IEnumerable<Event> allEvents = _eventRepository.AllEvents.Where(e => e.Date > DateTime.Now);
-			return new JsonResult(allEvents);
+			try
+			{
+				IEnumerable<Event> allEvents = await _eventRepository.GetUpcomingEventsAsync();
+				return new JsonResult(allEvents);
+			}
+			catch (Exception ex)
+			{
+				return NotFound(ex.Message);
+			}
+			
 		}
 	}
 }

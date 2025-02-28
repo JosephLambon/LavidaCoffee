@@ -14,7 +14,7 @@ namespace LavidaCoffee
             var connectionString = builder.Configuration.GetConnectionString("LavidaCoffeeDbContextConnection") ?? throw new InvalidOperationException("Connection string 'LavidaCoffeeDbContextConnection' not found.");
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddScoped<IEmailRequestRepository, EmailRequestRepository>();
+            builder.Services.AddScoped<IEmailRepository, EmailRepository>();
             builder.Services.AddScoped<IEventRepository, EventRepository>();
 
             builder.Services.AddDbContext<LavidaCoffeeDbContext>(options =>

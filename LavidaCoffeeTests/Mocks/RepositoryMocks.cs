@@ -14,7 +14,7 @@ namespace LavidaCoffeeTests.Mocks
 {
 	internal class RepositoryMocks
 	{
-		public static Mock<IEmailRequestRepository> GetEmailRequestRepository()
+		public static Mock<IEmailRepository> GetEmailRequestRepository()
 		{
 			var emailRequests = new List<EmailRequest>
 			{
@@ -250,7 +250,7 @@ namespace LavidaCoffeeTests.Mocks
 				}
 			};
 
-			var mockEmailRequestRepository = new Mock<IEmailRequestRepository>();
+			var mockEmailRequestRepository = new Mock<IEmailRepository>();
 			mockEmailRequestRepository.Setup(repo => repo.AllEmailRequests()).Returns(emailRequests.ToList);
 			mockEmailRequestRepository.Setup(repo => repo.GetEmailRequestById(It.IsAny<int>())).Returns((int id) => emailRequests.FirstOrDefault(e => e.EmailRequestId == id));
 			return mockEmailRequestRepository;

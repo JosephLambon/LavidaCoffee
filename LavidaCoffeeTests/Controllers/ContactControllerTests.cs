@@ -42,7 +42,7 @@ namespace LavidaCoffeeTests.Controllers
 
 			// Assert
 			var viewResult = Assert.IsType<ViewResult>(result);
-			var model = Assert.IsType<EmailRequestViewModel>(viewResult.Model);
+			var model = Assert.IsType<EmailViewModel>(viewResult.Model);
 			Assert.Equal(emailRequests[1], model.EmailRequest);
 
 		}

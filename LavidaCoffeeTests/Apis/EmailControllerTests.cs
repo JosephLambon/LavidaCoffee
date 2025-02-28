@@ -21,14 +21,14 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace LavidaCoffeeTests.Apis
 {
-	public class EmailRequestControllerTests
+	public class EmailControllerTests
 	{
 		[Fact]
 		public void Get_ReturnsOk()
 		{
 			// Arrange
 			var mockEmailRequestRepository = RepositoryMocks.GetEmailRequestRepository();
-			var controller = new EmailRequestController(mockEmailRequestRepository.Object);
+			var controller = new EmailController(mockEmailRequestRepository.Object);
 
 			// Act
 			var result = controller.Get(1) as OkObjectResult;
@@ -46,7 +46,7 @@ namespace LavidaCoffeeTests.Apis
 		{
 			// Arrange
 			var mockEmailRequestRepository = RepositoryMocks.GetEmailRequestRepository();
-			var controller = new EmailRequestController(mockEmailRequestRepository.Object);
+			var controller = new EmailController(mockEmailRequestRepository.Object);
 
 			// Act
 			var result = controller.requestsForCurrentPage(1) as JsonResult;

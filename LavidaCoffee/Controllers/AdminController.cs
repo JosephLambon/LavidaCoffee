@@ -9,12 +9,12 @@ namespace LavidaCoffee.Controllers
 {
 	public class AdminController : Controller
 	{
-		private readonly IEmailRequestRepository _emailRequestRepository;
+		private readonly IEmailRepository _emailRepository;
 		private readonly IEventRepository _eventRepository;
 
-		public AdminController(IEmailRequestRepository emailRequestRepository, IEventRepository eventRepository)
+		public AdminController(IEmailRepository emailRepository, IEventRepository eventRepository)
 		{
-			_emailRequestRepository = emailRequestRepository;
+			_emailRepository = emailRepository;
 			_eventRepository = eventRepository;
 		}
 
@@ -22,27 +22,25 @@ namespace LavidaCoffee.Controllers
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Index()
 		{
-			IEnumerable<EmailRequest> emailRequests = await _emailRequestRepository.GetAllEmailRequestsAsync();
-			IEnumerable<Event> upcomingEvents = _eventRepository.AllEvents.Where(e => e.Date > DateTime.Today);
+			IEnumerable<Email> emailRequests = await _emailRepository.GetAllEmailRequestsAsync();
+			IEnumerable<Event> upcomingEvents = await _eventRepository.GetUpcomingEventsAsync();
 
-			if(!TempData.IsNullOrEmpty())
-			{
-				ViewBag.Message = TempData["errorMessage"].ToString();
-			}
 			return View(new AdminViewModel(upcomingEvents, emailRequests));
 		}
 
 		[Authorize(Roles = "Admin")]
 		[HttpPost]
-		public IActionResult DeleteEvent(int id)
+		public async Task<IActionResult> DeleteEvent(int id)
 		{
-			var targetEvent = _eventRepository.GetEventById(id);
-			if(targetEvent!=null)
+			try
 			{
+				var targetEvent = await _eventRepository.GetEventByIdAsync(id);
 				_eventRepository.DeleteEvent(targetEvent);
-				return RedirectToAction("Index");
 			}
-			TempData["errorMessage"] = $"Error: Failed to delete event - no event with id={id} found";
+			catch(Exception ex)
+			{
+				TempData["errorMessage"] = $"Failed to delete event - no event with id={id} found. \n Error: {ex.Message}";
+			}
 			return RedirectToAction("Index");
 		}
 		[Authorize(Roles = "Admin")]
@@ -58,9 +56,9 @@ namespace LavidaCoffee.Controllers
 
 		[Authorize(Roles = "Admin")]
 		[HttpPost]
-		public IActionResult EditEvent(Event updatedEventDetails)
+		public async Task<IActionResult> EditEvent(Event updatedEventDetails)
 		{
-			var existingEvent = _eventRepository.GetEventById(updatedEventDetails.EventId);
+			var existingEvent = await _eventRepository.GetEventByIdAsync(updatedEventDetails.EventId);
 			if (ModelState.IsValid)
 			{
 				existingEvent.Title = updatedEventDetails.Title;

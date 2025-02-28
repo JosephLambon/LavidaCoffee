@@ -13,31 +13,37 @@ namespace LavidaCoffee.Models
             _lavidaCoffeeDbContext = lavidaCoffeeDbContext;
         }
 
-        public IEnumerable<Event> AllEvents
+        public async Task<IEnumerable<Event>> GetAllEventsAsync()
         {
-            get
-            {
-                var eventList = _lavidaCoffeeDbContext.Events;
-                return eventList;
-            }
+            return await _lavidaCoffeeDbContext.Events
+                .AsNoTracking()
+                .OrderBy(e => e.EventId)
+                .ToListAsync();   
         }
-
-        public Event? GetEventById(int id)
+        public async Task<IEnumerable<Event>> GetUpcomingEventsAsync()
         {
-            if (id <= 0)
+            return await _lavidaCoffeeDbContext.Events
+                .AsNoTracking()
+                .Where(e=> e.Date > DateTime.Today)
+                .OrderBy(e => e.EventId)
+                .ToListAsync();   
+        }
+        public async Task<Event?> GetEventByIdAsync(int id)
+        {
+            if (id >= 0)
             {
-                return null;
-            }
-            var selectedEvent = _lavidaCoffeeDbContext
-                .Events
-                .FirstOrDefault(e => e.EventId == id);
+                var selectedEvent = await _lavidaCoffeeDbContext
+                    .Events
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(e => e.EventId == id);
 
-            if (selectedEvent != null)
-            {
-                return selectedEvent;
+                if (selectedEvent != null)
+                {
+                    return selectedEvent;
+                }
             }
 
-            throw new KeyNotFoundException("Event not found.");
+            return null;
         }
 
         public void CreateEvent(Event new_event)

@@ -7,11 +7,11 @@ namespace LavidaCoffee.Controllers
 {
     public class ContactController : Controller
     {
-        private readonly IEmailRequestRepository _emailRequestRepository;
+        private readonly IEmailRepository _emailRepository;
 
-        public ContactController(IEmailRequestRepository emailRequestRepository)
+        public ContactController(IEmailRepository emailRepository)
         {
-            _emailRequestRepository = emailRequestRepository;
+            _emailRepository = emailRepository;
         }
         public IActionResult Index()
         {
@@ -21,14 +21,14 @@ namespace LavidaCoffee.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EmailRequest(int id)
         {
-            var emailRequest = await _emailRequestRepository.GetEmailRequestByIdAsync(id);
+            var emailRequest = await _emailRepository.GetEmailRequestByIdAsync(id);
 
             if (emailRequest == null)
             {
                 return NotFound();
             }
 
-            var emailRequestViewModel = new EmailRequestViewModel
+            var emailRequestViewModel = new EmailViewModel
             {
                 EmailRequest = emailRequest
             };
@@ -47,8 +47,14 @@ namespace LavidaCoffee.Controllers
             // Valid form 
             if (ModelState.IsValid)
             {
-                var emailRequest = new EmailRequest { Email = email };
-                _emailRequestRepository.CreateEmailRequest(emailRequest);
+                var emailRequest = new Email
+                {
+                    CustomerEmail = email.CustomerEmail,
+                    ToEmail =   email.ToEmail,
+                    Subject = email.Subject,
+                    Body = email.Body,
+                };
+                _emailRepository.CreateEmailRequest(emailRequest);
                 return RedirectToAction("RequestSent");
             }
 
