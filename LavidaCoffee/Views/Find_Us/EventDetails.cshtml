@@ -42,57 +42,58 @@
 					<h1 class="modal-title fs-5" id="editEventModalLabel">Edit event</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<form method="post" asp-controller="Admin" asp-action="EditEvent" role="form" class="mx-auto align-items-center w-100" enctype="multipart/form-data">
+				<form method="post" asp-controller="Admin" asp-action="EditEvent" role="form" class="mx-auto align§-items-center w-100" enctype="multipart/form-data">
 					<div class="modal-body">
 						<div class="form-control">
 							<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="EventIdInputValue">EventId</label>
-									<input asp-for=@Model.Event.EventId type="number" class="form-control" value=@Model.Event.EventId id="EventIdInputValue" style="color:dimgrey;" readonly>
-									<span asp-validation-for=@Model.Event.EventId class="text-danger"></span>
+									<input asp-for="Event.EventId" type="number" class="form-control" value="@Model.Event.EventId" id="EventIdInputValue" style="color:dimgrey;" readonly>
+									<span asp-validation-for="Event.EventId" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="DateInputValue">Date</label>
-									<input asp-for=@Model.Event.Date class="form-control" id="DateInputValue" value=@Model.Event.Date >
-									<span asp-validation-for=@Model.Event.Date class="text-danger"></span>
+									<input asp-for="Event.Date" type="datetime-local" class="form-control" id="DateInputValue">
+									
+									<span asp-validation-for="Event.Date" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="TitleInputValue">Title</label>
-									<input asp-for=@Model.Event.Title type="text" class="form-control" value=@Model.Event.Title id="TitleInputValue">
-									<span asp-validation-for=@Model.Event.Title class="text-danger"></span>
+									<input asp-for="Event.Title" type="text" class="form-control" value="@Model.Event.Title" id="TitleInputValue">
+									<span asp-validation-for="Event.Title" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="AddressInputValue">Address</label>
-									<input asp-for=@Model.Event.Address type="text" class="form-control" value=@Model.Event.Address id="AddressInputValue">
-									<span asp-validation-for=@Model.Event.Address class="text-danger"></span>
+									<input asp-for="Event.Address" type="text" class="form-control" value="@Model.Event.Address" id="AddressInputValue">
+									<span asp-validation-for="Event.Address" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="ShortDescriptionInputValue">ShortDescription</label>
-									<textarea asp-for=@Model.Event.ShortDescription type="text" class="form-control" value=@Model.Event.ShortDescription id="ShortDescriptionInputValue"></textarea>
-									<span asp-validation-for=@Model.Event.ShortDescription class="text-danger"></span>
+									<textarea asp-for="Event.ShortDescription" type="text" class="form-control" id="ShortDescriptionInputValue">@Model.Event.ShortDescription</textarea>
+									<span asp-validation-for="Event.ShortDescription" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="LongDescriptionInputValue">LongDescription</label>
-									<textarea asp-for=@Model.Event.LongDescription type="text" class="form-control" value=@Model.Event.LongDescription id ="LongDescriptionInputValue"></textarea>
-									<span asp-validation-for=@Model.Event.LongDescription class="text-danger"></span>
+									<textarea asp-for="Event.LongDescription" type="text" class="form-control" id ="LongDescriptionInputValue">@Model.Event.LongDescription</textarea>
+									<span asp-validation-for="Event.LongDescription" class="text-danger"></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="mb-3">
 									<label for="ThumbnailUrlInputValue">ThumbnailUrl</label>
-									<input asp-for=@Model.Event.ThumbnailUrl type="url" class="form-control" value=@Model.Event.ThumbnailUrl id="ThumbnailUrlInputValue">
-									<span asp-validation-for=@Model.Event.ThumbnailUrl class="text-danger"></span>
+									<input asp-for="Event.ThumbnailUrl" type="url" class="form-control" value="@Model.Event.ThumbnailUrl" id="ThumbnailUrlInputValue">
+									<span asp-validation-for="Event.ThumbnailUrl" class="text-danger"></span>
 								</div>
 							</div>
 						</div>

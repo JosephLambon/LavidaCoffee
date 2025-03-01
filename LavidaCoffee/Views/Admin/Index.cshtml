@@ -99,7 +99,7 @@
 											<div class="form-group">
 												<div class="mb-3">
 													<label for="DateInputValue">Date</label>
-													<input asp-for=@Model.newEvent.Date type="datetime-local" class="form-control" id="DateInputValue" value="" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")">
+													<input asp-for=@Model.newEvent.Date type="datetime-local" class="form-control" id="DateInputValue" value="" min="@DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")">
 													<span asp-validation-for=@Model.newEvent.Date class="text-danger"></span>
 												</div>
 											</div>

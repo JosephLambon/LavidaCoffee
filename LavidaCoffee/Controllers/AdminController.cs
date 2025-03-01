@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using LavidaCoffee.ViewModels;
 using System.Net;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.IdentityModel.Tokens;
 
 namespace LavidaCoffee.Controllers
@@ -59,21 +60,31 @@ namespace LavidaCoffee.Controllers
 
 		[Authorize(Roles = "Admin")]
 		[HttpPost]
-		public async Task<IActionResult> EditEvent(Event updatedEventDetails)
+		public async Task<IActionResult> EditEvent(Find_UsEventDetailsViewModel viewModel)
 		{
-			var existingEvent = await _eventRepository.GetEventByIdAsync(updatedEventDetails.EventId);
-			if (ModelState.IsValid)
+			var updatedEvent = viewModel.Event;
+			var existingEvent = await _eventRepository.GetEventByIdAsync(updatedEvent.EventId);
+			Console.WriteLine("Event parsed:" + updatedEvent.EventId);
+			Console.WriteLine("Event got:" + existingEvent.EventId);
+			try
 			{
-				existingEvent.Title = updatedEventDetails.Title;
-				existingEvent.Date = updatedEventDetails.Date;
-				existingEvent.ShortDescription = updatedEventDetails.ShortDescription;
-				existingEvent.LongDescription = updatedEventDetails?.LongDescription;
-				existingEvent.Address = updatedEventDetails.Address;
-				existingEvent.ThumbnailUrl = updatedEventDetails.ThumbnailUrl;
-				existingEvent.ImageUrl = updatedEventDetails.ImageUrl;
+				if (ModelState.IsValid)
+				{
+					existingEvent.Title = updatedEvent.Title;
+					existingEvent.Date = updatedEvent.Date;
+					existingEvent.ShortDescription = updatedEvent.ShortDescription;
+					existingEvent.LongDescription = updatedEvent?.LongDescription;
+					existingEvent.Address = updatedEvent.Address;
+					existingEvent.ThumbnailUrl = updatedEvent.ThumbnailUrl;
+					existingEvent.ImageUrl = updatedEvent.ImageUrl;
 
-				await _eventRepository.UpdateEventAsync(existingEvent);
-
+					await _eventRepository.UpdateEventAsync(existingEvent);
+					return RedirectToAction("EventDetails", "Find_Us", new { id = existingEvent.EventId });
+				}
+			}
+			catch (Exception ex)
+			{
+				ModelState.AddModelError("", $"Updating the category failed, try again. \n Error: {ex.Message}");	
 			}
 			return RedirectToAction("EventDetails", "Find_Us", new { id = existingEvent.EventId });
 		}
