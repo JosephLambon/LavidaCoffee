@@ -168,7 +168,8 @@
 							<td>@upcomingEvent.Date</td>
 									<td class="text-center">
 										<form method="post" asp-controller="Admin" asp-action="DeleteEvent" asp-route-id="@upcomingEvent.EventId" role="form" id="eventDeletionForm">
-												<input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;">
+											<input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;"
+											       onclick="javascript: return confirm('Are you sure you want to delete this event?')">
 										</form>
 									</td>
 							</tr>
