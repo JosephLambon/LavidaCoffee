@@ -8,6 +8,7 @@ namespace LavidaCoffee.ViewModels
 		public List<Event>? Events { get; set; }
 		public List<Email>? Emails { get; set; }
 		public int TotalEmailCount { get; set; }
+		public int TotalEventCount { get; set; }
 
 		public Event newEvent = new Event
 		{

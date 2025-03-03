@@ -9,5 +9,7 @@ namespace LavidaCoffee.Models
         Task CreateEventAsync(Event new_event);
         Task DeleteEventAsync(Event target_event);
         Task UpdateEventAsync(Event updated_event);
+        Task<int> GetAllEventsCountAsync();
+        Task<IEnumerable<Event>> GetEventsPagedAsync(int? pageNumber, int pageSize);
     } 
 }

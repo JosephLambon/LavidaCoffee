@@ -63,5 +63,24 @@ namespace LavidaCoffee.Models
             _lavidaCoffeeDbContext.Events.Update(updated_event);
             await _lavidaCoffeeDbContext.SaveChangesAsync();
         }
+
+        public async Task<int> GetAllEventsCountAsync()
+        {
+            return await _lavidaCoffeeDbContext.Events.AsNoTracking().CountAsync();
+        }
+
+        public async Task<IEnumerable<Event>> GetEventsPagedAsync(int? pageNumber, int pageSize)
+        {
+            IQueryable<Event> events = from e in _lavidaCoffeeDbContext.Events
+                select e;
+
+            pageNumber ??= 1;
+
+            events = events.Skip((pageNumber.Value - 1) * pageSize)
+                .Take(pageSize);
+
+            return await events.AsNoTracking().ToListAsync();
+
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Nodes;
 using LavidaCoffee.Models;
+using LavidaCoffee.Models.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LavidaCoffee.Controllers.Api
@@ -37,7 +38,16 @@ namespace LavidaCoffee.Controllers.Api
 			{
 				return NotFound(ex.Message);
 			}
-			
+		}
+
+		private int pageSize = 10;
+		[HttpGet("getpaged/{pageNumber}")]
+		public async Task<IActionResult> IndexPaging(int? pageNumber)
+		{
+			var events = await _eventRepository.GetEventsPagedAsync(pageNumber, pageSize);
+			pageNumber ??= 1;
+			var count = await _eventRepository.GetAllEventsCountAsync();
+			return new JsonResult(new PagedList<Event>(events.ToList(), count, pageNumber.Value, pageSize));
 		}
 	}
 }

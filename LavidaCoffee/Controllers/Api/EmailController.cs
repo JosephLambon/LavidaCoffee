@@ -35,7 +35,7 @@ namespace LavidaCoffee.Controllers.Api
 		}
 
 		private int pageSize = 10;
-		[HttpPost("indexpaging/{pageNumber}")]
+		[HttpGet("getpaged/{pageNumber}")]
 		public async Task<IActionResult> IndexPaging(int? pageNumber)
 		{
 			var emails = await _emailRepository.GetEmailsPagedAsync(pageNumber, pageSize);

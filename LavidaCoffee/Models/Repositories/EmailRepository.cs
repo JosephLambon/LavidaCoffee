@@ -31,15 +31,6 @@ namespace LavidaCoffee.Models
             await _lavidaCoffeeDbContext.SaveChangesAsync();
 		}
 
-		public IEnumerable<Email> requestsForCurrentPage(int page)
-		{
-            return _lavidaCoffeeDbContext.Emails.
-                OrderBy(e => e.EmailId)
-                .Skip((page-1)*10)
-                .Take(10)
-                .ToList();
-		}
-
         public async Task<int> GetAllEmailsCountAsync()
         {
             return await _lavidaCoffeeDbContext.Emails.AsNoTracking().CountAsync();

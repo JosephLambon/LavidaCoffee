@@ -7,7 +7,6 @@ public interface IEmailRepository
     Task<IEnumerable<Email>> GetAllEmailsAsync();
     Task<Email?> GetEmailByIdAsync(int emailRequestId);
     Task CreateEmailAsync(Email emailRequest);
-    IEnumerable<Email> requestsForCurrentPage(int page);
     Task<int> GetAllEmailsCountAsync();
     Task<IEnumerable<Email>> GetEmailsPagedAsync(int? pageNumber, int pageSize);
 }

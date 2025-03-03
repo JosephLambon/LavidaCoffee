@@ -25,9 +25,10 @@ namespace LavidaCoffee.Controllers
 		{
 			AdminViewModel model = new()
 			{
-				Events = (await _eventRepository.GetAllEventsAsync()).ToList(),
+				Events = (await _eventRepository.GetEventsPagedAsync(1,10)).ToList(),
 				Emails = (await _emailRepository.GetEmailsPagedAsync(1,10)).ToList(),
-				TotalEmailCount = await _emailRepository.GetAllEmailsCountAsync()
+				TotalEmailCount = await _emailRepository.GetAllEmailsCountAsync(),
+				TotalEventCount = await _eventRepository.GetAllEventsCountAsync()
 			};
 
 			return View(model);
