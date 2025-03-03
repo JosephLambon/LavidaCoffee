@@ -21,7 +21,7 @@ namespace LavidaCoffee.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EmailRequest(int id)
         {
-            var emailRequest = await _emailRepository.GetEmailRequestByIdAsync(id);
+            var emailRequest = await _emailRepository.GetEmailByIdAsync(id);
 
             if (emailRequest == null)
             {
@@ -54,7 +54,7 @@ namespace LavidaCoffee.Controllers
                     Subject = email.Subject,
                     Body = email.Body,
                 };
-                await _emailRepository.CreateEmailRequestAsync(emailRequest);
+                await _emailRepository.CreateEmailAsync(emailRequest);
                 return RedirectToAction("RequestSent");
             }
 

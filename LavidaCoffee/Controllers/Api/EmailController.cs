@@ -1,5 +1,6 @@
 ﻿using System.IO.Pipelines;
 using LavidaCoffee.Models;
+using LavidaCoffee.Models.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Ocsp;
@@ -18,10 +19,10 @@ namespace LavidaCoffee.Controllers.Api
 			_emailRepository = emailRepository;
 		}
 		// [Authorize(Roles = "Admin")]
-		[HttpGet("{page}")]
+		[HttpGet("get/{page}")]
 		public async Task<IActionResult> Get(int page = 1)
 		{
-			IEnumerable<Email> emailRequests = await _emailRepository.GetAllEmailRequestsAsync();
+			IEnumerable<Email> emailRequests = await _emailRepository.GetAllEmailsAsync();
 			int total = emailRequests.Count();
 			int pageSize = 10;
 			var numberPages = (int)Math.Ceiling((decimal)total / pageSize);
@@ -33,18 +34,14 @@ namespace LavidaCoffee.Controllers.Api
 			return Ok(requestsPerPage);
 		}
 
-		// [Authorize(Roles = "Admin")]
-		[HttpPost]
-		public IActionResult requestsForCurrentPage([FromBody] int page)
+		private int pageSize = 10;
+		[HttpPost("indexpaging/{pageNumber}")]
+		public async Task<IActionResult> IndexPaging(int? pageNumber)
 		{
-			IEnumerable<Email> requests = new List<Email>();
-
-			if(int.IsPositive(page))
-			{
-				requests = _emailRepository.requestsForCurrentPage(page);
-			}
-
-			return new JsonResult(requests);
+			var emails = await _emailRepository.GetEmailsPagedAsync(pageNumber, pageSize);
+			pageNumber ??= 1;
+			var count = await _emailRepository.GetAllEmailsCountAsync();
+			return new JsonResult(new PagedList<Email>(emails.ToList(), count, pageNumber.Value, pageSize));
 		}
 	}
 }
