@@ -26,6 +26,10 @@ namespace LavidaCoffee.Controllers
 			{
 				Event = await _eventRepository.GetEventByIdAsync(id)
 			};
+			if (model.Event == null)
+			{
+				return NotFound();
+			}
 			return View(model);
 		}
     }

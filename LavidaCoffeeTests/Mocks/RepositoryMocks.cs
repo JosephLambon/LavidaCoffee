@@ -14,246 +14,185 @@ namespace LavidaCoffeeTests.Mocks
 {
 	internal class RepositoryMocks
 	{
-		public static Mock<IEmailRepository> GetEmailRequestRepository()
+		public static Mock<IEmailRepository> GetEmailRepository()
 		{
-			var emailRequests = new List<EmailRequest>
+			var emails = new List<Email>
 			{
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 0,
-					Email = new Email
-					{
-						CustomerEmail = "john.appleseed@gmail.com",
-						Subject = "Event booking request",
-						Body = "Hi there, How much does it cost to book you for an 8hr event?"
-					}
+					EmailId = 0,
+					CustomerEmail = "john.appleseed@gmail.com",
+					Subject = "Event booking request",
+					Body = "Hi there, How much does it cost to book you for an 8hr event?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 1,
-					Email = new Email
-					{
-						CustomerEmail = "tina.turner@hotmail.com",
-						Subject = "I love the house blend!",
-						Body = "Hi there, What is the house blend you use called? I'd love to buy the same beans if possible?"
-					}
+					EmailId = 1,
+					CustomerEmail = "tina.turner@hotmail.com",
+					Subject = "I love the house blend!",
+					Body = "Hi there, What is the house blend you use called? I'd love to buy the same beans if possible?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 2,
-					Email = new Email
-					{
-						CustomerEmail = "mac.miller@icloud.com",
-						Subject = "Sponsorship request",
-						Body = "Hey, Do you guys sponsor charity events?"
-					}
+					EmailId = 2,
+					CustomerEmail = "mac.miller@icloud.com",
+					Subject = "Sponsorship request",
+					Body = "Hey, Do you guys sponsor charity events?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 3,
-					Email = new Email
-					{
-						CustomerEmail = "alice.wonderland@yahoo.com",
-						Subject = "Catering services inquiry",
-						Body = "Hello, Can you provide catering services for a wedding reception?"
-					}
+					EmailId = 3,
+					CustomerEmail = "alice.wonderland@yahoo.com",
+					Subject = "Catering services inquiry",
+					Body = "Hello, Can you provide catering services for a wedding reception?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 4,
-					Email = new Email
-					{
-						CustomerEmail = "bob.builder@gmail.com",
-						Subject = "Construction project proposal",
-						Body = "Hi, I would like to discuss a potential construction project with your team."
-					}
+					EmailId = 4,
+					CustomerEmail = "bob.builder@gmail.com",
+					Subject = "Construction project proposal",
+					Body = "Hi, I would like to discuss a potential construction project with your team."
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 5,
-					Email = new Email
-					{
-						CustomerEmail = "charlie.brown@outlook.com",
-						Subject = "Event photography rates",
-						Body = "Hello, What are your rates for event photography?"
-					}
+					EmailId = 5,
+					CustomerEmail = "charlie.brown@outlook.com",
+					Subject = "Event photography rates",
+					Body = "Hello, What are your rates for event photography?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 6,
-					Email = new Email
-					{
-						CustomerEmail = "diana.prince@icloud.com",
-						Subject = "Fitness training sessions",
-						Body = "Hi, Do you offer personal fitness training sessions?"
-					}
+					EmailId = 6,
+					CustomerEmail = "diana.prince@icloud.com",
+					Subject = "Fitness training sessions",
+					Body = "Hi, Do you offer personal fitness training sessions?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 7,
-					Email = new Email
-					{
-						CustomerEmail = "edward.scissorhands@hotmail.com",
-						Subject = "Haircut appointment",
-						Body = "Hello, Can I book a haircut appointment for next week?"
-					}
+					EmailId = 7,
+					CustomerEmail = "edward.scissorhands@hotmail.com",
+					Subject = "Haircut appointment",
+					Body = "Hello, Can I book a haircut appointment for next week?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 8,
-					Email = new Email
-					{
-						CustomerEmail = "fiona.shrek@gmail.com",
-						Subject = "Makeup artist availability",
-						Body = "Hi, Are you available for a makeup session on the 15th?"
-					}
+					EmailId = 8,
+					CustomerEmail = "fiona.shrek@gmail.com",
+					Subject = "Makeup artist availability",
+					Body = "Hi, Are you available for a makeup session on the 15th?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 9,
-					Email = new Email
-					{
-						CustomerEmail = "george.jetson@yahoo.com",
-						Subject = "Tech support needed",
-						Body = "Hello, I'm having issues with my computer. Can you help?"
-					}
+					EmailId = 9,
+					CustomerEmail = "george.jetson@yahoo.com",
+					Subject = "Tech support needed",
+					Body = "Hello, I'm having issues with my computer. Can you help?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 10,
-					Email = new Email
-					{
-						CustomerEmail = "harry.potter@hogwarts.com",
-						Subject = "Magic show booking",
-						Body = "Hi, How much do you charge for a magic show performance?"
-					}
+					EmailId = 10,
+					CustomerEmail = "harry.potter@hogwarts.com",
+					Subject = "Magic show booking",
+					Body = "Hi, How much do you charge for a magic show performance?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 11,
-					Email = new Email
-					{
-						CustomerEmail = "isabella.swan@vampire.com",
-						Subject = "Vampire-themed party",
-						Body = "Hello, Do you offer services for themed parties?"
-					}
+					EmailId = 11,
+					CustomerEmail = "isabella.swan@vampire.com",
+					Subject = "Vampire-themed party",
+					Body = "Hello, Do you offer services for themed parties?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 12,
-					Email = new Email
-					{
-						CustomerEmail = "jack.sparrow@pirates.com",
-						Subject = "Boat rental inquiry",
-						Body = "Hi, How much does it cost to rent a boat for a day?"
-					}
+					EmailId = 12,
+					CustomerEmail = "jack.sparrow@pirates.com",
+					Subject = "Boat rental inquiry",
+					Body = "Hi, How much does it cost to rent a boat for a day?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 13,
-					Email = new Email
-					{
-						CustomerEmail = "katniss.everdeen@district12.com",
-						Subject = "Archery lessons",
-						Body = "Hello, Do you offer archery lessons for beginners?"
-					}
+					EmailId = 13,
+					CustomerEmail = "katniss.everdeen@district12.com",
+					Subject = "Archery lessons",
+					Body = "Hello, Do you offer archery lessons for beginners?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 14,
-					Email = new Email
-					{
-						CustomerEmail = "luke.skywalker@jedi.com",
-						Subject = "Lightsaber training",
-						Body = "Hi, Are you available for lightsaber training sessions?"
-					}
+					EmailId = 14,
+					CustomerEmail = "luke.skywalker@jedi.com",
+					Subject = "Lightsaber training",
+					Body = "Hi, Are you available for lightsaber training sessions?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 15,
-					Email = new Email
-					{
-						CustomerEmail = "mary.poppins@umbrella.com",
-						Subject = "Nanny services",
-						Body = "Hello, Are you available for nanny services?"
-					}
+					EmailId = 15,
+					CustomerEmail = "mary.poppins@umbrella.com",
+					Subject = "Nanny services",
+					Body = "Hello, Are you available for nanny services?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 16,
-					Email = new Email
-					{
-						CustomerEmail = "neo.matrix@zion.com",
-						Subject = "Virtual reality experience",
-						Body = "Hi, Do you offer virtual reality experiences?"
-					}
+					EmailId = 16,
+					CustomerEmail = "neo.matrix@zion.com",
+					Subject = "Virtual reality experience",
+					Body = "Hi, Do you offer virtual reality experiences?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 17,
-					Email = new Email
-					{
-						CustomerEmail = "oliver.twist@orphanage.com",
-						Subject = "Charity donation request",
-						Body = "Hello, Can you donate to our orphanage?"
-					}
+					EmailId = 17,
+					CustomerEmail = "oliver.twist@orphanage.com",
+					Subject = "Charity donation request",
+					Body = "Hello, Can you donate to our orphanage?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 18,
-					Email = new Email
-					{
-						CustomerEmail = "peter.parker@dailybugle.com",
-						Subject = "Photography job application",
-						Body = "Hi, I'm interested in applying for a photography job."
-					}
+					EmailId = 18,
+					CustomerEmail = "peter.parker@dailybugle.com",
+					Subject = "Photography job application",
+					Body = "Hi, I'm interested in applying for a photography job."
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 19,
-					Email = new Email
-					{
-						CustomerEmail = "quentin.quirrell@hogwarts.com",
-						Subject = "Defense Against the Dark Arts",
-						Body = "Hello, Do you offer lessons in Defense Against the Dark Arts?"
-					}
+					EmailId = 19,
+					CustomerEmail = "quentin.quirrell@hogwarts.com",
+					Subject = "Defense Against the Dark Arts",
+					Body = "Hello, Do you offer lessons in Defense Against the Dark Arts?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 20,
-					Email = new Email
-					{
-						CustomerEmail = "ron.weasley@hogwarts.com",
-						Subject = "Wizard chess tournament",
-						Body = "Hi, Are you hosting any wizard chess tournaments soon?"
-					}
+					EmailId = 20,
+					CustomerEmail = "ron.weasley@hogwarts.com",
+					Subject = "Wizard chess tournament",
+					Body = "Hi, Are you hosting any wizard chess tournaments soon?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 21,
-					Email = new Email
-					{
-						CustomerEmail = "sherlock.holmes@bakerstreet.com",
-						Subject = "Detective services",
-						Body = "Hello, Can you help solve a mystery?"
-					}
+					EmailId = 21,
+					CustomerEmail = "sherlock.holmes@bakerstreet.com",
+					Subject = "Detective services", 
+					Body = "Hello, Can you help solve a mystery?"
 				},
-				new EmailRequest
+				new Email
 				{
-					EmailRequestId = 22,
-					Email = new Email
-					{
-						CustomerEmail = "tony.stark@starkindustries.com",
-						Subject = "Tech innovation partnership",
-						Body = "Hi, Are you interested in a tech innovation partnership?"
-					}
+					EmailId = 22,
+					CustomerEmail = "tony.stark@starkindustries.com",
+					Subject = "Tech innovation partnership",
+					Body = "Hi, Are you interested in a tech innovation partnership?"
 				}
 			};
 
-			var mockEmailRequestRepository = new Mock<IEmailRepository>();
-			mockEmailRequestRepository.Setup(repo => repo.AllEmailRequests()).Returns(emailRequests.ToList);
-			mockEmailRequestRepository.Setup(repo => repo.GetEmailRequestById(It.IsAny<int>())).Returns((int id) => emailRequests.FirstOrDefault(e => e.EmailRequestId == id));
-			return mockEmailRequestRepository;
+			var mockEmailRepository = new Mock<IEmailRepository>();
+			mockEmailRepository.Setup(repo => repo.GetAllEmailsAsync()).ReturnsAsync(emails.ToList());
+			mockEmailRepository.Setup(repo => repo.GetEmailByIdAsync(It.IsAny<int>())).ReturnsAsync((int id) => emails.FirstOrDefault(e => e.EmailId == id));
+			mockEmailRepository.Setup(repo => repo.CreateEmailAsync(It.IsAny<Email>())).Callback<Email>(e=> emails.Add(e));
+			mockEmailRepository.Setup(repo => repo.GetAllEmailsCountAsync()).ReturnsAsync(emails.Count);
+			mockEmailRepository.Setup(repo => repo.GetEmailsPagedAsync(It.IsAny<int>(), It.IsAny<int>()))
+				.ReturnsAsync((int? pageNumber, int pageSize) =>
+				{
+					pageNumber ??= 1;
+					return emails.Skip((pageNumber.Value - 1) * pageSize).Take(pageSize);
+				});
+			return mockEmailRepository;
 		}
 
 		public static Mock<IEventRepository> GetEventRepository()
@@ -385,12 +324,25 @@ namespace LavidaCoffeeTests.Mocks
 			};
 
 			var mockEventRepository = new Mock<IEventRepository>();
-			mockEventRepository.Setup(repo => repo.AllEvents).Returns(events.ToList);
-			mockEventRepository.Setup(repo => repo.GetEventById(It.IsAny<int>())).Returns((int id) => events.FirstOrDefault(e => e.EventId == id));
+			mockEventRepository.Setup(repo => repo.GetAllEventsAsync()).ReturnsAsync(events.ToList());
+			mockEventRepository.Setup(repo => repo.GetUpcomingEventsAsync()).ReturnsAsync(events.ToList());
+			mockEventRepository.Setup(repo => repo.GetEventByIdAsync(It.IsAny<int>())).ReturnsAsync((int id) => events.FirstOrDefault(e => e.EventId == id));
 
-			mockEventRepository.Setup(repo => repo.DeleteEvent(It.IsAny<Event>())).Callback<Event>(e => events.Remove(e));
+			mockEventRepository.Setup(repo => repo.DeleteEventAsync(It.IsAny<Event>())).Callback<Event>(e => events.Remove(e));
 
-			mockEventRepository.Setup(repo => repo.CreateEvent(It.IsAny<Event>())).Callback<Event>(e => events.Add(e));
+			mockEventRepository.Setup(repo => repo.CreateEventAsync(It.IsAny<Event>())).Callback<Event>(e => events.Add(e));
+			mockEventRepository.Setup(repo => repo.UpdateEventAsync(It.IsAny<Event>())).Callback<Event>(e =>
+			{
+				var existingEventIndex = events.FindIndex(ev => ev.EventId == e.EventId);
+				events[existingEventIndex] = e;
+			});
+			mockEventRepository.Setup(repo => repo.GetAllEventsCountAsync()).ReturnsAsync(events.Count);
+			mockEventRepository.Setup(repo => repo.GetEventsPagedAsync(It.IsAny<int>(), It.IsAny<int>()))
+				.ReturnsAsync((int? pageNumber, int pageSize) =>
+				{
+					pageNumber ??= 1;
+					return events.Skip((pageNumber.Value - 1) * pageSize).Take(pageSize);
+				});
 			return mockEventRepository;
 		}
 	}

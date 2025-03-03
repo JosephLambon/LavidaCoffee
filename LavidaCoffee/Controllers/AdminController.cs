@@ -38,16 +38,17 @@ namespace LavidaCoffee.Controllers
 		[HttpPost]
 		public async Task<IActionResult> DeleteEvent(int id)
 		{
-			try
+			var targetEvent = await _eventRepository.GetEventByIdAsync(id);
+			if (targetEvent == null)
 			{
-				var targetEvent = await _eventRepository.GetEventByIdAsync(id);
+				TempData["errorMessage"] = $"Error: Failed to delete event - no event with id={id} found.";	
+			}
+			else
+			{
 				await _eventRepository.DeleteEventAsync(targetEvent);
 			}
-			catch(Exception ex)
-			{
-				TempData["errorMessage"] = $"Failed to delete event - no event with id={id} found. \n Error: {ex.Message}";
-			}
 			return RedirectToAction("Index");
+			
 		}
 		[Authorize(Roles = "Admin")]
 		[HttpPost]

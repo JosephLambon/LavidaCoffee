@@ -24,32 +24,32 @@ namespace LavidaCoffeeTests.Apis
 	public class EmailControllerTests
 	{
 		[Fact]
-		public void Get_ReturnsOk()
+		public async Task Get_ReturnsOk()
 		{
 			// Arrange
-			var mockEmailRequestRepository = RepositoryMocks.GetEmailRequestRepository();
+			var mockEmailRequestRepository = RepositoryMocks.GetEmailRepository();
 			var controller = new EmailController(mockEmailRequestRepository.Object);
 
 			// Act
-			var result = controller.Get(1) as OkObjectResult;
-			var emailRequests = result.Value as List<EmailRequest>;
+			var result = await controller.Get(1) as OkObjectResult;
+			var emails = result.Value as List<Email>;
 			// Assert
 			Assert.NotNull(result);
 			Assert.Equal(200, result.StatusCode);
-			Assert.Equal(10, emailRequests.Count);
-			Assert.Equal(0, emailRequests.First().EmailRequestId);
-			Assert.Equal(9, emailRequests.Last().EmailRequestId);
+			Assert.Equal(10, emails.Count);
+			Assert.Equal(0, emails.First().EmailId);
+			Assert.Equal(9, emails.Last().EmailId);
 		}
 
 		[Fact]
-		public void requestForCurrentPage_ReturnsJson()
+		public async Task requestForCurrentPage_ReturnsJson()
 		{
 			// Arrange
-			var mockEmailRequestRepository = RepositoryMocks.GetEmailRequestRepository();
+			var mockEmailRequestRepository = RepositoryMocks.GetEmailRepository();
 			var controller = new EmailController(mockEmailRequestRepository.Object);
 
 			// Act
-			var result = controller.requestsForCurrentPage(1) as JsonResult;
+			var result = await controller.IndexPaging(1) as JsonResult;
 
 			// Assert
 			Assert.NotNull(result);

@@ -25,7 +25,7 @@ namespace LavidaCoffee.Models
             return await _lavidaCoffeeDbContext.Events
                 .AsNoTracking()
                 .Where(e=> e.Date > DateTime.Today)
-                .OrderBy(e => e.EventId)
+                .OrderBy(e => e.Date)
                 .ToListAsync();   
         }
         public async Task<Event?> GetEventByIdAsync(int id)
