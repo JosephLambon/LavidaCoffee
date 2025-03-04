@@ -22,9 +22,11 @@ namespace LavidaCoffee.Models
         }
         public async Task<IEnumerable<Event>> GetUpcomingEventsAsync()
         {
+            Console.WriteLine("DateTime.Now: " + DateTime.Today);
+
             return await _lavidaCoffeeDbContext.Events
                 .AsNoTracking()
-                .Where(e=> e.Date > DateTime.Today)
+                .Where(e=> e.Date > DateTime.Now)
                 .OrderBy(e => e.Date)
                 .ToListAsync();   
         }

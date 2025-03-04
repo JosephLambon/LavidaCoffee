@@ -37,11 +37,13 @@ namespace LavidaCoffeeTests.Apis
 			var eventController = new EventController(eventRepository.Object);
 			// Act
 			var result = await eventController.UpcomingEvents() as JsonResult;
+			Console.WriteLine("result:" + result);
 			var eventsReturned = result?.Value as IEnumerable<Event>;
+			Console.WriteLine("eventsReturned:" + eventsReturned);
 			// Assert
 			Assert.NotNull(result);
 			Assert.Equal(10, eventsReturned.Count());
-			Assert.Equal(1, eventsReturned.First().EventId);
+			Assert.Equal(2, eventsReturned.First().EventId);
 			Assert.All(eventsReturned, e => Assert.True(e.Date > DateTime.Now));
 		}
 	}

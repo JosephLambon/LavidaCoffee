@@ -31,8 +31,8 @@ namespace LavidaCoffee.Controllers.Api
 		{
 			try
 			{
-				IEnumerable<Event> allEvents = await _eventRepository.GetUpcomingEventsAsync();
-				return new JsonResult(allEvents);
+				IEnumerable<Event> upcomingEvents = await _eventRepository.GetUpcomingEventsAsync();
+				return new JsonResult(upcomingEvents);
 			}
 			catch (Exception ex)
 			{

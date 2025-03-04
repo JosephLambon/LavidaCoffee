@@ -17,99 +17,99 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LavidaCoffee
 build_property.RootNamespace = LavidaCoffee
-build_property.ProjectDir = /Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/
+build_property.ProjectDir = C:\Users\lambonj\source\repos\LavidaCoffee\LavidaCoffee\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee
+build_property.MSBuildProjectDirectory = C:\Users\lambonj\source\repos\LavidaCoffee\LavidaCoffee
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Gb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/Logout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2dvdXQuY3NodG1s
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/ResetPassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9SZXNldFBhc3N3b3JkLmNzaHRtbA==
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9fVmlld0ltcG9ydHMuY3NodG1s
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/About/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWJvdXQvSW5kZXguY3NodG1s
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/Admin/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vSW5kZXguY3NodG1s
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/Contact/EmailRequest.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdC9FbWFpbFJlcXVlc3QuY3NodG1s
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/Contact/EmailRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxFbWFpbFJlcXVlc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/Contact/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdC9JbmRleC5jc2h0bWw=
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/Contact/RequestSent.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdC9SZXF1ZXN0U2VudC5jc2h0bWw=
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/Contact/RequestSent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxSZXF1ZXN0U2VudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/Find_Us/EventDetails.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmluZF9Vcy9FdmVudERldGFpbHMuY3NodG1s
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/Find_Us/EventDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluZF9Vc1xFdmVudERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/Find_Us/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRmluZF9Vcy9JbmRleC5jc2h0bWw=
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/Find_Us/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluZF9Vc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/Shared/_EventCard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19FdmVudENhcmQuY3NodG1s
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/Shared/_EventCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FdmVudENhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/joelambon/Documents/Documents – Joe’s MacBook Air/Programming/LavidaCoffee/LavidaCoffee/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/lambonj/source/repos/LavidaCoffee/LavidaCoffee/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

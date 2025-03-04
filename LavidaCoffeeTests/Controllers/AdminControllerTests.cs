@@ -42,7 +42,7 @@ namespace LavidaCoffeeTests.Controllers
 			// Assert
 			Assert.IsType<RedirectToActionResult>(result);
 			Assert.Equal(10, eventCount);
-			Assert.Null(mockEventRepository.Object.GetEventByIdAsync(1));
+			Assert.Null( await mockEventRepository.Object.GetEventByIdAsync(1));
 		}
 		[Fact]
 		public async Task DeleteEvent_InvalidEvent_ReturnsError()
@@ -70,7 +70,7 @@ namespace LavidaCoffeeTests.Controllers
 			{
 				EventId = 12,
 				Title = "Unit Test Festival",
-				Date = DateTime.Now,
+				Date = DateTime.Now.AddDays(100),
 				Address = "5 Apple Street, Banana village, Cranberry county",
 				ShortDescription = "Brief overview of my unit test.",
 				LongDescription = "This is a more extensive description of this Unit Test Festival. Lots of details to be included. You shouldn't let this pass you by... (please do)",

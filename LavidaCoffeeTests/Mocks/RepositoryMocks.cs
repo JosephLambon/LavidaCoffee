@@ -324,19 +324,23 @@ namespace LavidaCoffeeTests.Mocks
 			};
 
 			var mockEventRepository = new Mock<IEventRepository>();
-			mockEventRepository.Setup(repo => repo.GetAllEventsAsync()).ReturnsAsync(events.ToList());
-			mockEventRepository.Setup(repo => repo.GetUpcomingEventsAsync()).ReturnsAsync(events.ToList());
+			mockEventRepository.Setup(repo => repo.GetAllEventsAsync()).ReturnsAsync(events.OrderBy(e=>e.EventId).ToList());
+			mockEventRepository.Setup(repo => repo.GetUpcomingEventsAsync()).ReturnsAsync(() =>
+			{
+				return events.Where(e => e.Date > DateTime.Today).OrderBy(e=> e.Date);
+			}				
+				);
 			mockEventRepository.Setup(repo => repo.GetEventByIdAsync(It.IsAny<int>())).ReturnsAsync((int id) => events.FirstOrDefault(e => e.EventId == id));
 
-			mockEventRepository.Setup(repo => repo.DeleteEventAsync(It.IsAny<Event>())).Callback<Event>(e => events.Remove(e));
+			mockEventRepository.Setup(repo => repo.DeleteEventAsync(It.IsAny<Event>())).Callback((Event selectedEvent) => events.Remove(selectedEvent)).Returns(Task.CompletedTask);
 
-			mockEventRepository.Setup(repo => repo.CreateEventAsync(It.IsAny<Event>())).Callback<Event>(e => events.Add(e));
+			mockEventRepository.Setup(repo => repo.CreateEventAsync(It.IsAny<Event>())).Callback((Event newEvent) => events.Add(newEvent)).Returns(Task.CompletedTask);
 			mockEventRepository.Setup(repo => repo.UpdateEventAsync(It.IsAny<Event>())).Callback<Event>(e =>
 			{
 				var existingEventIndex = events.FindIndex(ev => ev.EventId == e.EventId);
 				events[existingEventIndex] = e;
 			});
-			mockEventRepository.Setup(repo => repo.GetAllEventsCountAsync()).ReturnsAsync(events.Count);
+			mockEventRepository.Setup(repo => repo.GetAllEventsCountAsync()).ReturnsAsync(() => events.Count);
 			mockEventRepository.Setup(repo => repo.GetEventsPagedAsync(It.IsAny<int>(), It.IsAny<int>()))
 				.ReturnsAsync((int? pageNumber, int pageSize) =>
 				{
