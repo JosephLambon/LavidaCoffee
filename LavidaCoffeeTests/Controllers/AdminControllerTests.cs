@@ -21,21 +21,43 @@ namespace LavidaCoffeeTests.Controllers
 		public async Task Index_ReturnsView()
 		{
 			// Arrange
-			var mockEmailRequestRepository = RepositoryMocks.GetEmailRepository();
+			var mockEmailRepository = RepositoryMocks.GetEmailRepository();
 			var mockEventRepository = RepositoryMocks.GetEventRepository();
-			var adminController = new AdminController(mockEmailRequestRepository.Object, mockEventRepository.Object);
+			var adminController = new AdminController(mockEmailRepository.Object, mockEventRepository.Object);
 			// Aact
 			var result = await adminController.Index("eventid", 1);
 			// Assert
 			Assert.IsType<ViewResult>(result);
 		}
 		[Fact]
+		public async Task Index_EmailIdDescPage1_ReturnsSortedAndPaged()
+		{
+			// Arrange
+			var mockEventRepository = RepositoryMocks.GetEventRepository();
+			var mockEmailRepository = RepositoryMocks.GetEmailRepository();
+			var adminController = new AdminController(mockEmailRepository.Object, mockEventRepository.Object);
+			// Aact
+			var result = await adminController.Index("emailid_descending", 1,"emails") as ViewResult;
+			var modelReturned = result?.Model as AdminViewModel;
+			// Assert
+			Assert.IsType<ViewResult>(result);
+			Assert.NotNull(modelReturned);
+			Assert.NotEmpty(modelReturned.Emails);
+			Assert.NotEmpty(modelReturned.Events);
+			Assert.Equal(10, modelReturned.Emails.Count());
+			Assert.Equal(10, modelReturned.Events.Count());
+
+			Assert.True(modelReturned.Emails.SequenceEqual(modelReturned.Emails.OrderByDescending(e => e.EmailId)));
+			Assert.Equal(22, modelReturned.Emails.First().EmailId);
+			Assert.Equal(10, modelReturned.Emails.Count);
+		}
+		[Fact]
 		public async Task DeleteEvent_ValidEvent_RemovesCorrectEvent()
 		{
 			// Arrange
-			var mockEmailRequestRepository = RepositoryMocks.GetEmailRepository();
+			var mockEmailRepository = RepositoryMocks.GetEmailRepository();
 			var mockEventRepository = RepositoryMocks.GetEventRepository();
-			var adminController = new AdminController(mockEmailRequestRepository.Object, mockEventRepository.Object);
+			var adminController = new AdminController(mockEmailRepository.Object, mockEventRepository.Object);
 			// Act
 			var result = await adminController.DeleteEvent(1);
 			var eventCount = await mockEventRepository.Object.GetAllEventsCountAsync();
@@ -48,9 +70,9 @@ namespace LavidaCoffeeTests.Controllers
 		public async Task DeleteEvent_InvalidEvent_ReturnsError()
 		{
 			// Arrange
-			var mockEmailRequestRepository = RepositoryMocks.GetEmailRepository();
+			var mockEmailRepository = RepositoryMocks.GetEmailRepository();
 			var mockEventRepository = RepositoryMocks.GetEventRepository();
-			var adminController = new AdminController(mockEmailRequestRepository.Object, mockEventRepository.Object);
+			var adminController = new AdminController(mockEmailRepository.Object, mockEventRepository.Object);
 			adminController.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
 			// Act
 			var result = await adminController.DeleteEvent(2147483647);
@@ -63,9 +85,9 @@ namespace LavidaCoffeeTests.Controllers
 		public async Task CreateEvent_ValidEvent_AddsEvent()
 		{
 			// Arrange
-			var mockEmailRequestRepository = RepositoryMocks.GetEmailRepository();
+			var mockEmailRepository = RepositoryMocks.GetEmailRepository();
 			var mockEventRepository = RepositoryMocks.GetEventRepository();
-			var adminController = new AdminController(mockEmailRequestRepository.Object, mockEventRepository.Object);
+			var adminController = new AdminController(mockEmailRepository.Object, mockEventRepository.Object);
 			var newEvent = new Event
 			{
 				EventId = 12,
@@ -89,9 +111,9 @@ namespace LavidaCoffeeTests.Controllers
 		public async Task CreateEvent_InvalidEvent_ReturnsError()
 		{
 			// Arrange
-			var mockEmailRequestRepository = RepositoryMocks.GetEmailRepository();
+			var mockEmailRepository = RepositoryMocks.GetEmailRepository();
 			var mockEventRepository = RepositoryMocks.GetEventRepository();
-			var adminController = new AdminController(mockEmailRequestRepository.Object, mockEventRepository.Object);
+			var adminController = new AdminController(mockEmailRepository.Object, mockEventRepository.Object);
 			var newEvent = new Event
 			{
 				EventId = 12,
@@ -114,9 +136,9 @@ namespace LavidaCoffeeTests.Controllers
 		public async Task EditEvent_ValidEvent_UpdatesEvent()
 		{
 			// Arrange
-			var mockEmailRequestRepository = RepositoryMocks.GetEmailRepository();
+			var mockEmailRepository = RepositoryMocks.GetEmailRepository();
 			var mockEventRepository = RepositoryMocks.GetEventRepository();
-			var adminController = new AdminController(mockEmailRequestRepository.Object, mockEventRepository.Object);
+			var adminController = new AdminController(mockEmailRepository.Object, mockEventRepository.Object);
 			var updatedEvent = new Event
 			{
 				EventId = 11,
@@ -138,9 +160,9 @@ namespace LavidaCoffeeTests.Controllers
 		public async Task EditEvent_InvalidEvent_ReturnsError()
 		{
 			// Arrange
-			var mockEmailRequestRepository = RepositoryMocks.GetEmailRepository();
+			var mockEmailRepository = RepositoryMocks.GetEmailRepository();
 			var mockEventRepository = RepositoryMocks.GetEventRepository();
-			var adminController = new AdminController(mockEmailRequestRepository.Object, mockEventRepository.Object);
+			var adminController = new AdminController(mockEmailRepository.Object, mockEventRepository.Object);
 			var updatedEvent = new Event
 			{
 				EventId = 11,

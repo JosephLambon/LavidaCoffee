@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 using Org.BouncyCastle.Bcpg;
+using Microsoft.Extensions.Logging;
 
 namespace LavidaCoffeeTests.Mocks
 {
@@ -192,6 +193,49 @@ namespace LavidaCoffeeTests.Mocks
 					pageNumber ??= 1;
 					return emails.Skip((pageNumber.Value - 1) * pageSize).Take(pageSize);
 				});
+			mockEmailRepository.Setup(repo => repo.GetEmailsPagedAndSortedAsync(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<int>()))
+				.ReturnsAsync((string sortBy, int? pageNumber, int pageSize) =>
+				{
+					IQueryable<Email> sortedEmails = emails.AsQueryable();
+
+					switch (sortBy)
+					{
+						case "emailid_descending":
+							sortedEmails = sortedEmails.OrderByDescending(e => e.EmailId);
+							break;
+						case "emailid":
+							sortedEmails = sortedEmails.OrderBy(e => e.EmailId);
+							break;
+						case "subject_descending":
+							sortedEmails = sortedEmails.OrderByDescending(e => e.Subject);
+							break;
+						case "subject":
+							sortedEmails = sortedEmails.OrderBy(e => e.Subject);
+							break;
+						case "body_descending":
+							sortedEmails = sortedEmails.OrderByDescending(e => e.Body);
+							break;
+						case "body":
+							sortedEmails = sortedEmails.OrderBy(e => e.Body);
+							break;
+						case "customeremail_descending":
+							sortedEmails = sortedEmails.OrderByDescending(e => e.CustomerEmail);
+							break;
+						case "customeremail":
+							sortedEmails = sortedEmails.OrderBy(e => e.CustomerEmail);
+							break;
+						default:
+							sortedEmails = sortedEmails.OrderByDescending(e => e.EmailId);
+							break;
+					}
+
+					pageNumber ??= 1;
+
+					var pagedEmails = sortedEmails.Skip((pageNumber.Value - 1) * pageSize).Take(pageSize);
+
+					return pagedEmails.ToList();
+				});
+
 			return mockEmailRepository;
 		}
 
@@ -347,7 +391,7 @@ namespace LavidaCoffeeTests.Mocks
 					pageNumber ??= 1;
 					return events.Skip((pageNumber.Value - 1) * pageSize).Take(pageSize);
 				});
-			mockEventRepository.Setup(repo => repo.GetEventsPagedAndSortedAsync(It.IsAny<string>(), It.IsAny<int?>(), It.IsAny<int>()))
+			mockEventRepository.Setup(repo => repo.GetEventsPagedAndSortedAsync(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<int>()))
 				.ReturnsAsync((string sortBy, int? pageNumber, int pageSize) =>
 				{
 					IQueryable<Event> sortedEvents = events.AsQueryable();

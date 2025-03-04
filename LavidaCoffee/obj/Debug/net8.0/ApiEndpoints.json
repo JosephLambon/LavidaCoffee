@@ -32,6 +32,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "LavidaCoffee.Controllers.Api.EmailController",
+    "Method": "IndexPagingSorting",
+    "RelativePath": "api/Email/getpagedandsorted/{pageNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "LavidaCoffee.Controllers.Api.EventController",
     "Method": "AllEvents",
     "RelativePath": "api/Event",

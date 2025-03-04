@@ -48,5 +48,46 @@ namespace LavidaCoffee.Models
             
             return await emails.AsNoTracking().ToListAsync();
         }
+		public async Task<IEnumerable<Email>> GetEmailsPagedAndSortedAsync(string sortBy, int? pageNumber, int pageSize)
+		{
+			IQueryable<Email> emails = from e in _lavidaCoffeeDbContext.Emails select e;
+
+			switch (sortBy)
+			{
+				case "emailid_descending":
+					emails = emails.OrderByDescending(e => e.EmailId);
+					break;
+				case "emailid":
+					emails = emails.OrderBy(e => e.EmailId);
+					break;
+				case "subject_descending":
+					emails = emails.OrderByDescending(e => e.Subject);
+					break;
+				case "subject":
+					emails = emails.OrderBy(e => e.Subject);
+					break;
+				case "body_descending":
+					emails = emails.OrderByDescending(e => e.Body);
+					break;
+				case "body":
+					emails = emails.OrderBy(e => e.Body);
+					break;
+				case "customeremail_descending":
+					emails = emails.OrderByDescending(e => e.CustomerEmail);
+					break;
+				case "customeremail":
+					emails = emails.OrderBy(e => e.CustomerEmail);
+					break;
+				default:
+					emails = emails.OrderByDescending(e => e.EmailId);
+					break;
+			}
+
+			pageNumber ??= 1;
+
+			emails = emails.Skip((pageNumber.Value - 1) * pageSize).Take(pageSize);
+
+			return await emails.AsNoTracking().ToListAsync();
+		}
 	}
 }

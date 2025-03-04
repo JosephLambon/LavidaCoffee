@@ -8,6 +8,8 @@
 @{
 	decimal emailPages = (decimal)Model.TotalEmailCount / 10;
 	decimal eventPages = (decimal)Model.TotalEventCount / 10;
+	string currentView = ViewData["CurrentView"]?.ToString() ?? "events";
+	string currentPage = ViewData["CurrentPage"]?.ToString() ?? "0";
 }
 
 @if(User.IsInRole("Admin"))
@@ -21,54 +23,62 @@
 					Select data
 				</button>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" id="emailDropdownItem">Emails</a></li>
-					<li><a class="dropdown-item" id="eventDropdownItem">Events</a></li>
+					<li><a class="dropdown-item" id="emailDropdownItem" asp-action="Index" asp-route-sortBy="@ViewData["CurrentSort"]" asp-route-currentView="emails">Emails</a></li>
+					<li><a class="dropdown-item" id="emailDropdownItem" asp-action="Index" asp-route-sortBy="@ViewData["CurrentSort"]" asp-route-currentView="events">Events</a></li>
 				</ul>
 			</div>
 		</div>
 
 		<input type="hidden" id="currentSort" value="@ViewData["CurrentSort"]" />
 
-
-		<div id="emailsContainer" style="display:none;">	
+		@if(currentView == "emails")
+		{
+		<div id="emailsContainer">
 			<div class="row">
 				<h2 class="col-12">Email requests</h2>
 			</div>
 			<table class="table database-table" id="tblEmails">
 				<thead>
 					<tr>
-						<th scope="col">EmailId</th>
-						<th scope="col">CustomerEmail</th>
-						<th scope="col">Subject</th>
-						<th scope="col">Body</th>
+							<th scope="col"><a asp-action="Index" asp-route-sortBy="@ViewData["EmailIdSortParam"]" asp-route-currentView="emails">EmailId</a></th>
+							<th scope="col"><a asp-action="Index" asp-route-sortBy="@ViewData["CustomerEmailSortParam"]" asp-route-currentView="emails">CustomerEmail</a></th>
+							<th scope="col"><a asp-action="Index" asp-route-sortBy="@ViewData["SubjectSortParam"]" asp-route-currentView="emails">Subject</a></th>
+							<th scope="col"><a asp-action="Index" asp-route-sortBy="@ViewData["BodySortParam"]" asp-route-currentView="emails">Body</a></th>
 					</tr>
 				</thead>
 				<tbody>
-				@foreach(var email in Model.Emails)
-				{
-							<tr>
-								<th scope="row">@email.EmailId</th>
-								<td>@email.CustomerEmail</td>
-								<td>@email.Subject</td>
-								<td>@email.Body</td>
-							</tr>
-				}
-				</tbody>			
+					@foreach (var email in Model.Emails)
+					{
+						<tr>
+							<th scope="row">@email.EmailId</th>
+							<td>@email.CustomerEmail</td>
+							<td>@email.Subject</td>
+							<td>@email.Body</td>
+						</tr>
+					}
+				</tbody>
 			</table>
-			@if(emailPages > 1)
+			@if (emailPages > 1)
 			{
 				<div class="d-flex">
 					<nav class="ms-auto" aria-label="Page navigation example">
 						<ul class="pagination" id="emailPagination">
-							@for(var i = 1; i < emailPages+1; i++)
+							@for (var i = 1; i < emailPages + 1; i++)
 							{
 								if (i == 1)
 								{
-									<li class="page-item active" style="cursor:pointer;"><a id="emailPage_@i" class="page-link" data-page="@i">@i</a></li>
+										<li class="page-item @(currentPage == i.ToString() ? "active" : "")" style="cursor:pointer;">
+											<a id="emailPage_@i" class="page-link" data-page="@i"
+											   asp-action="Index" asp-route-sortBy="@ViewData["CurrentSort"]" asp-route-currentView="emails"
+									asp-route-pageNumber="@i">@i</a>
+										</li>
 								}
 								else
 								{
-									<li class="page-item" style="cursor:pointer;"><a id="emailPage_@i" class="page-link" data-page="@i">@i</a></li>
+										<li class="page-item @(currentPage == i.ToString() ? "active" : "")" style="cursor:pointer;">
+											<a id="emailPage_@i" class="page-link" data-page="@i"
+									asp-action="Index" asp-route-sortBy="@ViewData["CurrentSort"]" asp-route-currentView="emails"
+									asp-route-pageNumber="@i">@i</a></li>
 								}
 							}
 						</ul>
@@ -76,7 +86,10 @@
 				</div>
 			}
 		</div>
+		}
 
+		@if(currentView == "events")
+		{
 		<div id="eventsContainer">
 			<div class="row">
 				<h2 class="col-6">Events</h2>
@@ -92,61 +105,61 @@
 							<h1 class="modal-title fs-5" id="addEventModalLabel">New event</h1>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
-							<form method="post" asp-controller="Admin" asp-action="CreateEvent" role="form" class="mx-auto align-items-center w-100" enctype="multipart/form-data">
-								<div class="modal-body">
-									<div class="form-control">
-											<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<form method="post" asp-controller="Admin" asp-action="CreateEvent" role="form" class="mx-auto align-items-center w-100" enctype="multipart/form-data">
+							<div class="modal-body">
+								<div class="form-control">
+									<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-											<div class="form-group">
-												<div class="mb-3">
-													<label for="DateInputValue">Date</label>
-													<input asp-for=@Model.newEvent.Date type="datetime-local" class="form-control" id="DateInputValue" value="" min="@DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")">
-													<span asp-validation-for=@Model.newEvent.Date class="text-danger"></span>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="mb-3">
-													<label for="TitleInputValue">Title</label>
-													<input asp-for=@Model.newEvent.Title type="text" class="form-control" id="TitleInputValue">
-													<span asp-validation-for=@Model.newEvent.Title class="text-danger"></span>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="mb-3">
-													<label for="AddressInputValue">Address</label>
-													<input asp-for=@Model.newEvent.Address type="text" class="form-control" id="AddressInputValue">
-													<span asp-validation-for=@Model.newEvent.Address class="text-danger"></span>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="mb-3">
-													<label for="ShortDescriptionInputValue">ShortDescription</label>
-													<textarea asp-for=@Model.newEvent.ShortDescription type="text" class="form-control" id="ShortDescriptionInputValue"></textarea>
-													<span asp-validation-for=@Model.newEvent.ShortDescription class="text-danger"></span>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="mb-3">
-													<label for="LongDescriptionInputValue">LongDescription</label>
-													<textarea asp-for=@Model.newEvent.LongDescription type="text" class="form-control" id="LongDescriptionInputValue"></textarea>
-													<span asp-validation-for=@Model.newEvent.LongDescription class="text-danger"></span>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="mb-3">
-													<label for="ThumbnailUrlInputValue">ThumbnailUrl</label>
-													<input asp-for=@Model.newEvent.ThumbnailUrl type="url" class="form-control" id="ThumbnailUrlInputValue">
-													<span asp-validation-for=@Model.newEvent.ThumbnailUrl class="text-danger"></span>
-												</div>
-											</div>
+									<div class="form-group">
+										<div class="mb-3">
+											<label for="DateInputValue">Date</label>
+											<input asp-for=@Model.newEvent.Date type="datetime-local" class="form-control" id="DateInputValue" value="" min="@DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")">
+											<span asp-validation-for=@Model.newEvent.Date class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="mb-3">
+											<label for="TitleInputValue">Title</label>
+											<input asp-for=@Model.newEvent.Title type="text" class="form-control" id="TitleInputValue">
+											<span asp-validation-for=@Model.newEvent.Title class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="mb-3">
+											<label for="AddressInputValue">Address</label>
+											<input asp-for=@Model.newEvent.Address type="text" class="form-control" id="AddressInputValue">
+											<span asp-validation-for=@Model.newEvent.Address class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="mb-3">
+											<label for="ShortDescriptionInputValue">ShortDescription</label>
+											<textarea asp-for=@Model.newEvent.ShortDescription type="text" class="form-control" id="ShortDescriptionInputValue"></textarea>
+											<span asp-validation-for=@Model.newEvent.ShortDescription class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="mb-3">
+											<label for="LongDescriptionInputValue">LongDescription</label>
+											<textarea asp-for=@Model.newEvent.LongDescription type="text" class="form-control" id="LongDescriptionInputValue"></textarea>
+											<span asp-validation-for=@Model.newEvent.LongDescription class="text-danger"></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="mb-3">
+											<label for="ThumbnailUrlInputValue">ThumbnailUrl</label>
+											<input asp-for=@Model.newEvent.ThumbnailUrl type="url" class="form-control" id="ThumbnailUrlInputValue">
+											<span asp-validation-for=@Model.newEvent.ThumbnailUrl class="text-danger"></span>
+										</div>
 									</div>
 								</div>
-								<div class="modal-footer">
-									<div class="form-group text-end">
-										<input type="submit" value="Submit" class="btn btn-primary" />
-									</div>
+							</div>
+							<div class="modal-footer">
+								<div class="form-group text-end">
+									<input type="submit" value="Submit" class="btn btn-primary" />
 								</div>
-							</form>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -161,36 +174,44 @@
 					</tr>
 				</thead>
 				<tbody>
-				@foreach(var upcomingEvent in Model.Events)
-				{
-							<tr>
-									<th scope="row">@upcomingEvent.EventId</th>
+					@foreach (var upcomingEvent in Model.Events)
+					{
+						<tr>
+							<th scope="row">@upcomingEvent.EventId</th>
 							<td><a asp-controller="Find_Us" asp-action="EventDetails" asp-route-id="@upcomingEvent.EventId" class="link-underline-primary" style="color:#0d6efd;">@upcomingEvent.Title</a></td>
 							<td>@upcomingEvent.Date</td>
-									<td class="text-center">
-										<form method="post" asp-controller="Admin" asp-action="DeleteEvent" asp-route-id="@upcomingEvent.EventId" role="form" id="eventDeletionForm">
-											<input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;"
-											       onclick="javascript: return confirm('Are you sure you want to delete this event?')">
-										</form>
-									</td>
-							</tr>
-				}
+							<td class="text-center">
+								<form method="post" asp-controller="Admin" asp-action="DeleteEvent" asp-route-id="@upcomingEvent.EventId" role="form" id="eventDeletionForm">
+									<input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;"
+										   onclick="javascript: return confirm('Are you sure you want to delete this event?')">
+								</form>
+							</td>
+						</tr>
+					}
 				</tbody>
 			</table>
-			@if(eventPages > 1)
+			@if (eventPages > 1)
 			{
 				<div class="d-flex">
 					<nav class="ms-auto" aria-label="Page navigation example">
 						<ul class="pagination" id="eventPagination">
-							@for(var i = 1; i < eventPages+1; i++)
+							@for (var i = 1; i < eventPages + 1; i++)
 							{
 								if (i == 1)
 								{
-									<li class="page-item active" style="cursor:pointer;"><a id="eventPage_@i" class="page-link" data-page="@i">@i</a></li>
+										<li class="page-item @(currentPage == i.ToString() ? "active" : "")" style="cursor:pointer;">
+											<a id="eventPage_@i" class="page-link" data-page="@i"
+											   asp-action="Index" asp-route-sortBy="@ViewData["CurrentSort"]" asp-route-currentView="events"
+											   asp-route-pageNumber="@i">@i</a>
+										</li>
 								}
 								else
 								{
-									<li class="page-item" style="cursor:pointer;"><a id="eventPage_@i" class="page-link" data-page="@i">@i</a></li>
+										<li class="page-item @(currentPage == i.ToString() ? "active" : "")" style="cursor:pointer;">
+											<a id="eventPage_@i" class="page-link" data-page="@i"
+											   asp-action="Index" asp-route-sortBy="@ViewData["CurrentSort"]" asp-route-currentView="events"
+											   asp-route-pageNumber="@i">@i</a>
+										</li>
 								}
 							}
 						</ul>
@@ -198,7 +219,9 @@
 				</div>
 			}
 		</div>
+		}
 	</div>
+		
 }
 else
 {
@@ -206,97 +229,3 @@ else
 		<strong>Error:</strong> You are not authorised to access this page.
 	</div>
 }
-
-<script type="text/javascript">
-	$(document).ready(function () {
-		$(document).on("click", "[id^='emailPage_']", function () {
-		  var page = $(this).data("page");
-		  page = parseInt($.trim(page));
-		  
-		$("#emailPagination .page-item").removeClass("active");
-		$(this).parent().addClass("active");
-
-			 $("#tblEmails tbody").html("");
-			$.ajax({
-				type: "GET",
-				url: "/api/Email/getpaged/" + page,
-				contentType: "application/json; charset=utf-8",
-				dataType: "json",
-				success: function (emails) {
-					console.log(emails);
-					var table = $("#tblEmails");
-					var tbody = table.find("tbody")
-					tbody.find("tr:not(:first)").remove();
-					$.each(emails, function (i, email) {
-						var appendElement = $("<tr>");
-						appendElement.append($("<th scope='row'>").html(email.emailId));
-						appendElement.append($("<td>").html(email.customerEmail));
-						appendElement.append($("<td>").html(email.subject));
-						appendElement.append($("<td>").html(email.body));
-						tbody.append(appendElement);
-					});
-				},
-				error: function (xhr, status, error) {
-						console.log(xhr)
-				}
-			});
-		  });
-
-		$(document).on("click", "[id^='eventPage_']", function () {
-			var page = $(this).data("page");
-			page = parseInt($.trim(page));
-			var sortBy = $('#currentSort').val()
-			$("#eventPagination .page-item").removeClass("active");
-			$(this).parent().addClass("active");
-
-			console.log("sortBy:", sortBy);
-
-			$("#tblEvents tbody").html("");
-			$.ajax({
-				type: "GET",
-				url: "/api/Event/getpagedandsorted/" + page + "?sortBy=" + sortBy,
-				contentType: "application/json; charset=utf-8",
-				dataType: "json",
-				success: function (events) {
-					var tbody = $("#tblEvents tbody");
-					tbody.empty();
-					$.each(events, function (i, event) {
-						var appendElement = $("<tr>");
-						appendElement.append($("<th scope='row'>").html(event.eventId));
-
-						var eventUrl = '/Find_Us/EventDetails/' + event.eventId;
-						appendElement.append($("<td>").append($('<a href="' + eventUrl + '" class="link-underline-primary" style="color:#0d6efd;">').html(event.title)));
-
-						var date = new Date(event.date);
-						// Formatting here was AI generated
-						var formattedDate = date.getDate().toString().padStart(2, '0') + '/' +
-							(date.getMonth() + 1).toString().padStart(2, '0') + '/' +
-							date.getFullYear() + ' ' +
-							date.getHours().toString().padStart(2, '0') + ':' +
-							date.getMinutes().toString().padStart(2, '0') + ':' +
-							date.getSeconds().toString().padStart(2, '0');
-						appendElement.append($("<td>").html(formattedDate));;
-
-						var deleteAction = "/Admin/DeleteEvent/" + event.eventId
-						appendElement.append($("<td class='text-center'>").html('<form method="post" role="form" action="' + deleteAction +'" id="eventDeletionForm"><input type="submit" value="delete" style="color: red; text-decoration:underline; background-color:inherit; border:none;" onclick="javascript: return confirm(\'Are you sure you want to delete this event?\')"></form>'));
-						tbody.append(appendElement);
-					});
-				},
-				error: function (xhr, status, error) {
-					console.log(xhr);
-				}
-			});
-		});
-
-		$("#emailDropdownItem").click(function () {
-			$("#emailsContainer").css("display", "block");
-			$("#eventsContainer").css("display", "none");
-		});
-
-		$("#eventDropdownItem").click(function () {
-			$("#emailsContainer").css("display", "none");
-			$("#eventsContainer").css("display", "block");
-		});
-	});
-
-</script>

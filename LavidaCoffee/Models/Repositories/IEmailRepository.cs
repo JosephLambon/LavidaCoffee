@@ -9,4 +9,5 @@ public interface IEmailRepository
     Task CreateEmailAsync(Email emailRequest);
     Task<int> GetAllEmailsCountAsync();
     Task<IEnumerable<Email>> GetEmailsPagedAsync(int? pageNumber, int pageSize);
+	Task<IEnumerable<Email>> GetEmailsPagedAndSortedAsync(string sortBy, int? pageNumber, int pageSize);
 }

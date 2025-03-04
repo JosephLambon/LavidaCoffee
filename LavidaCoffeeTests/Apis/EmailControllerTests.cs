@@ -42,7 +42,7 @@ namespace LavidaCoffeeTests.Apis
 		}
 
 		[Fact]
-		public async Task requestForCurrentPage_ReturnsJson()
+		public async Task IndexPaging_ValidPage_ReturnsJson()
 		{
 			// Arrange
 			var mockEmailRequestRepository = RepositoryMocks.GetEmailRepository();
@@ -50,10 +50,65 @@ namespace LavidaCoffeeTests.Apis
 
 			// Act
 			var result = await controller.IndexPaging(1) as JsonResult;
+			var pagedEmails= result?.Value as IEnumerable<Email>;
 
 			// Assert
 			Assert.NotNull(result);
 			Assert.IsType<JsonResult>(result);
+			Assert.NotEmpty(pagedEmails);
+			Assert.Equal(10, pagedEmails.Count());
+			Assert.Equal(0, pagedEmails.First().EmailId);
+		}
+		[Fact]
+		public async Task IndexPaging_InvalidPage_ReturnsEmpty()
+		{
+			// Arrange
+			var emailRepository = RepositoryMocks.GetEmailRepository();
+			var emailController = new EmailController(emailRepository.Object);
+			// Act
+			var result = await emailController.IndexPaging(10000) as JsonResult;
+			var pagedEmails = result?.Value as IEnumerable<Email>;
+			// Assert
+			Assert.Empty(pagedEmails);
+		}
+		[Fact]
+		public async Task IndexPagingSorting_ValidPageEmailIdDesc_ReturnsEmailIdDescPaged()
+		{
+			// Arrange
+			var emailRepository = RepositoryMocks.GetEmailRepository();
+			var emailController = new EmailController(emailRepository.Object);
+			// Act
+			var result = await emailController.IndexPagingSorting(1, "emailid_descending") as JsonResult;
+			var pagedEmails = result?.Value as IEnumerable<Email>;
+			// Assert
+			Assert.Equal(10, pagedEmails.Count());
+			Assert.Equal(22, pagedEmails.First().EmailId);
+		}
+		[Fact]
+		public async Task IndexPagingSorting_ValidPageCustomerEmailDesc_ReturnsCustomerEmailDescPaged()
+		{
+			// Arrange
+			var emailRepository = RepositoryMocks.GetEmailRepository();
+			var emailController = new EmailController(emailRepository.Object);
+			// Act
+			var result = await emailController.IndexPagingSorting(1, "customeremail_descending") as JsonResult;
+			var pagedEmails = result?.Value as IEnumerable<Email>;
+			// Assert
+			Assert.Equal(10, pagedEmails.Count());
+			Assert.Equal("tony.stark@starkindustries.com", pagedEmails.First().CustomerEmail);
+		}
+		[Fact]
+		public async Task IndexPagingSorting_ValidPageSubjectDesc_ReturnsSubjectDescPaged()
+		{
+			// Arrange
+			var emailRepository = RepositoryMocks.GetEmailRepository();
+			var emailController = new EmailController(emailRepository.Object);
+			// Act
+			var result = await emailController.IndexPagingSorting(1, "subject_descending") as JsonResult;
+			var pagedEmails = result?.Value as IEnumerable<Email>;
+			// Assert
+			Assert.Equal(10, pagedEmails.Count());
+			Assert.Equal("Wizard chess tournament", pagedEmails.First().Subject);
 		}
 	}
 }

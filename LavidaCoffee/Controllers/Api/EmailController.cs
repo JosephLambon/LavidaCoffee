@@ -43,5 +43,13 @@ namespace LavidaCoffee.Controllers.Api
 			var count = await _emailRepository.GetAllEmailsCountAsync();
 			return new JsonResult(new PagedList<Email>(emails.ToList(), count, pageNumber.Value, pageSize));
 		}
+		[HttpGet("getpagedandsorted/{pageNumber}")]
+		public async Task<IActionResult> IndexPagingSorting(int? pageNumber, string sortBy)
+		{
+			var emails = await _emailRepository.GetEmailsPagedAndSortedAsync(sortBy, pageNumber, pageSize);
+			pageNumber ??= 1;
+			var count = await _emailRepository.GetAllEmailsCountAsync();
+			return new JsonResult(new PagedList<Email>(emails.ToList(), count, pageNumber.Value, pageSize));
+		}
 	}
 }
