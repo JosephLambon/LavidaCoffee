@@ -27,6 +27,9 @@
 			</div>
 		</div>
 
+		<input type="hidden" id="currentSort" value="@ViewData["CurrentSort"]" />
+
+
 		<div id="emailsContainer" style="display:none;">	
 			<div class="row">
 				<h2 class="col-12">Email requests</h2>
@@ -34,7 +37,7 @@
 			<table class="table database-table" id="tblEmails">
 				<thead>
 					<tr>
-						<th scope="col">EmailId #</th>
+						<th scope="col">EmailId</th>
 						<th scope="col">CustomerEmail</th>
 						<th scope="col">Subject</th>
 						<th scope="col">Body</th>
@@ -151,9 +154,9 @@
 			<table class="table database-table" id="tblEvents">
 				<thead>
 					<tr>
-						<th scope="col">EventId</th>
-						<th scope="col">Title</th>
-						<th scope="col">Date</th>
+						<th scope="col"><a asp-action="Index" asp-route-sortBy="@ViewData["EventIdSortParam"]">EventId</a></th>
+						<th scope="col"><a asp-action="Index" asp-route-sortBy="@ViewData["TitleSortParam"]">Title</a></th>
+						<th scope="col"><a asp-action="Index" asp-route-sortBy="@ViewData["DateSortParam"]">Date</a></th>
 						<th scope="col"></th>
 					</tr>
 				</thead>
@@ -242,13 +245,16 @@ else
 		$(document).on("click", "[id^='eventPage_']", function () {
 			var page = $(this).data("page");
 			page = parseInt($.trim(page));
+			var sortBy = $('#currentSort').val()
 			$("#eventPagination .page-item").removeClass("active");
 			$(this).parent().addClass("active");
+
+			console.log("sortBy:", sortBy);
 
 			$("#tblEvents tbody").html("");
 			$.ajax({
 				type: "GET",
-				url: "/api/Event/getpaged/" + page,
+				url: "/api/Event/getpagedandsorted/" + page + "?sortBy=" + sortBy,
 				contentType: "application/json; charset=utf-8",
 				dataType: "json",
 				success: function (events) {

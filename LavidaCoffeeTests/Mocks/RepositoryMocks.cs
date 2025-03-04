@@ -347,7 +347,43 @@ namespace LavidaCoffeeTests.Mocks
 					pageNumber ??= 1;
 					return events.Skip((pageNumber.Value - 1) * pageSize).Take(pageSize);
 				});
-			return mockEventRepository;
+			mockEventRepository.Setup(repo => repo.GetEventsPagedAndSortedAsync(It.IsAny<string>(), It.IsAny<int?>(), It.IsAny<int>()))
+				.ReturnsAsync((string sortBy, int? pageNumber, int pageSize) =>
+				{
+					IQueryable<Event> sortedEvents = events.AsQueryable();
+
+					switch (sortBy)
+					{
+						case "eventid_descending":
+							sortedEvents = sortedEvents.OrderByDescending(e => e.EventId);
+							break;
+						case "eventid":
+							sortedEvents = sortedEvents.OrderBy(e => e.EventId);
+							break;
+						case "title_descending":
+							sortedEvents = sortedEvents.OrderByDescending(e => e.Title);
+							break;
+						case "title":
+							sortedEvents = sortedEvents.OrderBy(e => e.Title);
+							break;
+						case "date_descending":
+							sortedEvents = sortedEvents.OrderByDescending(e => e.Date);
+							break;
+						case "date":
+							sortedEvents = sortedEvents.OrderBy(e => e.Date);
+							break;
+						default:
+							sortedEvents = sortedEvents.OrderBy(e => e.EventId);
+							break;
+					}
+
+					pageNumber ??= 1;
+					var pagedEvents = sortedEvents.Skip((pageNumber.Value - 1) * pageSize).Take(pageSize);
+
+					return pagedEvents.ToList();
+				});
+
+		return mockEventRepository;
 		}
 	}
 }

@@ -84,5 +84,40 @@ namespace LavidaCoffee.Models
             return await events.AsNoTracking().ToListAsync();
 
         }
+        public async Task<IEnumerable<Event>> GetEventsPagedAndSortedAsync(string sortBy, int? pageNumber, int pageSize)
+        {
+            IQueryable<Event> events = from e in _lavidaCoffeeDbContext.Events select e;
+
+            switch(sortBy)
+            {
+                case "eventid_descending":
+                    events = events.OrderByDescending(e => e.EventId);
+                    break;
+                case "eventid":
+					events = events.OrderBy(e=>e.EventId);
+					break;
+				case "title_descending":
+					events = events.OrderByDescending(e => e.Title);
+					break;
+				case "title":
+					events = events.OrderBy(e => e.Title);
+					break;
+				case "date_descending":
+					events = events.OrderByDescending(e => e.Date);
+					break;
+				case "date":
+					events = events.OrderBy(e => e.Date);
+					break;
+                default:
+                    events = events.OrderBy(e => e.EventId);
+                    break;
+			}
+
+            pageNumber ??= 1;
+
+            events = events.Skip((pageNumber.Value - 1) * pageSize).Take(pageSize);
+
+            return await events.AsNoTracking().ToListAsync();
+        }
     }
 }

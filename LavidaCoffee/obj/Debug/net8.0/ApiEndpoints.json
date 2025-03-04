@@ -1,9 +1,9 @@
 [
   {
-    "ContainingType": "LavidaCoffee.Controllers.Api.EmailRequestController",
-    "Method": "requestsForCurrentPage",
-    "RelativePath": "api/EmailRequest",
-    "HttpMethod": "POST",
+    "ContainingType": "LavidaCoffee.Controllers.Api.EmailController",
+    "Method": "Get",
+    "RelativePath": "api/Email/get/{page}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -16,16 +16,16 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LavidaCoffee.Controllers.Api.EmailRequestController",
-    "Method": "Get",
-    "RelativePath": "api/EmailRequest/{page}",
+    "ContainingType": "LavidaCoffee.Controllers.Api.EmailController",
+    "Method": "IndexPaging",
+    "RelativePath": "api/Email/getpaged/{pageNumber}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "page",
-        "Type": "System.Int32",
+        "Name": "pageNumber",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       }
     ],
@@ -49,6 +49,43 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LavidaCoffee.Controllers.Api.EventController",
+    "Method": "IndexPaging",
+    "RelativePath": "api/Event/getpaged/{pageNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LavidaCoffee.Controllers.Api.EventController",
+    "Method": "IndexPagingSorting",
+    "RelativePath": "api/Event/getpagedandsorted/{pageNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   }
 ]

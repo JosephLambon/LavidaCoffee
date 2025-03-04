@@ -21,11 +21,17 @@ namespace LavidaCoffee.Controllers
 
 
 		[Authorize(Roles = "Admin")]
-		public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index(string sortBy, int? pageNumber)
 		{
+			ViewData["CurrentSort"] = sortBy;
+
+			ViewData["EventIdSortParam"] = String.IsNullOrEmpty(sortBy) || sortBy == "eventid_descending" ? "eventid" : "eventid_descending";
+			ViewData["TitleSortParam"] = sortBy == "title" ? "title_descending" : "title";
+			ViewData["DateSortParam"] = sortBy == "date" ? "date_descending" : "date";
+
 			AdminViewModel model = new()
 			{
-				Events = (await _eventRepository.GetEventsPagedAsync(1,10)).ToList(),
+				Events = (await _eventRepository.GetEventsPagedAndSortedAsync(sortBy,1,10)).ToList(),
 				Emails = (await _emailRepository.GetEmailsPagedAsync(1,10)).ToList(),
 				TotalEmailCount = await _emailRepository.GetAllEmailsCountAsync(),
 				TotalEventCount = await _eventRepository.GetAllEventsCountAsync()

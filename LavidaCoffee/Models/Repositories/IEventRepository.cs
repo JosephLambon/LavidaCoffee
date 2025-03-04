@@ -11,5 +11,7 @@ namespace LavidaCoffee.Models
         Task UpdateEventAsync(Event updated_event);
         Task<int> GetAllEventsCountAsync();
         Task<IEnumerable<Event>> GetEventsPagedAsync(int? pageNumber, int pageSize);
-    } 
+        Task<IEnumerable<Event>> GetEventsPagedAndSortedAsync(string sortBy, int? pageNumber, int pageSize);
+
+	} 
 }

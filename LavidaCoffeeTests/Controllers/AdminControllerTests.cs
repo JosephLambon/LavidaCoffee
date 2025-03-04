@@ -25,7 +25,7 @@ namespace LavidaCoffeeTests.Controllers
 			var mockEventRepository = RepositoryMocks.GetEventRepository();
 			var adminController = new AdminController(mockEmailRequestRepository.Object, mockEventRepository.Object);
 			// Aact
-			var result = await adminController.Index();
+			var result = await adminController.Index("eventid", 1);
 			// Assert
 			Assert.IsType<ViewResult>(result);
 		}
