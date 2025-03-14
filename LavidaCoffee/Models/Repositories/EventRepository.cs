@@ -2,67 +2,104 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace LavidaCoffee.Models
 {
     public class EventRepository : IEventRepository
     {
         private readonly LavidaCoffeeDbContext _lavidaCoffeeDbContext;
-        public EventRepository(LavidaCoffeeDbContext lavidaCoffeeDbContext)
+        private IMemoryCache _memoryCache;
+        private const string allEventsCacheKey = "AllEvents";
+        private const string upcomingEventsCacheKey = "UpcomingEvents";
+        private MemoryCacheEntryOptions cacheEntryOptions =
+            new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(60));
+        public EventRepository(LavidaCoffeeDbContext lavidaCoffeeDbContext, IMemoryCache memoryCache)
         {
             _lavidaCoffeeDbContext = lavidaCoffeeDbContext;
+            _memoryCache = memoryCache;
         }
 
         public async Task<IEnumerable<Event>> GetAllEventsAsync()
         {
-            return await _lavidaCoffeeDbContext.Events
-                .AsNoTracking()
-                .OrderBy(e => e.EventId)
-                .ToListAsync();   
+            List<Event> allEvents = null;
+
+            if (!_memoryCache.TryGetValue(allEventsCacheKey, out allEvents))
+            {
+                allEvents = await _lavidaCoffeeDbContext.Events
+                    .AsNoTracking()
+                    .OrderBy(e => e.EventId)
+                    .ToListAsync();
+                
+                _memoryCache.Set(allEventsCacheKey, allEvents, cacheEntryOptions);
+            }
+            
+            return allEvents;    
         }
         public async Task<IEnumerable<Event>> GetUpcomingEventsAsync()
         {
-            Console.WriteLine("DateTime.Now: " + DateTime.Today);
+            List<Event> upcomingEvents = null;
 
-            return await _lavidaCoffeeDbContext.Events
-                .AsNoTracking()
-                .Where(e=> e.Date > DateTime.Now)
-                .OrderBy(e => e.Date)
-                .ToListAsync();   
+            if (!_memoryCache.TryGetValue(upcomingEventsCacheKey, out upcomingEvents))
+            {
+                upcomingEvents = await _lavidaCoffeeDbContext.Events
+                    .AsNoTracking()
+                    .Where(e=> e.Date > DateTime.Now)
+                    .OrderBy(e => e.Date)
+                    .ToListAsync();
+                
+                _memoryCache.Set(upcomingEventsCacheKey, upcomingEvents, cacheEntryOptions);
+            }
+
+            return upcomingEvents;
         }
         public async Task<Event?> GetEventByIdAsync(int id)
         {
+            Event selectedEvent = null;
+            
             if (id >= 0)
             {
-                var selectedEvent = await _lavidaCoffeeDbContext
-                    .Events
-                    .AsNoTracking()
-                    .FirstOrDefaultAsync(e => e.EventId == id);
-
-                if (selectedEvent != null)
+                string cacheKey = "EventDetails_" + id;
+                
+                if(!_memoryCache.TryGetValue(cacheKey, out selectedEvent))
                 {
-                    return selectedEvent;
+                    selectedEvent = await _lavidaCoffeeDbContext
+                        .Events
+                        .AsNoTracking()
+                        .FirstOrDefaultAsync(e => e.EventId == id);
+
+                    _memoryCache.Set(cacheKey, selectedEvent, cacheEntryOptions);
                 }
             }
-
-            return null;
+            
+            return selectedEvent;
         }
 
         public async Task CreateEventAsync(Event new_event)
         {
             await _lavidaCoffeeDbContext.Events.AddAsync(new_event);
+            _memoryCache.Remove(allEventsCacheKey);
+            _memoryCache.Remove(upcomingEventsCacheKey);
             await _lavidaCoffeeDbContext.SaveChangesAsync();
         }
 
         public async Task DeleteEventAsync(Event target_event)
         {
+            string cacheKey = "EventDetails_" + target_event.EventId;
             _lavidaCoffeeDbContext.Events.Remove(target_event);
+            _memoryCache.Remove(cacheKey);
+            _memoryCache.Remove(allEventsCacheKey);
+            _memoryCache.Remove(upcomingEventsCacheKey);
             await _lavidaCoffeeDbContext.SaveChangesAsync();
         }
 
         public async Task UpdateEventAsync(Event updated_event)
         {
+            string cacheKey = "EventDetails_" + updated_event.EventId;
             _lavidaCoffeeDbContext.Events.Update(updated_event);
+            _memoryCache.Remove(cacheKey);
+            _memoryCache.Remove(allEventsCacheKey);
+            _memoryCache.Remove(upcomingEventsCacheKey);
             await _lavidaCoffeeDbContext.SaveChangesAsync();
         }
 
